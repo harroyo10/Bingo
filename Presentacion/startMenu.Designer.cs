@@ -29,33 +29,21 @@
         private void InitializeComponent()
         {
             this.btnSettings = new System.Windows.Forms.Button();
-            this.btnStart = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSettings
             // 
-            this.btnSettings.Location = new System.Drawing.Point(588, 190);
+            this.btnSettings.Location = new System.Drawing.Point(584, 133);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(162, 52);
             this.btnSettings.TabIndex = 2;
             this.btnSettings.Text = "Ajustes";
             this.btnSettings.UseVisualStyleBackColor = true;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
-            // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(588, 112);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(162, 52);
-            this.btnStart.TabIndex = 3;
-            this.btnStart.Text = "Iniciar";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // pictureBox2
             // 
@@ -77,22 +65,11 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(572, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Una label";
-            // 
             // startMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 311);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -110,8 +87,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnSettings;
-        private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Label label1;
     }
 }
 

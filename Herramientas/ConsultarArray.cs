@@ -8,18 +8,18 @@ namespace Herramientas
 {
     public class ConsultarArray
     {
-        public static bool estaElNumeroEnArray(int[] elArray, int elNumeroAConsultar)
+        public static bool EstaElNumeroEnArray(int[] elArray, int elNumeroAConsultar)
         {
             // TO DO
             return false;
         }
 
-        public static string imprimirArray(int[] elArray)
+        public static string ImprimirArray(int[] elArray)
         {
             return string.Join(",", elArray);
         }
 
-        public static Boolean sonArraysIguales(int[] array1, int[] array2)
+        public static Boolean SonArraysIguales(int[] array1, int[] array2)
         {
             return array1.SequenceEqual(array2);
         }

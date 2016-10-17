@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="CampoCarton.cs" />
     <Compile Include="CartonBingo.cs" />
-    <Compile Include="Helpers.cs" />
+    <Compile Include="HerramientasJuego.cs" />
     <Compile Include="Juego.cs" />
     <Compile Include="Jugador.cs" />
     <Compile Include="ModalidadesDeJuego.cs" />
@@ -53,10 +53,6 @@
     <ProjectReference Include="..\Herramientas\Bingo.Herramientas.csproj">
       <Project>{a5881589-283a-4e80-b99d-ab9292bf5be7}</Project>
       <Name>Bingo.Herramientas</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ParametrosGlobales\ParametrosGlobales.csproj">
-      <Project>{a99fb366-7aa2-4331-9293-1ac2cc4b10db}</Project>
-      <Name>ParametrosGlobales</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

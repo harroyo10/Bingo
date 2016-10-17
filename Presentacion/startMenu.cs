@@ -12,14 +12,20 @@ namespace Presentacion
 {
     public partial class startMenu : Form
     {
-        public startMenu(bool validSettings)
+
+        public String[] players;
+        public String[] pAoB;
+
+        private UIManagement UI;
+
+        public startMenu()
         {
             InitializeComponent();
+            UI = new UIManagement();
             extraComponents();
-            validateSettings(validSettings);
         }
 
-        private void extraComponents ()
+        private void extraComponents()
         {
             CenterToScreen();
             MaximizeBox = false;
@@ -28,27 +34,11 @@ namespace Presentacion
             Text = "Bienvenido al Bingo Latina";
         }
 
-        private void validateSettings (bool validSettings)
-        {
-            if (validSettings == false)
-            {
-                btnStart.Enabled = false;
-            } else
-            {
-                btnStart.Enabled = true;
-            }
-        }
-
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSettings_Click(object sender, EventArgs e)
         {
             Settings frmSettings = new Settings();
-            frmSettings.Show();
-            
+            Hide();
+            frmSettings.ShowDialog();           
         }
         
     }
