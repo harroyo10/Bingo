@@ -8,35 +8,24 @@ namespace LogicaNegocios
 {
     public class CampoCarton
     {
-        int valor;
-        int filar;
-        int columna;
-        bool boolJugado;
-        bool boolAfortunado;
+        public int valor { set; get; }
+        public int fila { set; get; }
+        public string columna { set; get; }
+        public bool boolJugado { set; get; }
+        public bool boolAfortunado { set; get; }
 
-        public CampoCarton(int valor, int fila, int columna)
+        public CampoCarton(int valor, int fila, string columna)
         {
             this.valor = valor;
-            this.filar = fila;
+            this.fila = fila;
             this.columna = columna;
             this.boolJugado = false;
             this.boolAfortunado = false;
         }
 
-        public int getValor()
+        public override string ToString()
         {
-            return this.valor;
+            return "Campo[" + columna + "," + fila + "] = " + valor;
         }
-
-        public bool estaJugado()
-        {
-            return boolJugado;
-        }
-
-        public bool esAFortunado()
-        {
-            return boolAfortunado;
-        }
-
     }
 }
