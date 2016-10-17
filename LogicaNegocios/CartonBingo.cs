@@ -12,9 +12,9 @@ namespace LogicaNegocios
     {
         Dictionary<string,int[]> carton;
         int intervalo;
-        public CartonBingo ()
+        public CartonBingo (int totalNumeros)
         {
-            this.intervalo = Parametros.TOTAL_NUMEROS() / 5;
+            this.intervalo = totalNumeros / 5;
             int i = 0;
             this.carton = new Dictionary<string, int[]>()
             {
@@ -36,9 +36,18 @@ namespace LogicaNegocios
             return msg;
         }
 
-        public Dictionary<string, int[]> getCarton()
+        public string imprimirColumna(string fila)
         {
-            return carton;
+            int[] valorColumna;
+            if (this.carton.TryGetValue(fila, out valorColumna)) ;
+            return ConsultarArray.imprimirArray(valorColumna);
         }
+
+       public Dictionary<string, int[]> getCarton()
+        {
+            return this.carton;
+        }
+
+
     }
 }
