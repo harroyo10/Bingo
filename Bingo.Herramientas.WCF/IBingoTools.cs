@@ -18,7 +18,19 @@ namespace Bingo.Herramientas.WCF
         string GetData(int value);
 
         [OperationContract]
-        int[] CrearRandomArray(int cantidadCampos, int minimo, int maximo);
+        int[] GetCrearRandomArray(int cantidadCampos, int minimo, int maximo);
+
+        [OperationContract]
+        int[] GetDesordenarArray(int[] elArray);
+
+        [OperationContract]
+        bool GetestaElNumeroEnArray(int[] elArray, int elNumeroAConsultar);
+
+        [OperationContract]
+        string GetimprimirArray(int[] elArray);
+
+        [OperationContract]
+        Boolean GetsonArraysIguales(int[] array1, int[] array2);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);

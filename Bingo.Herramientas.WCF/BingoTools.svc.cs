@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using Bingo.Herramientas;
+using Herramientas;
 
 namespace Bingo.Herramientas.WCF
 {
@@ -13,14 +14,31 @@ namespace Bingo.Herramientas.WCF
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IBingoTools
     {
-        public int[] CrearRandomArray(int cantidadCampos, int minimo, int maximo)
+        public int[] GetCrearRandomArray(int cantidadCampos, int minimo, int maximo)
         {
-            return null;
+            return CrearArray.CrearRandomArray(cantidadCampos, minimo, maximo);
+        }
+
+        public int[] GetDesordenarArray(int[] elArray)
+        {
+            return ModificarArray.DesordenarArray(elArray);
         }
 
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
+        }
+
+       public bool GetestaElNumeroEnArray(int[] elArray, int elNumeroAConsultar) {
+            return ConsultarArray.EstaElNumeroEnArray(elArray,elNumeroAConsultar);
+        }
+        public string GetimprimirArray(int[] elArray)
+        {
+            return ConsultarArray.ImprimirArray(elArray);
+        }
+
+        public Boolean GetsonArraysIguales(int[] array1, int[] array2) {
+            return ConsultarArray.SonArraysIguales(array1,array2);
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)
