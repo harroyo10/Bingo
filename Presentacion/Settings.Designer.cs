@@ -32,21 +32,23 @@
             this.players = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numofCartons = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddPlayer = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnContinue = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtBoardAmounts = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmbGameModes = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblAoB = new System.Windows.Forms.Label();
+            this.lblAoP = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtBoardAmounts = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAmountOfNumbers = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetails)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -81,7 +83,7 @@
             // 
             // btnAddPlayer
             // 
-            this.btnAddPlayer.Location = new System.Drawing.Point(43, 175);
+            this.btnAddPlayer.Location = new System.Drawing.Point(40, 114);
             this.btnAddPlayer.Name = "btnAddPlayer";
             this.btnAddPlayer.Size = new System.Drawing.Size(124, 23);
             this.btnAddPlayer.TabIndex = 1;
@@ -89,28 +91,32 @@
             this.btnAddPlayer.UseVisualStyleBackColor = true;
             this.btnAddPlayer.Click += new System.EventHandler(this.btnAddPlayer_Click);
             // 
-            // button2
+            // btnCancel
             // 
-            this.button2.Location = new System.Drawing.Point(623, 322);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(623, 322);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // button3
+            // btnContinue
             // 
-            this.button3.Location = new System.Drawing.Point(527, 322);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Aceptar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnContinue.Location = new System.Drawing.Point(527, 322);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(75, 23);
+            this.btnContinue.TabIndex = 3;
+            this.btnContinue.Text = "Iniciar";
+            this.btnContinue.UseVisualStyleBackColor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.txtAmountOfNumbers);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.cmbGameModes);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.txtBoardAmounts);
@@ -123,86 +129,35 @@
             this.panel1.Size = new System.Drawing.Size(403, 292);
             this.panel1.TabIndex = 4;
             // 
-            // label1
+            // cmbGameModes
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 33);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Nombre de usuario";
+            this.cmbGameModes.FormattingEnabled = true;
+            this.cmbGameModes.Location = new System.Drawing.Point(25, 182);
+            this.cmbGameModes.Name = "cmbGameModes";
+            this.cmbGameModes.Size = new System.Drawing.Size(156, 21);
+            this.cmbGameModes.TabIndex = 8;
             // 
-            // label2
+            // label7
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 104);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Cantidad de cartones";
-            // 
-            // txtUsername
-            // 
-            this.txtUsername.Location = new System.Drawing.Point(29, 60);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(156, 20);
-            this.txtUsername.TabIndex = 4;
-            // 
-            // txtBoardAmounts
-            // 
-            this.txtBoardAmounts.Location = new System.Drawing.Point(29, 130);
-            this.txtBoardAmounts.Name = "txtBoardAmounts";
-            this.txtBoardAmounts.Size = new System.Drawing.Size(156, 20);
-            this.txtBoardAmounts.TabIndex = 5;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(22, 166);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Modalidad de juego";
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.lblAoB);
+            this.panel2.Controls.Add(this.lblAoP);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Location = new System.Drawing.Point(234, 33);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(155, 220);
             this.panel2.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 15);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Total de jugadores:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 46);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(93, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Total de cartones:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(123, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(13, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "0";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(123, 46);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "0";
             // 
             // pictureBox1
             // 
@@ -214,34 +169,89 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
-            // label7
+            // lblAoB
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 224);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 13);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "Modalidad de juego";
+            this.lblAoB.AutoSize = true;
+            this.lblAoB.Location = new System.Drawing.Point(123, 46);
+            this.lblAoB.Name = "lblAoB";
+            this.lblAoB.Size = new System.Drawing.Size(13, 13);
+            this.lblAoB.TabIndex = 10;
+            this.lblAoB.Text = "0";
             // 
-            // comboBox1
+            // lblAoP
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Cartón lleno",
-            "Cuatro esquinas",
-            "Letra H",
-            "Letra X",
-            "Letra O",
-            "Letra U",
-            "Letra P",
-            "Letra A",
-            "Letra E",
-            "Letra W",
-            "Letra R"});
-            this.comboBox1.Location = new System.Drawing.Point(29, 249);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(156, 21);
-            this.comboBox1.TabIndex = 8;
+            this.lblAoP.AutoSize = true;
+            this.lblAoP.Location = new System.Drawing.Point(123, 15);
+            this.lblAoP.Name = "lblAoP";
+            this.lblAoP.Size = new System.Drawing.Size(13, 13);
+            this.lblAoP.TabIndex = 9;
+            this.lblAoP.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 46);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Total de cartones:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Total de jugadores:";
+            // 
+            // txtBoardAmounts
+            // 
+            this.txtBoardAmounts.Location = new System.Drawing.Point(29, 84);
+            this.txtBoardAmounts.Name = "txtBoardAmounts";
+            this.txtBoardAmounts.Size = new System.Drawing.Size(156, 20);
+            this.txtBoardAmounts.TabIndex = 5;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(29, 33);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(156, 20);
+            this.txtUsername.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(26, 68);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Cantidad de cartones";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(26, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Nombre de usuario";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 224);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Cantidad de números";
+            // 
+            // txtAmountOfNumbers
+            // 
+            this.txtAmountOfNumbers.Location = new System.Drawing.Point(25, 240);
+            this.txtAmountOfNumbers.Name = "txtAmountOfNumbers";
+            this.txtAmountOfNumbers.Size = new System.Drawing.Size(156, 20);
+            this.txtAmountOfNumbers.TabIndex = 10;
             // 
             // Settings
             // 
@@ -249,8 +259,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 357);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnContinue);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.gvDetails);
             this.Name = "Settings";
             this.Text = "Settings";
@@ -270,20 +280,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn players;
         private System.Windows.Forms.DataGridViewTextBoxColumn numofCartons;
         private System.Windows.Forms.Button btnAddPlayer;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnContinue;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblAoB;
+        private System.Windows.Forms.Label lblAoP;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtBoardAmounts;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbGameModes;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtAmountOfNumbers;
+        private System.Windows.Forms.Label label5;
     }
 }
