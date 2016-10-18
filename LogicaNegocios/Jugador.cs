@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace LogicaNegocios
 {
-    class Jugador
+    public class Jugador
     {
+        string nombre;
+        int cantidadCartones;
+        CartonBingo[] cartones;
+
+        public Jugador()
+        {
+
+        }
     }
 }

@@ -8,10 +8,19 @@ namespace ParametrosGlobales
 {
     public class Parametros
     {
-        public static int TOTAL_NUMEROS()
+        /*static int TOTAL_NUMEROS = 0;
+        static int
+
+        public static int getTotalNumeros()
         {
-            return 75;
+            return TOTAL_NUMEROS;
         }
-     
+
+        public static void setTotalNumeros(int total)
+        {
+            TOTAL_NUMEROS = total;
+        }
+
+    */
     }
 }
