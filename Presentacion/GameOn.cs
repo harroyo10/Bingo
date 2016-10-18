@@ -132,7 +132,7 @@ namespace Presentacion
                 dgv.Location = new System.Drawing.Point(x, y);
                 dgv.Name = "gvDetails";
                 dgv.ReadOnly = true;
-                dgv.Size = new System.Drawing.Size(106, 154);
+                dgv.Size = new System.Drawing.Size(104, 135);
                 dgv.TabIndex = 0;
 
                 dgv.RowHeadersVisible = false;
@@ -142,6 +142,27 @@ namespace Presentacion
                     DataGridViewColumn column = dgv.Columns[h];
                     column.Width = 20;
                 }
+
+                int B = 1, I = 6, N = 11, G = 16, O = 21;
+                for (int p = 0; p < 5; p++)
+                {
+                    string[] row = new string[] { B.ToString(), I.ToString(), N.ToString(), G.ToString(), O.ToString() };
+                    dgv.Rows.Add(row);
+                    B++; I++; N++; B++; O++;
+                }
+
+                dgv.Rows[0].Cells[0].Style.BackColor = Color.Red;
+                dgv.Rows[1].Cells[0].Style.BackColor = Color.Red;
+                dgv.Rows[2].Cells[0].Style.BackColor = Color.Red;
+                dgv.Rows[3].Cells[0].Style.BackColor = Color.Red;
+                dgv.Rows[4].Cells[0].Style.BackColor = Color.Red;
+
+                dgv.Rows[0].Cells[1].Style.BackColor = Color.Red;
+                dgv.Rows[0].Cells[2].Style.BackColor = Color.Red;
+                dgv.Rows[2].Cells[1].Style.BackColor = Color.Red;
+                dgv.Rows[4].Cells[1].Style.BackColor = Color.Red;
+                dgv.Rows[4].Cells[2].Style.BackColor = Color.Red;
+
 
                 pnlBoards.Controls.Add(dgv);
 
@@ -201,7 +222,7 @@ namespace Presentacion
                 dgv.Location = new System.Drawing.Point(x, y);
                 dgv.Name = "gvDetails";
                 dgv.ReadOnly = true;
-                dgv.Size = new System.Drawing.Size(106, 154);
+                dgv.Size = new System.Drawing.Size(104, 135);
                 dgv.TabIndex = 0;
 
                 dgv.RowHeadersVisible = false;
@@ -212,6 +233,14 @@ namespace Presentacion
                     column.Width = 20;
                 }
 
+                int B = 1, I = 6, N = 11, G = 16, O = 21;
+                for (int p = 0; p < 5; p++)
+                {
+                    string[] row = new string[] { B.ToString(), I.ToString(), N.ToString(), G.ToString(), O.ToString() };
+                    dgv.Rows.Add(row);
+                    B++; I++; N++; B++; O++;
+                }
+                
                 pnlBoards.Controls.Add(dgv);
 
                 y = y + 180;
