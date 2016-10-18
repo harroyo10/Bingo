@@ -35,6 +35,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnContinue = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtAmountOfNumbers = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.cmbGameModes = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -47,8 +49,6 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtAmountOfNumbers = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetails)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -66,7 +66,8 @@
             this.gvDetails.Location = new System.Drawing.Point(21, 24);
             this.gvDetails.Name = "gvDetails";
             this.gvDetails.ReadOnly = true;
-            this.gvDetails.Size = new System.Drawing.Size(268, 310);
+            this.gvDetails.RowHeadersVisible = false;
+            this.gvDetails.Size = new System.Drawing.Size(204, 310);
             this.gvDetails.TabIndex = 0;
             // 
             // players
@@ -124,10 +125,26 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnAddPlayer);
-            this.panel1.Location = new System.Drawing.Point(295, 24);
+            this.panel1.Location = new System.Drawing.Point(244, 24);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(403, 292);
+            this.panel1.Size = new System.Drawing.Size(454, 292);
             this.panel1.TabIndex = 4;
+            // 
+            // txtAmountOfNumbers
+            // 
+            this.txtAmountOfNumbers.Location = new System.Drawing.Point(25, 240);
+            this.txtAmountOfNumbers.Name = "txtAmountOfNumbers";
+            this.txtAmountOfNumbers.Size = new System.Drawing.Size(156, 20);
+            this.txtAmountOfNumbers.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(22, 224);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Cantidad de números";
             // 
             // cmbGameModes
             // 
@@ -154,7 +171,7 @@
             this.panel2.Controls.Add(this.lblAoP);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Location = new System.Drawing.Point(234, 33);
+            this.panel2.Location = new System.Drawing.Point(249, 33);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(155, 220);
             this.panel2.TabIndex = 6;
@@ -236,22 +253,6 @@
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nombre de usuario";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 224);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Cantidad de números";
-            // 
-            // txtAmountOfNumbers
-            // 
-            this.txtAmountOfNumbers.Location = new System.Drawing.Point(25, 240);
-            this.txtAmountOfNumbers.Name = "txtAmountOfNumbers";
-            this.txtAmountOfNumbers.Size = new System.Drawing.Size(156, 20);
-            this.txtAmountOfNumbers.TabIndex = 10;
             // 
             // Settings
             // 

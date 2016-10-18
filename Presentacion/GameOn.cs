@@ -13,70 +13,106 @@ namespace Presentacion
     public partial class GameOn : Form
     {
 
-
-        public GameOn()
+        GameManagement GM;
+        public GameOn(GameManagement oldGM)
         {
             InitializeComponent();
-            //int[,] tableroPrueba = new int[5,5];
-            //Random rnd = new Random();
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    for (int j = 0; j < 5; j++)
-            //    {
-            //        if (i != 3 && j != 3)
-            //        {
-            //            int randomNumber = rnd.Next(1, 75);
-            //            tableroPrueba[i,j] = randomNumber;
-            //        } else
-            //        {
-            //            tableroPrueba[i,j] = 0;
-            //        }
-            //    }
-            //}
+            GM = oldGM;
+            fullCmbOfUsers();
+        }
 
-            //int cantTableros = 5;
+        private void fullCmbOfUsers()
+        {
+            for(int i = 0; i < GM.getPlayers().Length; i++)
+            {
+                cmbUsers.Items.Add(GM.getPlayers()[i]);
+            }
+        }
 
-            //List<DataGridView> grids = new List<DataGridView>();
-            //for (int r = 0; r < cantTableros; r++)
-            //{
-            //    DataTable dt = new DataTable();
-            //    dt.Columns.Add("B");
-            //    dt.Columns.Add("I");
-            //    dt.Columns.Add("N");
-            //    dt.Columns.Add("G");
-            //    dt.Columns.Add("O");
+        private void generateUserBingoBoards(int boardsAmount)
+        {
+            int x = 24;
+            int y = 35;
+            int labelX = 10;
 
-            //   for (int i = 0; i < 5; i++)
-            //    {
-            //        DataRow oItem = dt.NewRow();
-            //        for (int j = 0; j < 5; j++)
-            //        {
-            //            oItem[0] = tableroPrueba[i, j];
-            //            oItem[1] = tableroPrueba[i, j];
-            //            oItem[2] = tableroPrueba[i, j];
-            //            oItem[3] = tableroPrueba[i, j];
-            //            oItem[4] = tableroPrueba[i, j];
-            //        }
-            //        dt.Rows.Add(oItem);
-            //        Console.WriteLine(dt);
-            //        DataGridView dgv = new DataGridView();
-            //        dgv.Columns.Add("B", "B");
-            //        dgv.Columns.Add("I", "I");
-            //        dgv.Columns.Add("N", "N");
-            //        dgv.Columns.Add("G", "G");
-            //        dgv.Columns.Add("O", "O");
-            //        dgv.Rows.Add(dt);
-            //        //dgv.Rows[0].HeaderCell.Value = "Row Text";
+            for (int i = 0; i < boardsAmount; i++)
+            {
+                DataGridView dgv = new DataGridView();
 
-            //        grids.Add(dgv);
-            //        Controls.Add(dgv);
+                //GridView propierties
+                dgv.AllowUserToAddRows = false;
+                dgv.AllowUserToDeleteRows = false;
+                dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+                dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+                setDGVTextColumn(0), setDGVTextColumn(1),setDGVTextColumn(2),setDGVTextColumn(3),setDGVTextColumn(4),});
+                dgv.Location = new System.Drawing.Point(x, y);
+                dgv.Name = "gvUserBoard";
+                dgv.ReadOnly = true;
+                dgv.Size = new System.Drawing.Size(104, 135);
+                dgv.TabIndex = 0;
+                dgv.RowHeadersVisible = false;
 
-            //    }
+                for (int h = 0; h < 5; h++)
+                {
+                    DataGridViewColumn column = dgv.Columns[h];
+                    column.Width = 20;
+                }
 
-            //}
+                int B = 1, I = 6, N = 11, G = 16, O = 21;
+                for (int p = 0; p < 5; p++)
+                {
+                    string[] row = new string[] { B.ToString(), I.ToString(), N.ToString(), G.ToString(), O.ToString() };
+                    dgv.Rows.Add(row);
+                    B++; I++; N++; B++; O++;
+                }
 
-            
+                String[,] matriz = new String[5, 5];
+                matriz[0, 0] = "X";
+                dgv.Rows[2].Cells[2].Value = matriz[0, 0];
 
+                Label myLabel = new Label();
+                myLabel.Text = "Cartón #: " + (i + 1);
+                myLabel.Left = 20;
+                myLabel.Top = labelX;
+
+                pnlBoards.Controls.Add(myLabel);
+                pnlBoards.Controls.Add(dgv);
+
+                y = y + 190;
+                labelX = labelX + 190;
+            }
+        }
+        
+        private void generateReviewBingoBoards()
+        {
+
+        }
+
+        private void setWinnerBoards()
+        {
+
+        }
+
+        //setDataGridViewTextColumn
+        private DataGridViewTextBoxColumn setDGVTextColumn(int letterIndex)
+        {
+            String letter = "";
+            if 
+            (letterIndex == 0) letter = "B";
+            else
+            if (letterIndex == 1) letter = "I";
+            else
+            if (letterIndex == 2) letter = "N";
+            else
+            if (letterIndex == 3) letter = "G";
+            else
+            if (letterIndex == 4) letter = "O";
+
+            DataGridViewTextBoxColumn columnHeader = new DataGridViewTextBoxColumn();
+            columnHeader.HeaderText = letter;
+            columnHeader.Name = "Letter"+letter;
+            columnHeader.ReadOnly = true;
+            return columnHeader;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -88,47 +124,12 @@ namespace Presentacion
             for (int i = 0; i < 10; i++)
             {
                 DataGridView dgv = new DataGridView();
-                // 
-                // B
-                // 
-                DataGridViewTextBoxColumn LetterB = new DataGridViewTextBoxColumn();
-                LetterB.HeaderText = "B";
-                LetterB.Name = "LetterB";
-                LetterB.ReadOnly = true;
-                // 
-                // B
-                // 
-                DataGridViewTextBoxColumn LetterI = new DataGridViewTextBoxColumn();
-                LetterI.HeaderText = "I";
-                LetterI.Name = "LetterI";
-                LetterI.ReadOnly = true;
-                // 
-                // B
-                // 
-                DataGridViewTextBoxColumn LetterN = new DataGridViewTextBoxColumn();
-                LetterN.HeaderText = "N";
-                LetterN.Name = "LetterN";
-                LetterN.ReadOnly = true;
-                // 
-                // B
-                // 
-                DataGridViewTextBoxColumn LetterG = new DataGridViewTextBoxColumn();
-                LetterG.HeaderText = "G";
-                LetterG.Name = "LetterG";
-                LetterG.ReadOnly = true;
-                // 
-                // B
-                // 
-                DataGridViewTextBoxColumn LetterO = new DataGridViewTextBoxColumn();
-                LetterO.HeaderText = "O";
-                LetterO.Name = "LetterO";
-                LetterO.ReadOnly = true;
 
                 dgv.AllowUserToAddRows = false;
                 dgv.AllowUserToDeleteRows = false;
                 dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
                 dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-                LetterB, LetterI, LetterN, LetterG, LetterO});
+                setDGVTextColumn(0), setDGVTextColumn(1),setDGVTextColumn(2),setDGVTextColumn(3),setDGVTextColumn(4),});
                 dgv.Location = new System.Drawing.Point(x, y);
                 dgv.Name = "gvDetails";
                 dgv.ReadOnly = true;
@@ -150,6 +151,11 @@ namespace Presentacion
                     dgv.Rows.Add(row);
                     B++; I++; N++; B++; O++;
                 }
+
+                int[,] matriz = new int[5, 5];
+                matriz[0,0] = 0;
+                dgv.Rows[2].Cells[2].Value = matriz[0, 0];
+
 
                 dgv.Rows[0].Cells[0].Style.BackColor = Color.Red;
                 dgv.Rows[1].Cells[0].Style.BackColor = Color.Red;
@@ -245,6 +251,15 @@ namespace Presentacion
 
                 y = y + 180;
             }
+        }
+
+        private void cmbUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cmbUsers.SelectedIndex;
+            int cant = Int16.Parse(GM.getBoardsAmounts()[index]);
+
+            pnlBoards.Controls.Clear();
+            generateUserBingoBoards(cant);
         }
     }
 }
