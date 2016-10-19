@@ -52,8 +52,9 @@ namespace Presentacion
             else
             {
                 String[] players = UI.setPlayers(gvDetails);
-                String[] pAoB = UI.setPlayers(gvDetails); //Player Amount of Boards
-                GameOn Test = new GameOn();
+                String[] pAoB = UI.setPlayersAmountOfBoards(gvDetails); //Player Amount of Boards
+                GameManagement GM = new GameManagement(players, pAoB);
+                GameOn Test = new GameOn(GM);
                 Hide();
                 Test.ShowDialog();
             }
