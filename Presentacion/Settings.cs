@@ -14,12 +14,14 @@ namespace Presentacion
     {
 
         private UIManagement UI;
+        private startMenu sMenu;
 
-        public Settings()
+        public Settings(startMenu sMenu)
         {
             InitializeComponent();
             UI = new UIManagement();
             extraComponents();
+            this.sMenu = sMenu;
         }
 
         private void extraComponents()
@@ -30,11 +32,12 @@ namespace Presentacion
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Text = "Ajustes del juego";
             UI.setGameModes(cmbGameModes);
+            cmbGameModes.SelectedIndex = 0;
         }
 
         private void btnAddPlayer_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text == "" || txtBoardAmounts.Text == "")
+            if (txtUsername.Text == "" || txtBoardAmounts.Text == "" || txtBoardAmounts.Text == "0")
             {
                 MessageBox.Show("Campos vacíos, por favor revise los campos nuevamente.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else
@@ -45,25 +48,36 @@ namespace Presentacion
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
-            if (lblAoB.Text == "0" || lblAoP.Text == "0")
+            if (lblAoB.Text == "0" || lblAoP.Text == "0" || txtAmountOfNumbers.Text == "")
             {
-                MessageBox.Show("No hay datos de jugadores registrados.", "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Datos insuficientes para iniciar el juego.", "Campo vacío", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                String[] players = UI.setPlayers(gvDetails);
-                String[] pAoB = UI.setPlayersAmountOfBoards(gvDetails); //Player Amount of Boards
-                GameManagement GM = new GameManagement(players, pAoB);
-                GameOn Test = new GameOn(GM);
-                Hide();
-                Test.ShowDialog();
+                if ((Int16.Parse(txtAmountOfNumbers.Text)) % 5 != 0)
+                {
+                    MessageBox.Show("Ingrese un valor múltiplo de 5 para proseguir.", "Dato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    int amountOfNumbers = Int16.Parse(txtAmountOfNumbers.Text);
+                    String[] players = UI.setPlayers(gvDetails);
+                    String[] pAoB = UI.setPlayersAmountOfBoards(gvDetails); //Player Amount of Boards
+                    int gameMode = cmbGameModes.SelectedIndex;
+                    GameManagement GM = new GameManagement(players, pAoB, gameMode, amountOfNumbers);
+                    sMenu.setGameMangament(GM);
+                    sMenu.getPlayButton().Enabled = true;
+                    sMenu.Visible = true;
+                    Hide();
+                }
             }
             
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Close();
+            sMenu.Visible = true;
+            Hide();
         }
     }
 }

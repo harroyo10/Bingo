@@ -11,15 +11,18 @@ namespace Presentacion
 
         String[] players;
         String[] boardsAmounts;
-        String gameMode;
+        int gameMode;
+        int amountOfNumbers;
 
-        public GameManagement(String[] playersNicknames, String[] bAmounts, String gMode)
+        public GameManagement(String[] playersNicknames, String[] bAmounts, int gMode, int amountOfNumbers)
         {
             players = playersNicknames;
             boardsAmounts = bAmounts;
             gameMode = gMode;
+            this.amountOfNumbers = amountOfNumbers;
         }
 
+        //Sets & Gets
         public String[] getPlayers()
         {
             return this.players;
@@ -30,7 +33,7 @@ namespace Presentacion
             return this.boardsAmounts;
         }
 
-        public String getGameMode()
+        public int getGameMode()
         {
             return this.gameMode;
         }

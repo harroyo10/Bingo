@@ -108,7 +108,7 @@
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.Size = new System.Drawing.Size(75, 23);
             this.btnContinue.TabIndex = 3;
-            this.btnContinue.Text = "Iniciar";
+            this.btnContinue.Text = "Guardar";
             this.btnContinue.UseVisualStyleBackColor = true;
             this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
@@ -149,6 +149,18 @@
             // cmbGameModes
             // 
             this.cmbGameModes.FormattingEnabled = true;
+            this.cmbGameModes.Items.AddRange(new object[] {
+            "Cartón lleno",
+            "Cuatro esquinas",
+            "Letra H",
+            "Letra X",
+            "Letra O",
+            "Letra U",
+            "Letra P",
+            "Letra A",
+            "Letra E",
+            "Letra W",
+            "Letra R"});
             this.cmbGameModes.Location = new System.Drawing.Point(25, 182);
             this.cmbGameModes.Name = "cmbGameModes";
             this.cmbGameModes.Size = new System.Drawing.Size(156, 21);

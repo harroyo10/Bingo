@@ -12,16 +12,11 @@ namespace Presentacion
 {
     public partial class startMenu : Form
     {
-
-        public String[] players;
-        public String[] pAoB;
-
-        private UIManagement UI;
+        GameManagement GM;
 
         public startMenu()
         {
             InitializeComponent();
-            UI = new UIManagement();
             extraComponents();
         }
 
@@ -32,14 +27,34 @@ namespace Presentacion
             MinimizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Text = "Bienvenido al Bingo Latina";
+            btnPlay.Enabled = false;
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            Settings frmSettings = new Settings();
-            Hide();
-            frmSettings.ShowDialog();           
+            Settings frmSettings = new Settings(this);
+            this.Visible = false;
+            frmSettings.ShowDialog();
         }
-        
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            GameOn newGame = new GameOn(GM);
+            this.Visible = false;
+            newGame.ShowDialog();
+        }
+
+        //Sets & Gets
+
+        public void setGameMangament(GameManagement GM)
+        {
+            this.GM = GM;
+        }
+
+        public Button getPlayButton()
+        {
+            return btnPlay;
+        }
+
     }
 }

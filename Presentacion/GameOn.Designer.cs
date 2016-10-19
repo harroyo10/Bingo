@@ -37,20 +37,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnlBoards = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.pbGameMode = new System.Windows.Forms.PictureBox();
+            this.lblAmountOfPlaters = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.btnNewGame = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGameMode)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -143,47 +141,17 @@
             this.tabPage3.Text = "Afortunados";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(349, 387);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(349, 416);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.pbGameMode);
+            this.panel1.Controls.Add(this.lblAmountOfPlaters);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(266, 39);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(186, 259);
             this.panel1.TabIndex = 4;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(78, 64);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 13);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Letra E";
             // 
             // label6
             // 
@@ -194,24 +162,23 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Modalidad:";
             // 
-            // pictureBox1
+            // pbGameMode
             // 
-            this.pictureBox1.Image = global::Presentacion.Properties.Resources.E;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 90);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(178, 164);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.pbGameMode.Location = new System.Drawing.Point(3, 90);
+            this.pbGameMode.Name = "pbGameMode";
+            this.pbGameMode.Size = new System.Drawing.Size(178, 164);
+            this.pbGameMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGameMode.TabIndex = 3;
+            this.pbGameMode.TabStop = false;
             // 
-            // label4
+            // lblAmountOfPlaters
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(144, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(13, 13);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "0";
+            this.lblAmountOfPlaters.AutoSize = true;
+            this.lblAmountOfPlaters.Location = new System.Drawing.Point(144, 15);
+            this.lblAmountOfPlaters.Name = "lblAmountOfPlaters";
+            this.lblAmountOfPlaters.Size = new System.Drawing.Size(13, 13);
+            this.lblAmountOfPlaters.TabIndex = 1;
+            this.lblAmountOfPlaters.Text = "0";
             // 
             // label3
             // 
@@ -231,15 +198,23 @@
             this.button3.TabIndex = 3;
             this.button3.UseVisualStyleBackColor = true;
             // 
+            // btnNewGame
+            // 
+            this.btnNewGame.Location = new System.Drawing.Point(354, 430);
+            this.btnNewGame.Name = "btnNewGame";
+            this.btnNewGame.Size = new System.Drawing.Size(94, 23);
+            this.btnNewGame.TabIndex = 5;
+            this.btnNewGame.Text = "Juego nuevo";
+            this.btnNewGame.UseVisualStyleBackColor = true;
+            // 
             // GameOn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 465);
+            this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
             this.Name = "GameOn";
             this.Text = "GameOn";
@@ -250,7 +225,7 @@
             this.tabPage2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGameMode)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,20 +235,18 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel pnlBoards;
         private System.Windows.Forms.ComboBox cmbUsers;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblAmountOfPlaters;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.PictureBox pbGameMode;
         private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button btnNewGame;
     }
 }

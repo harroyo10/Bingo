@@ -10,11 +10,6 @@ namespace Presentacion
     class UIManagement
     {
 
-        public UIManagement()
-        {
-
-        }
-
         private int getAmountofBoards(DataGridView gvDetails)
         {
             int AmountOfBoards = 0;
