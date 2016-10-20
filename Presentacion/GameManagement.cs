@@ -32,5 +32,10 @@ namespace Presentacion
             return this.gameMode;
         }
 
+        public int getAmountOfNumbers()
+        {
+            return this.amountOfNumbers;
+        }
+
     }
 }

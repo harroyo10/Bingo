@@ -55,9 +55,9 @@ namespace Presentacion
             }
             else
             {
-                if ((Int16.Parse(txtAmountOfNumbers.Text)) % 5 != 0)
+                if ((Int16.Parse(txtAmountOfNumbers.Text)) % 5 != 0 || (Int16.Parse(txtAmountOfNumbers.Text)) < 24)
                 {
-                    MessageBox.Show("Ingrese un valor múltiplo de 5 para proseguir.", "Dato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ingrese un valor múltiplo de 5 y mayor a 25 para proseguir.", "Dato incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
