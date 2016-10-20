@@ -19,7 +19,6 @@ namespace Presentacion
         String modeName;
         int bingoNumber;
         List<int> numbers = new List<int>();
-        String txtNumbers = "";
 
         public GameOn(GameManagement oldGM)
         {
@@ -219,6 +218,16 @@ namespace Presentacion
             return true;
         }
 
+        private String generateNumbersText()
+        {
+            String numbersText = "";
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                numbersText = numbersText + numbers.ToArray()[i] + ", ";
+            }
+            return numbersText;
+        }
+
         private int GenerateBingoNumber()
         {
             Random rnd = new Random();
@@ -238,15 +247,15 @@ namespace Presentacion
                     signal = isRepeated(bingoNumber);
                     if (signal)
                     {
-                        txtNumbers = txtNumbers + bingoNumber.ToString() + " ";
-                        txtBingoNumbers.Text = txtNumbers;
                         lblAmountOfNumbers.Text = (numbers.Count + 1).ToString();
                         numbers.Add(bingoNumber);
+                        numbers.Sort();
+                        txtBingoNumbers.Text = generateNumbersText();
                     }
                 }
             } else
             {
-                MessageBox.Show("No se pueden agregar más números", "Límite de números", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se pueden agregar más números.", "Límite de números", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
