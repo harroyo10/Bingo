@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -61,10 +62,9 @@ namespace Presentacion
                 else
                 {
                     int amountOfNumbers = Int16.Parse(txtAmountOfNumbers.Text);
-                    String[] players = UI.setPlayers(gvDetails);
-                    String[] pAoB = UI.setPlayersAmountOfBoards(gvDetails); //Player Amount of Boards
+                    Jugador[] players = UI.setPlayers(gvDetails);
                     int gameMode = cmbGameModes.SelectedIndex;
-                    GameManagement GM = new GameManagement(players, pAoB, gameMode, amountOfNumbers);
+                    GameManagement GM = new GameManagement(players, gameMode, amountOfNumbers);
                     sMenu.setGameMangament(GM);
                     sMenu.getPlayButton().Enabled = true;
                     sMenu.Visible = true;

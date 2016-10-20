@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaNegocios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,24 +50,20 @@ namespace Presentacion
             }
         }
 
-        public String[] setPlayers(DataGridView gvDetails)
+        public Jugador[] setPlayers(DataGridView gvDetails)
         {
-            String[] players = new String[gvDetails.RowCount];
-            for (int i = 0; i < players.Length; i++)
+            Jugador[] players = new Jugador[gvDetails.RowCount];
+            string nombre;
+            int cantidadCartones;
+            for (int i = 0; i < gvDetails.RowCount; i++)
             {
-                players[i] = gvDetails.Rows[i].Cells[0].Value.ToString();
+                nombre = gvDetails.Rows[i].Cells[0].Value.ToString();
+                cantidadCartones = Int16.Parse(gvDetails.Rows[i].Cells[1].Value.ToString());
+                players[i] = new Jugador(nombre, cantidadCartones);
             }
             return players;
         }
 
-        public String[] setPlayersAmountOfBoards(DataGridView gvDetails)
-        {
-            String[] pAoB = new String[gvDetails.RowCount];
-            for (int i = 0; i < pAoB.Length; i++)
-            {
-                pAoB[i] = gvDetails.Rows[i].Cells[1].Value.ToString();
-            }
-            return pAoB;
-        }
+       
     }
 }

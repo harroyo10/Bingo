@@ -142,6 +142,12 @@
   <ItemGroup>
     <None Include="Resources\custom.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LogicaNegocios\Bingo.LogicaNegocios.csproj">
+      <Project>{5A7FFDEC-351A-4EC7-AF6D-2B43D334E1C7}</Project>
+      <Name>Bingo.LogicaNegocios</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

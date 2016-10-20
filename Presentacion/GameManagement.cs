@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaNegocios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,30 +10,23 @@ namespace Presentacion
     public class GameManagement
     {
 
-        String[] players;
-        String[] boardsAmounts;
+        Jugador[] players;
         int gameMode;
         int amountOfNumbers;
 
-        public GameManagement(String[] playersNicknames, String[] bAmounts, int gMode, int amountOfNumbers)
+        public GameManagement(Jugador[] players, int gMode, int amountOfNumbers)
         {
-            players = playersNicknames;
-            boardsAmounts = bAmounts;
+            this.players = players;
             gameMode = gMode;
             this.amountOfNumbers = amountOfNumbers;
         }
 
         //Sets & Gets
-        public String[] getPlayers()
+        public Jugador[] getPlayers()
         {
             return this.players;
         }
-
-        public String[] getBoardsAmounts()
-        {
-            return this.boardsAmounts;
-        }
-
+     
         public int getGameMode()
         {
             return this.gameMode;
