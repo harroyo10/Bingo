@@ -42,7 +42,7 @@ namespace Presentacion
             {
                 case 0:
                     pbGameMode.Image = Presentacion.Properties.Resources.X;
-                    modeName = "Cartón lleno";
+                    modeName = "Cartón Lleno";
                     break;
                 case 1:
                     pbGameMode.Image = Presentacion.Properties.Resources._4esquinas;
@@ -202,8 +202,11 @@ namespace Presentacion
 
         private void testing(int index)
         {
-            //CartonBingo carton = GM.getPlayers()[index].cartones[index];
-            Console.WriteLine(GM.getPlayers()[index].nombre);
+            CartonBingo carton = GM.getPlayers()[index].cartones[index];
+            foreach (KeyValuePair<string, CampoCarton[]> entry in carton.getCarton())
+            {
+                Console.WriteLine(entry.Value);
+            }
         }
 
         private bool isRepeated(int bingoNumber)
