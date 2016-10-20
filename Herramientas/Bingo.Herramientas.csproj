@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsultarArray.cs" />
+    <Compile Include="CrearListas.cs" />
     <Compile Include="CrearArray.cs" />
     <Compile Include="ModificarArray.cs" />
+    <Compile Include="ModificarListas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

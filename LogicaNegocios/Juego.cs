@@ -12,6 +12,8 @@ namespace LogicaNegocios
         public List<Jugador> jugadores { get; }
         public int intervalo { get; }
         public string modalidad { get; }
+        public List<int> numerosJugados;
+        public List<int> numerosEnBiombo;
 
         public Juego(int totalNumeros, List<Jugador> jugadores, string modalidad)
         {
@@ -21,6 +23,32 @@ namespace LogicaNegocios
             this.modalidad = modalidad;
             this.jugadores = jugadores;
             HerramientasJuego.CrearCartonesDeJugadores(jugadores,intervalo,modalidad);
+            this.numerosJugados = new List<int>();
+            this.numerosEnBiombo = HerramientasJuego.GenerarNumerosEnBiombo(totalNumeros);
+
         }
+
+        public List<int> ObtenerNumerosJugados()
+        {
+            return new List<int>();
+        }
+
+        public int SacarNumeroDeBiombo()
+        {
+            int numero = numerosEnBiombo[0];
+
+            // Saco el numero del Biombo
+            numerosEnBiombo.RemoveAt(0);
+
+            // Se agrega el numero a la lista de los jugados
+            numerosJugados.Add(numero);
+
+            // Se ordena la lista de los numeros Jugados
+            numerosJugados.Sort();
+
+            return numero;
+        }
+
+    
     }
 }

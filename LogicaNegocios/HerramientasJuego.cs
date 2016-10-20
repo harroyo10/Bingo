@@ -103,6 +103,11 @@ namespace LogicaNegocios
             return false;
         }
 
+        public static List<int> GenerarNumerosEnBiombo(int totalNumeros)
+        {
+            return Herramientas.CrearListas.CrearListaDesordenada(1, totalNumeros);
+        } 
+
     }
 
 }
