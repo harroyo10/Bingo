@@ -16,6 +16,7 @@ namespace LogicaNegocios
         {
             this.nombre = nombre;
             this.cantidadCartones = cantidadCartones;
+            this.cartones = new List<CartonBingo>();
         }
     }
 }
