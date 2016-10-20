@@ -10,14 +10,18 @@ namespace LogicaNegocios
     public class CartonBingo
     {
         Dictionary<string, CampoCarton[]> carton;
-       // Dictionary<string, int[]> valoresCarton;
         int intervalo;
-        
-        public CartonBingo (int intervalo)
+        ModalidadJuego modalidad;
+        List<int> numerosRequeridosParaGanar;
+
+        public CartonBingo (int intervalo, string modalidad)
         {
             this.intervalo = intervalo;
             this.carton = GenerarCartonBingo();
+            this.modalidad = HerramientasJuego.GetModalidad(modalidad);
+            this.numerosRequeridosParaGanar = getNumerosAfortunados();
             vaciarPosicionCentral();
+            
         }
 
         public Dictionary<string, CampoCarton[]> getCarton()
@@ -86,7 +90,32 @@ namespace LogicaNegocios
             return cartonTemporal;
         }
 
-      
+
+
+        public List<int> getNumerosAfortunados()
+        {
+            List<int> numeros = new List<int>();
+            foreach (KeyValuePair<string,int> campoAfortunado in this.modalidad.GetCamposAfortunados())
+            {
+                numeros.Add(carton[campoAfortunado.Key][campoAfortunado.Value].valor);
+            }
+           
+            return numeros;
+        }
+
+        public bool esGanador(List<int> numerosJugados)
+        {
+            foreach(int numero in numerosRequeridosParaGanar)
+            {
+                if(numerosJugados.IndexOf(numero) == -1)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+       
         
     }
 }

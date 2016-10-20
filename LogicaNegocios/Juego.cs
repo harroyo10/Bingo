@@ -8,16 +8,18 @@ namespace LogicaNegocios
 {
     public class Juego
     {
-        public int totalNumeros { get; set; }
-        public int totalJugadores { get; set; }
-        public Jugador[] jugadores { get; set; }
-        public int intervalo { get; set; }
+        public int totalNumeros { get; }
+        public List<Jugador> jugadores { get; }
+        public int intervalo { get; }
+        public string modalidad { get; }
 
-        public Juego(int totalNumeros, int totalJugadores)
+        public Juego(int totalNumeros, List<Jugador> jugadores, string modalidad)
         {
             Console.WriteLine("JUEGO INICIO");
             this.totalNumeros = totalNumeros;
             this.intervalo = (int)(totalNumeros / 5);
+            this.modalidad = modalidad;
+            this.jugadores = jugadores;
         }
     }
 }

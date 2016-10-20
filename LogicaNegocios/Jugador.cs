@@ -12,9 +12,10 @@ namespace LogicaNegocios
         public int cantidadCartones { set; get; }
         public CartonBingo[] cartones { set; get; }
 
-        public Jugador()
+        public Jugador(string nombre, int cantidadCartones)
         {
-            
+            this.nombre = nombre;
+            this.cantidadCartones = cantidadCartones;
         }
     }
 }

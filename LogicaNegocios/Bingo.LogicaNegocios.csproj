@@ -45,7 +45,6 @@
     <Compile Include="HerramientasJuego.cs" />
     <Compile Include="Juego.cs" />
     <Compile Include="Jugador.cs" />
-    <Compile Include="ModalidadesDeJuego.cs" />
     <Compile Include="ModalidadJuego.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -11,6 +11,48 @@ namespace LogicaNegocios
 
         static string[] NombresDeColumnas = new string[] { "B", "I", "N", "G", "O" };
 
+        static Dictionary<string, ModalidadJuego> Modalidades = new Dictionary<string, ModalidadJuego>()
+        {
+            { "Cuatro Esquinas", new ModalidadJuego(new Dictionary<string, int[]>()
+                {
+                    { "B", new int[] { 1,0,0,0,1 } },
+                    { "I", new int[] { 0,0,0,0,0 } },
+                    { "N", new int[] { 0,0,0,0,0 } },
+                    { "G", new int[] { 0,0,0,0,0 } },
+                    { "O", new int[] { 1,0,0,0,1 } }
+                })
+            },
+             { "Cartón Lleno", new ModalidadJuego(new Dictionary<string, int[]>()
+                {
+                    { "B", new int[] { 1,1,1,1,1 } },
+                    { "I", new int[] { 1,1,1,1,1 } },
+                    { "N", new int[] { 1,1,1,1,1 } },
+                    { "G", new int[] { 1,1,1,1,1 } },
+                    { "O", new int[] { 1,1,1,1,1 } }
+                })
+            }
+        };
+            /*
+        {
+            new ModalidadJuego("Cuatro Esquinas", new Dictionary<string, int[]>()
+            {
+                { "B", new int[] { 1,0,0,0,1 } },
+                { "I", new int[] { 0,0,0,0,0 } },
+                { "N", new int[] { 0,0,0,0,0 } },
+                { "G", new int[] { 0,0,0,0,0 } },
+                { "O", new int[] { 1,0,0,0,1 } }
+            }),
+            new ModalidadJuego("Cartón Lleno", new Dictionary<string, int[]>()
+            {
+                { "B", new int[] { 1,1,1,1,1 } },
+                { "I", new int[] { 1,1,1,1,1 } },
+                { "N", new int[] { 1,1,1,1,1 } },
+                { "G", new int[] { 1,1,1,1,1 } },
+                { "O", new int[] { 1,1,1,1,1 } }
+            })
+   
+        };*/
+
         public static bool sonCartonesIguales(CartonBingo carton1, CartonBingo carton2)
         {
             return carton1.ImprimirValoresCarton() == carton2.ImprimirValoresCarton();
@@ -35,7 +77,15 @@ namespace LogicaNegocios
         }
 
         
+        public static string[] GetNombreDeModalidades()
+        {
+            return Modalidades.Keys.ToArray();
+        }
 
+        public static ModalidadJuego GetModalidad(string nombre)
+        {
+            return Modalidades[nombre];
+        }
         
 
 
