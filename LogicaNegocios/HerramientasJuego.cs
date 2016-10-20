@@ -69,13 +69,38 @@ namespace LogicaNegocios
         
         public static void CrearCartonesDeJugadores(List<Jugador> jugadores, int intervalo, string modalidad)
         {
-            foreach (Jugador jugador in jugadores)
+             foreach (Jugador jugador in jugadores)
             {
                 for(int i=0; i<jugador.cantidadCartones; i++)
                 {
-                    jugador.cartones.Add(new CartonBingo(intervalo, modalidad));
+                    CartonBingo carton;
+                    do {
+                        carton = new CartonBingo(intervalo, modalidad);
+                    } while (EsElCartonRepetido(carton, jugadores)); 
+                    jugador.cartones.Add(carton);
                 }
             }
+        }
+
+        private static bool EsElCartonRepetido(CartonBingo carton, List<Jugador> jugadores)
+        {
+           for(int i=0; i<jugadores.Count; i++)
+            {
+                try
+                {
+                    foreach (CartonBingo cartonAComparar in jugadores[i].cartones)
+                    {
+                        if (sonCartonesIguales(carton, cartonAComparar))
+                            return true;
+                    }
+                }
+                catch
+                {
+
+                }
+                
+            }
+            return false;
         }
 
     }
