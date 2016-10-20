@@ -33,10 +33,10 @@ namespace Presentacion
             switch (option)
             {
                 case 0:
-                    pbGameMode.Image = Presentacion.Properties.Resources.X;
+                    pbGameMode.Image = Presentacion.Properties.Resources._4esquinas;
                     break;
                 case 1:
-                    pbGameMode.Image = Presentacion.Properties.Resources._4esquinas;
+                    pbGameMode.Image = Presentacion.Properties.Resources.custom;
                     break;
                 case 2:
                     pbGameMode.Image = Presentacion.Properties.Resources.h;

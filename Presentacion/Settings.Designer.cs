@@ -149,18 +149,6 @@
             // cmbGameModes
             // 
             this.cmbGameModes.FormattingEnabled = true;
-            this.cmbGameModes.Items.AddRange(new object[] {
-            "Cartón lleno",
-            "Cuatro esquinas",
-            "Letra H",
-            "Letra X",
-            "Letra O",
-            "Letra U",
-            "Letra P",
-            "Letra A",
-            "Letra E",
-            "Letra W",
-            "Letra R"});
             this.cmbGameModes.Location = new System.Drawing.Point(25, 182);
             this.cmbGameModes.Name = "cmbGameModes";
             this.cmbGameModes.Size = new System.Drawing.Size(156, 21);
