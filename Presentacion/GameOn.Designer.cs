@@ -30,7 +30,6 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cmbUsers = new System.Windows.Forms.ComboBox();
@@ -42,8 +41,11 @@
             this.pbGameMode = new System.Windows.Forms.PictureBox();
             this.lblAmountOfPlaters = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnBingoNumber = new System.Windows.Forms.Button();
             this.btnNewGame = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblAmountOfNumbers = new System.Windows.Forms.Label();
+            this.txtBingoNumbers = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -64,7 +66,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.listBox1);
+            this.tabPage1.Controls.Add(this.txtBingoNumbers);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -73,14 +75,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Juego actual";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(21, 30);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(323, 108);
-            this.listBox1.TabIndex = 1;
             // 
             // label2
             // 
@@ -189,14 +183,15 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Cantidad de jugadores:";
             // 
-            // button3
+            // btnBingoNumber
             // 
-            this.button3.Image = global::Presentacion.Properties.Resources.bingobutton;
-            this.button3.Location = new System.Drawing.Point(36, 25);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(210, 281);
-            this.button3.TabIndex = 3;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnBingoNumber.Image = global::Presentacion.Properties.Resources.bingobutton;
+            this.btnBingoNumber.Location = new System.Drawing.Point(36, 25);
+            this.btnBingoNumber.Name = "btnBingoNumber";
+            this.btnBingoNumber.Size = new System.Drawing.Size(210, 281);
+            this.btnBingoNumber.TabIndex = 3;
+            this.btnBingoNumber.UseVisualStyleBackColor = true;
+            this.btnBingoNumber.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnNewGame
             // 
@@ -207,14 +202,42 @@
             this.btnNewGame.Text = "Juego nuevo";
             this.btnNewGame.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(33, 332);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(113, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Cantidad de números: ";
+            // 
+            // lblAmountOfNumbers
+            // 
+            this.lblAmountOfNumbers.AutoSize = true;
+            this.lblAmountOfNumbers.Location = new System.Drawing.Point(153, 332);
+            this.lblAmountOfNumbers.Name = "lblAmountOfNumbers";
+            this.lblAmountOfNumbers.Size = new System.Drawing.Size(13, 13);
+            this.lblAmountOfNumbers.TabIndex = 7;
+            this.lblAmountOfNumbers.Text = "0";
+            // 
+            // txtBingoNumbers
+            // 
+            this.txtBingoNumbers.Location = new System.Drawing.Point(21, 46);
+            this.txtBingoNumbers.Multiline = true;
+            this.txtBingoNumbers.Name = "txtBingoNumbers";
+            this.txtBingoNumbers.Size = new System.Drawing.Size(322, 161);
+            this.txtBingoNumbers.TabIndex = 1;
+            // 
             // GameOn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 465);
+            this.Controls.Add(this.lblAmountOfNumbers);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnNewGame);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnBingoNumber);
             this.Controls.Add(this.tabControl1);
             this.Name = "GameOn";
             this.Text = "GameOn";
@@ -227,6 +250,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameMode)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -238,9 +262,8 @@
         private System.Windows.Forms.Panel pnlBoards;
         private System.Windows.Forms.ComboBox cmbUsers;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnBingoNumber;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblAmountOfPlaters;
         private System.Windows.Forms.Label label3;
@@ -248,5 +271,8 @@
         private System.Windows.Forms.PictureBox pbGameMode;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button btnNewGame;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblAmountOfNumbers;
+        private System.Windows.Forms.TextBox txtBingoNumbers;
     }
 }

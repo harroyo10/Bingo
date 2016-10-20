@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,62 +15,83 @@ namespace Presentacion
     {
 
         GameManagement GM;
+        Juego game;
+        String modeName;
+        int bingoNumber;
+        List<int> numbers = new List<int>();
+        String txtNumbers = "";
+
         public GameOn(GameManagement oldGM)
         {
             InitializeComponent();
             GM = oldGM;
             extraComponents();
+            game = new Juego(GM.getAmountOfNumbers(), GM.getPlayers().ToList(), modeName);
+            bingoNumber = 0;
         }
 
         private void extraComponents()
         {
             populateCmbOfUsers();
-            changePictureBoxGameMode(GM.getGameMode());
+            setGameMode(GM.getGameMode());
             lblAmountOfPlaters.Text = GM.getPlayers().Length.ToString();
         }
 
-        private void changePictureBoxGameMode(int option)
+        private void setGameMode(int option)
         {
             switch (option)
             {
                 case 0:
-                    pbGameMode.Image = Presentacion.Properties.Resources._4esquinas;
+                    pbGameMode.Image = Presentacion.Properties.Resources.X;
+                    modeName = "Cartón lleno";
                     break;
                 case 1:
-                    pbGameMode.Image = Presentacion.Properties.Resources.custom;
+                    pbGameMode.Image = Presentacion.Properties.Resources._4esquinas;
+                    modeName = "Cuatro esquinas";
                     break;
                 case 2:
                     pbGameMode.Image = Presentacion.Properties.Resources.h;
+                    modeName = "Letra H";
                     break;
                 case 3:
                     pbGameMode.Image = Presentacion.Properties.Resources.X;
+                    modeName = "Letra X";
                     break;
                 case 4:
                     pbGameMode.Image = Presentacion.Properties.Resources.O;
+                    modeName = "Letra O";
                     break;
                 case 5:
                     pbGameMode.Image = Presentacion.Properties.Resources.U;
+                    modeName = "Letra U";
                     break;
                 case 6:
                     pbGameMode.Image = Presentacion.Properties.Resources.P;
+                    modeName = "Letra P";
                     break;
                 case 7:
                     pbGameMode.Image = Presentacion.Properties.Resources.X;
+                    modeName = "Letra A";
                     break;
                 case 8:
                     pbGameMode.Image = Presentacion.Properties.Resources.E;
+                    modeName = "Letra E";
                     break;
                 case 9:
                     pbGameMode.Image = Presentacion.Properties.Resources.X;
+                    modeName = "Letra W";
                     break;
                 case 10:
                     pbGameMode.Image = Presentacion.Properties.Resources.R;
+                    modeName = "Letra R";
                     break;
                 case 11:
                     pbGameMode.Image = Presentacion.Properties.Resources.custom;
+                    modeName = "Custom";
                     break;
             }
         }
+        
 
         private void populateCmbOfUsers()
         {
@@ -83,8 +105,7 @@ namespace Presentacion
         private DataGridViewTextBoxColumn setDGVTextColumn(int letterIndex)
         {
             String letter = "";
-            if
-            (letterIndex == 0) letter = "B";
+            if (letterIndex == 0) letter = "B";
             else
             if (letterIndex == 1) letter = "I";
             else
@@ -174,8 +195,59 @@ namespace Presentacion
             int index = cmbUsers.SelectedIndex;
             int cant = GM.getPlayers()[index].cantidadCartones; ;
 
+            testing(index);
+
             pnlBoards.Controls.Clear();
             generateUserBingoBoards(cant);
+        }
+
+        private void testing(int index)
+        {
+            //CartonBingo carton = GM.getPlayers()[index].cartones[index];
+            Console.WriteLine(GM.getPlayers()[index].nombre);
+        }
+
+        private bool isRepeated(int bingoNumber)
+        {
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                if (bingoNumber == numbers.ToArray()[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private int GenerateBingoNumber()
+        {
+            Random rnd = new Random();
+            bingoNumber = rnd.Next(1, (GM.getAmountOfNumbers() + 1));
+            return bingoNumber;
+        }
+
+        //btnBingoNumber
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (numbers.Count < 25)
+            {
+                bool signal = false;
+                while (signal == false)
+                {
+                    bingoNumber = GenerateBingoNumber();
+                    signal = isRepeated(bingoNumber);
+                    if (signal)
+                    {
+                        txtNumbers = txtNumbers + bingoNumber.ToString() + " ";
+                        txtBingoNumbers.Text = txtNumbers;
+                        lblAmountOfNumbers.Text = (numbers.Count + 1).ToString();
+                        numbers.Add(bingoNumber);
+                    }
+                }
+            } else
+            {
+                MessageBox.Show("No se pueden agregar más números", "Límite de números", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
