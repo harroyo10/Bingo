@@ -23,11 +23,9 @@ namespace Presentacion
 
         public void setGameModes(ComboBox cmbGameModes)
         {
-            cmbGameModes.Items.Add("Seleccione uno");
-            string[] gameModes = new string[] { "H", "D" };
-            for (int i = 0; i <= gameModes.Length - 1; i++)
+            for (int i = 0; i < HerramientasJuego.GetNombreDeModalidades().Length; i++)
             {
-                cmbGameModes.Items.Add(gameModes[i]);
+                cmbGameModes.Items.Add(HerramientasJuego.GetNombreDeModalidades()[i]);
             }
             cmbGameModes.SelectedIndex = 0;
         }
