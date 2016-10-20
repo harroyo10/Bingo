@@ -172,7 +172,7 @@ namespace Presentacion
         private void cmbUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = cmbUsers.SelectedIndex;
-            int cant = cmbUsers.Items.Add(GM.getPlayers()[index].cantidadCartones); ;
+            int cant = GM.getPlayers()[index].cantidadCartones; ;
 
             pnlBoards.Controls.Clear();
             generateUserBingoBoards(cant);
