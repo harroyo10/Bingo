@@ -20,6 +20,7 @@ namespace LogicaNegocios
             this.intervalo = (int)(totalNumeros / 5);
             this.modalidad = modalidad;
             this.jugadores = jugadores;
+            HerramientasJuego.CrearCartonesDeJugadores(jugadores,intervalo,modalidad);
         }
     }
 }
