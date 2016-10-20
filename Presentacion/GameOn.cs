@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaNegocios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,59 +15,76 @@ namespace Presentacion
     {
 
         GameManagement GM;
+        Juego game;
+        String modeName;
+
         public GameOn(GameManagement oldGM)
         {
             InitializeComponent();
             GM = oldGM;
             extraComponents();
+            modeName = "";
+            game = new Juego(GM.getAmountOfNumbers(), GM.getPlayers(), modeName);
         }
 
         private void extraComponents()
         {
             populateCmbOfUsers();
-            changePictureBoxGameMode(GM.getGameMode());
+            setGameMode(GM.getGameMode());
             lblAmountOfPlaters.Text = GM.getPlayers().Length.ToString();
         }
 
-        private void changePictureBoxGameMode(int option)
+        private void setGameMode(int option)
         {
             switch (option)
             {
                 case 0:
                     pbGameMode.Image = Presentacion.Properties.Resources.X;
+                    modeName = "Cartón lleno";
                     break;
                 case 1:
                     pbGameMode.Image = Presentacion.Properties.Resources._4esquinas;
+                    modeName = "Cartón lleno";
                     break;
                 case 2:
                     pbGameMode.Image = Presentacion.Properties.Resources.h;
+                    modeName = "Cuatro esquinas";
                     break;
                 case 3:
                     pbGameMode.Image = Presentacion.Properties.Resources.X;
+                    modeName = "Letra H";
                     break;
                 case 4:
                     pbGameMode.Image = Presentacion.Properties.Resources.O;
+                    modeName = "Letra X";
                     break;
                 case 5:
                     pbGameMode.Image = Presentacion.Properties.Resources.U;
+                    modeName = "Letra O";
                     break;
                 case 6:
                     pbGameMode.Image = Presentacion.Properties.Resources.P;
+                    modeName = "Letra U";
                     break;
                 case 7:
                     pbGameMode.Image = Presentacion.Properties.Resources.X;
+                    modeName = "Letra P";
                     break;
                 case 8:
                     pbGameMode.Image = Presentacion.Properties.Resources.E;
+                    modeName = "Letra A";
                     break;
                 case 9:
                     pbGameMode.Image = Presentacion.Properties.Resources.X;
+                    modeName = "Letra E";
                     break;
                 case 10:
                     pbGameMode.Image = Presentacion.Properties.Resources.R;
+                    modeName = "Letra R";
                     break;
                 case 11:
                     pbGameMode.Image = Presentacion.Properties.Resources.custom;
+                    modeName = "Custom";
                     break;
             }
         }
