@@ -21,7 +21,7 @@ namespace Herramientas
 
         public static Boolean SonArraysIguales(int[] array1, int[] array2)
         {
-            return array1.SequenceEqual(array2);
+            return ImprimirArray(array1) == ImprimirArray(array2);
         }
     }
 }
