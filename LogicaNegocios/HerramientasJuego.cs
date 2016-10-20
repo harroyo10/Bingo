@@ -13,15 +13,7 @@ namespace LogicaNegocios
 
         public static bool sonCartonesIguales(CartonBingo carton1, CartonBingo carton2)
         {
-          //  int[] array; 
-            for (int i=0; i<5; i++)
-            {
-                //if(carton1.getCarton().Values.[i] != carton2.getCarton().Values[i])
-               // {
-               //     return false;
-              //  }
-            }
-            return true;;
+            return carton1.ImprimirValoresCarton() == carton2.ImprimirValoresCarton();
         }
 
         public static string[] GetNombresDeColumnas()
@@ -42,30 +34,9 @@ namespace LogicaNegocios
             return new int[] { minimo, maximo };
         }
 
-        public static CampoCarton[] GenerarColumnaBingo(string columna, int intervalo)
-        {
-            int[] valoresColumna = Herramientas.CrearArray.CrearRandomArray(5,
-                                                                EncontrarIntervaloDeColumna(columna, intervalo)[0],
-                                                                EncontrarIntervaloDeColumna(columna, intervalo)[1]);
-            CampoCarton[] campos = new CampoCarton[5];
-            for (int i=0; i<valoresColumna.Length; i++)
-            {
-                campos[i] = new CampoCarton(valoresColumna[i], i, columna);
-            }
-            return campos;
+        
 
-        }
-
-        public static string TempImprimirColumna(CampoCarton[] columna)
-        {
-            var msg = "";
-            foreach (var item in columna)
-            {
-                msg += item.ToString() + ",";
-            }
-            return msg;
-        }
-
+        
 
 
     }

@@ -4,50 +4,89 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Herramientas;
-using ParametrosGlobales;
 
 namespace LogicaNegocios
 {
     public class CartonBingo
     {
-        Dictionary<string,int[]> carton;
+        Dictionary<string, CampoCarton[]> carton;
+       // Dictionary<string, int[]> valoresCarton;
         int intervalo;
-        public CartonBingo (int totalNumeros)
+        
+        public CartonBingo (int intervalo)
         {
-            this.intervalo = totalNumeros / 5;
-            int i = 0;
-            this.carton = new Dictionary<string, int[]>()
-            {
-                { "B", CrearArray.CrearRandomArray(5, intervalo * i + 1, intervalo*(i++)+intervalo) },
-                { "I", CrearArray.CrearRandomArray(5, intervalo * i + 1, intervalo*(i++)+intervalo) },
-                { "N", CrearArray.CrearRandomArray(5, intervalo * i + 1, intervalo*(i++)+intervalo) },
-                { "G", CrearArray.CrearRandomArray(5, intervalo * i + 1, intervalo*(i++)+intervalo) },
-                { "O", CrearArray.CrearRandomArray(5, intervalo * i + 1, intervalo*(i++)+intervalo) },
-            };
+            this.intervalo = intervalo;
+            this.carton = GenerarCartonBingo();
+            vaciarPosicionCentral();
         }
 
-        override public string ToString()
-        {
-            var msg = "";
-            foreach(var item in this.carton.Values)
-            {
-                msg += ConsultarArray.imprimirArray(item)+",";
-            }
-            return msg;
-        }
-
-        public string imprimirColumna(string fila)
-        {
-            int[] valorColumna;
-            if (this.carton.TryGetValue(fila, out valorColumna)) ;
-            return ConsultarArray.imprimirArray(valorColumna);
-        }
-
-       public Dictionary<string, int[]> getCarton()
+        public Dictionary<string, CampoCarton[]> getCarton()
         {
             return this.carton;
         }
 
+        private void vaciarPosicionCentral()
+        {
+            this.carton["N"][2].valor = 0;
+        }
 
+        public string ImprimirColumna(CampoCarton[] columna)
+        {
+            var msg = "";
+            foreach (var item in columna)
+            {
+                msg += item.ToString() + ",";
+            }
+            return msg;
+        }
+
+        private string ImprimirColumnaValores(CampoCarton[] columna)
+        {
+            var msg = "";
+            foreach (var item in columna)
+            {
+                msg += item.valor + ",";
+            }
+            return msg;
+        }
+
+
+        public string ImprimirValoresCarton()
+        {
+            var msg = "";
+            foreach (var columna in carton)
+            {
+                msg += ImprimirColumnaValores(columna.Value);
+            }
+            return msg;
+        }
+
+        public CampoCarton[] GenerarColumnaBingo(string columna, int intervalo)
+        {
+            int[] valoresColumna = Herramientas.CrearArray.CrearRandomArray(5,
+                                                                HerramientasJuego.EncontrarIntervaloDeColumna(columna, intervalo)[0],
+                                                                HerramientasJuego.EncontrarIntervaloDeColumna(columna, intervalo)[1]);
+            CampoCarton[] campos = new CampoCarton[5];
+            for (int i = 0; i < valoresColumna.Length; i++)
+            {
+                campos[i] = new CampoCarton(valoresColumna[i], i, columna);
+            }
+            return campos;
+
+        }
+
+        public Dictionary<string, CampoCarton[]> GenerarCartonBingo()
+        {
+            Dictionary<string, CampoCarton[]> cartonTemporal = new Dictionary<string, CampoCarton[]>();
+            for (int i=0; i<5; i++)
+            {
+                string columna = HerramientasJuego.GetNombresDeColumnas()[i];
+                cartonTemporal.Add(columna, GenerarColumnaBingo(columna, intervalo));
+            }
+            return cartonTemporal;
+        }
+
+      
+        
     }
 }
