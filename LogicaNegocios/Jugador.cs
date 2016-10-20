@@ -8,13 +8,13 @@ namespace LogicaNegocios
 {
     public class Jugador
     {
-        string nombre;
-        int cantidadCartones;
-        CartonBingo[] cartones;
+        public string nombre { set; get; }
+        public int cantidadCartones { set; get; }
+        public CartonBingo[] cartones { set; get; }
 
         public Jugador()
         {
-
+            
         }
     }
 }
