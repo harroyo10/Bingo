@@ -121,7 +121,7 @@ namespace Presentacion
             return columnHeader;
         }
 
-        private void generateUserBingoBoards(int boardsAmount)
+        private void generateUserBingoBoards(int boardsAmount, int player)
         {
             int x = 24;
             int y = 35;
@@ -146,35 +146,75 @@ namespace Presentacion
                 dgv.TabIndex = 0;
                 dgv.RowHeadersVisible = false;
 
-                for (int h = 0; h < 5; h++)
+                //Ajustar el tamaño de las columnas
+                for (int j = 0; j < 5; j++)
                 {
-                    DataGridViewColumn column = dgv.Columns[h];
+                    DataGridViewColumn column = dgv.Columns[j];
                     column.Width = 20;
                 }
 
-                int B = 1, I = 6, N = 11, G = 16, O = 21;
-                for (int p = 0; p < 5; p++)
+                CartonBingo carton = GM.getPlayers()[player].cartones[i];
+                foreach (KeyValuePair<string, CampoCarton[]> entry in carton.getCarton())
                 {
-                    string[] row = new string[] { B.ToString(), I.ToString(), N.ToString(), G.ToString(), O.ToString() };
-                    dgv.Rows.Add(row);
-                    B++; I++; N++; G++; O++;
+                    CampoCarton[] CC = entry.Value;
+                    Console.WriteLine(CC[0].ToString());
+                    String[] row = new String[] { "" };
+                    //Console.WriteLine(CC[1].ToString());
+                    //Console.WriteLine(CC[3].ToString());
+                    //Console.WriteLine(CC[4].ToString());
                 }
 
-                String[,] matriz = new String[5, 5];
-                matriz[0, 0] = "X";
-                dgv.Rows[2].Cells[2].Value = matriz[0, 0];
+                //for (int p = 0; p < 5; p++)
+                //{
+                //    string[] row = new string[] { B.ToString(), I.ToString(), N.ToString(), G.ToString(), O.ToString() };
+                //    dgv.Rows.Add(row);
+                //    B++; I++; N++; G++; O++;
+                //}
 
-                Label myLabel = new Label();
-                myLabel.Text = "Cartón #: " + (i + 1);
-                myLabel.Left = 20;
-                myLabel.Top = labelX;
+                //Agregar label junto con el número de carton
+                Label boardIndicator = new Label();
+                boardIndicator.Text = "Cartón #: " + (i + 1);
+                boardIndicator.Left = 20;
+                boardIndicator.Top = labelX;
 
-                pnlBoards.Controls.Add(myLabel);
+                pnlBoards.Controls.Add(boardIndicator);
                 pnlBoards.Controls.Add(dgv);
 
                 y = y + 190;
                 labelX = labelX + 190;
             }
+        }
+
+        private void testing400()
+        {
+            for (int i = 0; i<5; i++)
+            {
+                string[] row = new string[] { "" };
+            }
+        }
+
+        private int setColumnFromDictionary(char columnLetter)
+        {
+            int columnNumber = 0;
+            switch(columnLetter)
+            {
+                case 'B':
+                    columnNumber = 0;
+                    break;
+                case 'I':
+                    columnNumber = 1;
+                    break;
+                case 'N':
+                    columnNumber = 2;
+                    break;
+                case 'G':
+                    columnNumber = 3;
+                    break;
+                case 'O':
+                    columnNumber = 4;
+                    break;
+            }
+            return columnNumber;
         }
         
         private void generateReviewBingoBoards()
@@ -194,18 +234,40 @@ namespace Presentacion
             int index = cmbUsers.SelectedIndex;
             int cant = GM.getPlayers()[index].cantidadCartones; ;
 
-            testing(index);
+            test24(index);
 
             pnlBoards.Controls.Clear();
-            generateUserBingoBoards(cant);
+            //generateUserBingoBoards(cant, index);
         }
 
-        private void testing(int index)
+        private void test24(int index)
         {
+            int[,] matriz = new int[5, 5];
             CartonBingo carton = GM.getPlayers()[index].cartones[index];
             foreach (KeyValuePair<string, CampoCarton[]> entry in carton.getCarton())
             {
-                Console.WriteLine(entry.Value);
+                CampoCarton[] CC = entry.Value;
+
+                
+                for (int i = 0; i < 5; i++)
+                {
+                    char column = (CC[i].columna[0]);
+                    matriz[setColumnFromDictionary(column), i] = CC[setColumnFromDictionary(column)].valor;
+                }
+
+                //Console.WriteLine(matriz[0, 0]);
+                //Console.WriteLine(matriz[0, 1]);
+
+
+
+
+
+                //String[] row = new String[] { "" };
+                Console.WriteLine(CC[0].ToString());
+                Console.WriteLine(CC[1].ToString());
+                Console.WriteLine(CC[2].ToString());
+                Console.WriteLine(CC[3].ToString());
+                Console.WriteLine(CC[4].ToString());
             }
         }
 
@@ -241,7 +303,7 @@ namespace Presentacion
         //btnBingoNumber
         private void button3_Click(object sender, EventArgs e)
         {
-            if (numbers.Count < 25)
+            if (numbers.Count < GM.getAmountOfNumbers())
             {
                 bool signal = false;
                 while (signal == false)

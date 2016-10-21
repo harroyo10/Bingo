@@ -12,15 +12,13 @@ namespace LogicaNegocios
         public int fila { set; get; }
         public string columna { set; get; }
         public bool boolJugado { set; get; }
-        public bool boolAfortunado { set; get; }
-
+       
         public CampoCarton(int valor, int fila, string columna)
         {
             this.valor = valor;
             this.fila = fila;
             this.columna = columna;
             this.boolJugado = false;
-            this.boolAfortunado = false;
         }
 
         public override string ToString()

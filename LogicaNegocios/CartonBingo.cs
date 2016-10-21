@@ -13,15 +13,27 @@ namespace LogicaNegocios
         int intervalo;
         ModalidadJuego modalidad;
         List<int> numerosRequeridosParaGanar;
+        string jugadorAlQuePertenece;
 
         public CartonBingo (int intervalo, string modalidad)
         {
             this.intervalo = intervalo;
             this.carton = GenerarCartonBingo();
             this.modalidad = HerramientasJuego.GetModalidad(modalidad);
-            this.numerosRequeridosParaGanar = getNumerosAfortunados();
+            this.numerosRequeridosParaGanar = EncontrarNumerosRequeridosParaGanar();
             vaciarPosicionCentral();
             
+        }
+
+        public CartonBingo(int intervalo, string modalidad, string jugadorAlQuePertenece)
+        {
+            this.intervalo = intervalo;
+            this.carton = GenerarCartonBingo();
+            this.modalidad = HerramientasJuego.GetModalidad(modalidad);
+            this.jugadorAlQuePertenece = jugadorAlQuePertenece;
+            this.numerosRequeridosParaGanar = EncontrarNumerosRequeridosParaGanar();
+            vaciarPosicionCentral();
+
         }
 
         public Dictionary<string, CampoCarton[]> getCarton()
@@ -92,7 +104,7 @@ namespace LogicaNegocios
 
 
 
-        public List<int> getNumerosAfortunados()
+        public List<int> EncontrarNumerosRequeridosParaGanar()
         {
             List<int> numeros = new List<int>();
             foreach (KeyValuePair<string,int> campoAfortunado in this.modalidad.GetCamposAfortunados())
@@ -101,6 +113,23 @@ namespace LogicaNegocios
             }
            
             return numeros;
+        }
+
+        public bool esAfortunado(int numero)
+        {
+            string columna = HerramientasJuego.EncontrarAQueColumnaPertenece(numero, intervalo);
+            int posicion = HerramientasJuego.ObtenerCampoDeColumna(numero, carton[columna]);
+            if(posicion == -1)
+            {
+                return false;
+            }
+            marcarCampo(columna, posicion);
+            return true;
+        }
+
+        private void marcarCampo(string columna, int posicion)
+        {
+            carton[columna][posicion].boolJugado = true;
         }
 
         public bool esGanador(List<int> numerosJugados)
