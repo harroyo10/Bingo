@@ -49,6 +49,21 @@ namespace LogicaNegocios
             return numero;
         }
 
+        public List<CartonBingo> ObtenerAfortunados(int numero)
+        {
+            List<CartonBingo> cartonesAfortunados = new List<CartonBingo>();
+            foreach (Jugador jugador in jugadores)
+            {
+                foreach(CartonBingo carton in jugador.cartones)
+                {
+                    if (carton.esAfortunado(numero))
+                    {
+                        cartonesAfortunados.Add(carton);
+                    }
+                }
+            }
+            return cartonesAfortunados;
+        }
     
     }
 }
