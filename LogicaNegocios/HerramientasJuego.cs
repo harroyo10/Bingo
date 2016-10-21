@@ -56,6 +56,18 @@ namespace LogicaNegocios
             return new int[] { minimo, maximo };
         }
 
+        public static int ObtenerCampoDeColumna(int numero, CampoCarton[] columna)
+        {
+            for (int i=0; i<columna.Length; i++)
+            {    
+                if (columna[i].valor == numero)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
         
         public static string[] GetNombreDeModalidades()
         {
@@ -75,7 +87,7 @@ namespace LogicaNegocios
                 {
                     CartonBingo carton;
                     do {
-                        carton = new CartonBingo(intervalo, modalidad);
+                        carton = new CartonBingo(intervalo, modalidad, jugador.nombre);
                     } while (EsElCartonRepetido(carton, jugadores)); 
                     jugador.cartones.Add(carton);
                 }
@@ -102,6 +114,11 @@ namespace LogicaNegocios
             }
             return false;
         }
+
+        public static List<int> GenerarNumerosEnBiombo(int totalNumeros)
+        {
+            return Herramientas.CrearListas.CrearListaDesordenada(1, totalNumeros);
+        } 
 
     }
 
