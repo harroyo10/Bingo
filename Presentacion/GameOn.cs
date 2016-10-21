@@ -15,163 +15,70 @@ namespace Presentacion
     {
 
         GameManagement GM;
+        startMenu mainMenu;
         Juego game;
         String modeName;
         int bingoNumber;
         List<int> numbers = new List<int>();
+        UIManagement UI = new UIManagement();
 
-        public GameOn(GameManagement oldGM)
+        public GameOn(startMenu oldSM, GameManagement oldGM)
         {
             InitializeComponent();
+            //Inicio de las clases de ayuda
             GM = oldGM;
+            mainMenu = oldSM;
+            //Componentes extra
             extraComponents();
+            //Inicio del juego
             game = new Juego(GM.getAmountOfNumbers(), GM.getPlayers().ToList(), modeName);
+            //Temp
             bingoNumber = 0;
         }
 
         private void extraComponents()
         {
-            populateCmbOfUsers();
-            setGameMode(GM.getGameMode());
+            //Componentes atravez de la UI
+            UI.populateCmbOfUsers(cmbUsers, GM.getPlayers());
+            modeName = UI.setGameMode(GM.getGameMode(), pbGameMode);
+            //Otros
             lblAmountOfPlaters.Text = GM.getPlayers().Length.ToString();
-        }
-
-        private void setGameMode(int option)
-        {
-            switch (option)
-            {
-                case 0:
-                    pbGameMode.Image = Presentacion.Properties.Resources.X;
-                    modeName = "Cartón Lleno";
-                    break;
-                case 1:
-                    pbGameMode.Image = Presentacion.Properties.Resources._4esquinas;
-                    modeName = "Cuatro esquinas";
-                    break;
-                case 2:
-                    pbGameMode.Image = Presentacion.Properties.Resources.h;
-                    modeName = "Letra H";
-                    break;
-                case 3:
-                    pbGameMode.Image = Presentacion.Properties.Resources.X;
-                    modeName = "Letra X";
-                    break;
-                case 4:
-                    pbGameMode.Image = Presentacion.Properties.Resources.O;
-                    modeName = "Letra O";
-                    break;
-                case 5:
-                    pbGameMode.Image = Presentacion.Properties.Resources.U;
-                    modeName = "Letra U";
-                    break;
-                case 6:
-                    pbGameMode.Image = Presentacion.Properties.Resources.P;
-                    modeName = "Letra P";
-                    break;
-                case 7:
-                    pbGameMode.Image = Presentacion.Properties.Resources.X;
-                    modeName = "Letra A";
-                    break;
-                case 8:
-                    pbGameMode.Image = Presentacion.Properties.Resources.E;
-                    modeName = "Letra E";
-                    break;
-                case 9:
-                    pbGameMode.Image = Presentacion.Properties.Resources.X;
-                    modeName = "Letra W";
-                    break;
-                case 10:
-                    pbGameMode.Image = Presentacion.Properties.Resources.R;
-                    modeName = "Letra R";
-                    break;
-                case 11:
-                    pbGameMode.Image = Presentacion.Properties.Resources.custom;
-                    modeName = "Custom";
-                    break;
-            }
-        }
-        
-
-        private void populateCmbOfUsers()
-        {
-            for(int i = 0; i < GM.getPlayers().Length; i++)
-            {
-                cmbUsers.Items.Add(GM.getPlayers()[i].nombre);
-            }
-        }
-
-        //setDataGridViewTextColumn
-        private DataGridViewTextBoxColumn setDGVTextColumn(int letterIndex)
-        {
-            String letter = "";
-            if (letterIndex == 0) letter = "B";
-            else
-            if (letterIndex == 1) letter = "I";
-            else
-            if (letterIndex == 2) letter = "N";
-            else
-            if (letterIndex == 3) letter = "G";
-            else
-            if (letterIndex == 4) letter = "O";
-
-            DataGridViewTextBoxColumn columnHeader = new DataGridViewTextBoxColumn();
-            columnHeader.HeaderText = letter;
-            columnHeader.Name = "Letter" + letter;
-            columnHeader.ReadOnly = true;
-            return columnHeader;
         }
 
         private void generateUserBingoBoards(int boardsAmount, int player)
         {
-            int x = 24;
-            int y = 35;
+            int x = 24; //Ancho
+            int y = 35;//Altura
             int labelX = 10;
 
             for (int i = 0; i < boardsAmount; i++)
             {
-                DataGridView dgv = new DataGridView();
 
-                //GridView propierties
-                dgv.AllowUserToAddRows = false;
-                dgv.AllowUserToResizeColumns = false;
-                dgv.AllowUserToResizeRows = false;
-                dgv.AllowUserToDeleteRows = false;
-                dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-                dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-                setDGVTextColumn(0), setDGVTextColumn(1),setDGVTextColumn(2),setDGVTextColumn(3),setDGVTextColumn(4),});
-                dgv.Location = new System.Drawing.Point(x, y);
-                dgv.Name = "gvUserBoard";
-                dgv.ReadOnly = true;
-                dgv.Size = new System.Drawing.Size(104, 135);
-                dgv.TabIndex = 0;
-                dgv.RowHeadersVisible = false;
+                DataGridView dgv = UI.makeDataGridView(x, y);
 
-                //Ajustar el tamaño de las columnas
-                for (int j = 0; j < 5; j++)
-                {
-                    DataGridViewColumn column = dgv.Columns[j];
-                    column.Width = 20;
-                }
-
+                int[,] matriz = new int[5,5];
                 CartonBingo carton = GM.getPlayers()[player].cartones[i];
                 foreach (KeyValuePair<string, CampoCarton[]> entry in carton.getCarton())
                 {
-                    CampoCarton[] CC = entry.Value;
-                    Console.WriteLine(CC[0].ToString());
-                    String[] row = new String[] { "" };
-                    //Console.WriteLine(CC[1].ToString());
-                    //Console.WriteLine(CC[3].ToString());
-                    //Console.WriteLine(CC[4].ToString());
+                    CampoCarton[] CampoCarton = entry.Value;
+                    for (int j = 0; j < 5; j++)
+                    {
+                        char column = (CampoCarton[j].columna[0]);
+                        matriz[setColumnFromDictionary(column) , j] = CampoCarton[j].valor;
+                    }
                 }
 
-                //for (int p = 0; p < 5; p++)
-                //{
-                //    string[] row = new string[] { B.ToString(), I.ToString(), N.ToString(), G.ToString(), O.ToString() };
-                //    dgv.Rows.Add(row);
-                //    B++; I++; N++; G++; O++;
-                //}
+                string[] row = new string[5];
 
-                //Agregar label junto con el número de carton
+                for (int j = 0; j < 5; j++)
+                {
+                    for (int k = 0; k < 5; k++)
+                    {
+                        row[k] = matriz[k, j].ToString();
+                    }
+                    dgv.Rows.Add(row);
+                }
+
                 Label boardIndicator = new Label();
                 boardIndicator.Text = "Cartón #: " + (i + 1);
                 boardIndicator.Left = 20;
@@ -182,14 +89,6 @@ namespace Presentacion
 
                 y = y + 190;
                 labelX = labelX + 190;
-            }
-        }
-
-        private void testing400()
-        {
-            for (int i = 0; i<5; i++)
-            {
-                string[] row = new string[] { "" };
             }
         }
 
@@ -216,71 +115,16 @@ namespace Presentacion
             }
             return columnNumber;
         }
-        
-        private void generateReviewBingoBoards()
-        {
-
-        }
-
-        private void setWinnerBoards()
-        {
-
-        }
 
         //Buttons methods
 
         private void cmbUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = cmbUsers.SelectedIndex;
-            int cant = GM.getPlayers()[index].cantidadCartones; ;
-
-            test24(index);
+            int cant = GM.getPlayers()[index].cantidadCartones;
 
             pnlBoards.Controls.Clear();
-            //generateUserBingoBoards(cant, index);
-        }
-
-        private void test24(int index)
-        {
-            int[,] matriz = new int[5, 5];
-            CartonBingo carton = GM.getPlayers()[index].cartones[index];
-            foreach (KeyValuePair<string, CampoCarton[]> entry in carton.getCarton())
-            {
-                CampoCarton[] CC = entry.Value;
-
-                
-                for (int i = 0; i < 5; i++)
-                {
-                    char column = (CC[i].columna[0]);
-                    matriz[setColumnFromDictionary(column), i] = CC[setColumnFromDictionary(column)].valor;
-                }
-
-                //Console.WriteLine(matriz[0, 0]);
-                //Console.WriteLine(matriz[0, 1]);
-
-
-
-
-
-                //String[] row = new String[] { "" };
-                Console.WriteLine(CC[0].ToString());
-                Console.WriteLine(CC[1].ToString());
-                Console.WriteLine(CC[2].ToString());
-                Console.WriteLine(CC[3].ToString());
-                Console.WriteLine(CC[4].ToString());
-            }
-        }
-
-        private bool isRepeated(int bingoNumber)
-        {
-            for (int i = 0; i < numbers.Count; i++)
-            {
-                if (bingoNumber == numbers.ToArray()[i])
-                {
-                    return false;
-                }
-            }
-            return true;
+            generateUserBingoBoards(cant, index);
         }
 
         private String generateNumbersText()
@@ -309,7 +153,7 @@ namespace Presentacion
                 while (signal == false)
                 {
                     bingoNumber = GenerateBingoNumber();
-                    signal = isRepeated(bingoNumber);
+                    signal = UI.isRepeated(bingoNumber, numbers); ;
                     if (signal)
                     {
                         lblAmountOfNumbers.Text = (numbers.Count + 1).ToString();
@@ -322,6 +166,13 @@ namespace Presentacion
             {
                 MessageBox.Show("No se pueden agregar más números.", "Límite de números", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnNewGame_Click(object sender, EventArgs e)
+        {
+            mainMenu.getPlayButton().Enabled = false;
+            mainMenu.Visible = true;
+            Hide();
         }
 
 
