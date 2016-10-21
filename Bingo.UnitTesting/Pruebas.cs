@@ -12,38 +12,61 @@ namespace Bingo.UnitTesting
         [TestMethod]
         public void UnGanador()
         {
-            
-            List<int> numerosRequeridosParaGanar = new List<int>();
+
+            List<Jugador> Jugadores = new List<Jugador>();
+            int NumeroGanador = 0;
             int Intervalo = 0;
             string Modalidad = "";
             bool Resultado = true;
 
+            Juego ReferenciaDinamica = new Juego(Intervalo,Jugadores,Modalidad);
+            ReferenciaDinamica.ObtenerAfortunados(NumeroGanador);
+
+
+            /*
+            List<int> numerosRequeridosParaGanar = new List<int>();
             CartonBingo ReferenciaDinamica = new CartonBingo(Intervalo,Modalidad);
             bool ResultadoReal = ReferenciaDinamica.esGanador(numerosRequeridosParaGanar);
             Assert.AreEqual(Resultado, ResultadoReal);
-           
-
+           */
+            
 
         }
 
         [TestMethod]
         public void VariosGanadores()
         {
-            /*List<int> numerosRequeridosParaGanar = new List<int>();
+           
+             List<Jugador> Jugadores = new List<Jugador>();
+            int NumeroGanador = 0;
             int Intervalo = 0;
             string Modalidad = "";
             bool Resultado = true;
-
-            CartonBingo ReferenciaDinamica = new CartonBingo(Intervalo,Modalidad);
-            bool ResultadoReal = ReferenciaDinamica.esGanador(numerosRequeridosParaGanar);
-            Assert.AreEqual(Resultado, ResultadoReal);
-           */
+            
+            Juego ReferenciaDinamica = new Juego(Intervalo, Jugadores,Modalidad);
+            ReferenciaDinamica.ObtenerAfortunados(NumeroGanador);
+           
+            /*
+           CartonBingo ReferenciaDinamica = new CartonBingo(Intervalo,Modalidad);
+           bool ResultadoReal = ReferenciaDinamica.esGanador(numerosRequeridosParaGanar);
+           Assert.AreEqual(Resultado, ResultadoReal);
+          */
         }
 
         [TestMethod]
         public void NingunGanador()
         {
-            
+
+            List<Jugador> Jugadores = new List<Jugador>();
+            int NumeroGanador = 0;
+            int Intervalo = 0;
+            string Modalidad = "";
+            bool Resultado = false;
+
+            Juego ReferenciaDinamica = new Juego(Intervalo,Jugadores,Modalidad);
+            ReferenciaDinamica.ObtenerAfortunados(NumeroGanador);
+
+            /*
             List<int> numerosRequeridosParaGanar = new List<int>();
             int Intervalo = 0;
             string Modalidad = "";
@@ -52,17 +75,17 @@ namespace Bingo.UnitTesting
             CartonBingo ReferenciaDinamica = new CartonBingo(Intervalo, Modalidad);
             bool ResultadoReal = ReferenciaDinamica.esGanador(numerosRequeridosParaGanar);
             Assert.AreEqual(Resultado, ResultadoReal);
-            
+            */
         }
         [TestMethod]
         public void ElNumeroYaSalio()
         {
-
+            List<Jugador> Jugadores = new List<Jugador>();
             int totalNumeros = 0;
             int ElNumero = 0;
-            string modalidad = "";
+            string Modalidad = "";
 
-            Juego ReferenciaDinamica = new Juego(totalNumeros, modalidad);
+            Juego ReferenciaDinamica = new Juego(totalNumeros,Jugadores, Modalidad);
 
             if (ReferenciaDinamica.numerosJugados.Contains(ElNumero))
                 return;
@@ -82,12 +105,12 @@ namespace Bingo.UnitTesting
         [TestMethod]
         public void ElNumeroNoHaSalido()
         {
-            
+            List<Jugador> Jugadores = new List<Jugador>();
             int totalNumeros = 0;
             int ElNumero = 0;
-            string modalidad = "";
+            string Modalidad = "";
 
-            Juego ReferenciaDinamica = new Juego(totalNumeros,modalidad);
+            Juego ReferenciaDinamica = new Juego(totalNumeros,Jugadores,Modalidad);
        
             if (ReferenciaDinamica.numerosJugados.Contains(ElNumero))
             {
@@ -95,9 +118,7 @@ namespace Bingo.UnitTesting
             }
             else {
                 return;
-            }
-
-           
+            }    
         }
 
         [TestMethod]

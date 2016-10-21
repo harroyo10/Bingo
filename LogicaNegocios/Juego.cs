@@ -28,11 +28,7 @@ namespace LogicaNegocios
 
         }
 
-        public Juego(int totalNumeros, string modalidad) {
-            //Con el fin de llamarlo al unitTesting
-            this.totalNumeros = totalNumeros;
-            this.modalidad = modalidad;
-        }
+  
 
         public int SacarNumeroDeBiombo()
         {
