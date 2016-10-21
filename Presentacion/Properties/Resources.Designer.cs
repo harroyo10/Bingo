@@ -63,6 +63,66 @@ namespace Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1472334850_Add {
+            get {
+                object obj = ResourceManager.GetObject("1472334850_Add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1472334897_f_cross_256 {
+            get {
+                object obj = ResourceManager.GetObject("1472334897_f-cross_256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1472354373_floppy {
+            get {
+                object obj = ResourceManager.GetObject("1472354373_floppy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1473411780_add_user {
+            get {
+                object obj = ResourceManager.GetObject("1473411780_add_user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1477086418_Settings_5 {
+            get {
+                object obj = ResourceManager.GetObject("1477086418_Settings-5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1477086992_user {
+            get {
+                object obj = ResourceManager.GetObject("1477086992_user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _4esquinas {
             get {
                 object obj = ResourceManager.GetObject("4esquinas", resourceCulture);
@@ -93,6 +153,16 @@ namespace Presentacion.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bingo_balls {
+            get {
+                object obj = ResourceManager.GetObject("bingo_balls", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bingo_latina {
             get {
                 object obj = ResourceManager.GetObject("bingo latina", resourceCulture);
@@ -106,6 +176,16 @@ namespace Presentacion.Properties {
         internal static System.Drawing.Bitmap bingobutton {
             get {
                 object obj = ResourceManager.GetObject("bingobutton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BingoPlay {
+            get {
+                object obj = ResourceManager.GetObject("BingoPlay", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

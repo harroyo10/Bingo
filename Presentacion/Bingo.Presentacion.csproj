@@ -151,6 +151,30 @@
   <ItemGroup>
     <None Include="Resources\CartonLleno.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bingo_balls.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1477086418_Settings-5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BingoPlay.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1472354373_floppy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1472334897_f-cross_256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1472334850_Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1473411780_add_user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1477086992_user.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

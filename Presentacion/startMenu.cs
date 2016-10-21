@@ -17,10 +17,10 @@ namespace Presentacion
         public startMenu()
         {
             InitializeComponent();
-            extraComponents();
+            ComponentesExtra();
         }
 
-        private void extraComponents()
+        private void ComponentesExtra()
         {
             CenterToScreen();
             MaximizeBox = false;
@@ -32,26 +32,26 @@ namespace Presentacion
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            Settings frmSettings = new Settings(this);
+            Settings pantallaAjustes = new Settings(this);
             this.Visible = false;
-            frmSettings.ShowDialog();
+            pantallaAjustes.ShowDialog();
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            GameOn newGame = new GameOn(this, GM);
+            GameOn juegoNuevo = new GameOn(this, GM);
             this.Visible = false;
-            newGame.ShowDialog();
+            juegoNuevo.ShowDialog();
         }
 
         //Sets & Gets
 
-        public void setGameMangament(GameManagement GM)
+        public void EstablecerModoDeJuego(GameManagement GM)
         {
             this.GM = GM;
         }
 
-        public Button getPlayButton()
+        public Button ObtenerBotonJugar()
         {
             return btnPlay;
         }

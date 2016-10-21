@@ -31,16 +31,12 @@
             this.gvDetails = new System.Windows.Forms.DataGridView();
             this.players = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.numofCartons = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAddPlayer = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnContinue = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtAmountOfNumbers = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbGameModes = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblAoB = new System.Windows.Forms.Label();
             this.lblAoP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,6 +45,10 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAddPlayer = new System.Windows.Forms.Button();
+            this.btnContinue = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetails)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -81,36 +81,6 @@
             this.numofCartons.HeaderText = "Número de cartones";
             this.numofCartons.Name = "numofCartons";
             this.numofCartons.ReadOnly = true;
-            // 
-            // btnAddPlayer
-            // 
-            this.btnAddPlayer.Location = new System.Drawing.Point(40, 114);
-            this.btnAddPlayer.Name = "btnAddPlayer";
-            this.btnAddPlayer.Size = new System.Drawing.Size(124, 23);
-            this.btnAddPlayer.TabIndex = 1;
-            this.btnAddPlayer.Text = "Agregar jugador";
-            this.btnAddPlayer.UseVisualStyleBackColor = true;
-            this.btnAddPlayer.Click += new System.EventHandler(this.btnAddPlayer_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(623, 322);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnContinue
-            // 
-            this.btnContinue.Location = new System.Drawing.Point(527, 322);
-            this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(75, 23);
-            this.btnContinue.TabIndex = 3;
-            this.btnContinue.Text = "Guardar";
-            this.btnContinue.UseVisualStyleBackColor = true;
-            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
             // panel1
             // 
@@ -175,16 +145,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(155, 220);
             this.panel2.TabIndex = 6;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Presentacion.Properties.Resources.small;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 80);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 123);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
             // 
             // lblAoB
             // 
@@ -253,6 +213,52 @@
             this.label1.Size = new System.Drawing.Size(96, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nombre de usuario";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Presentacion.Properties.Resources.small;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 80);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 123);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnAddPlayer
+            // 
+            this.btnAddPlayer.Image = global::Presentacion.Properties.Resources._1473411780_add_user;
+            this.btnAddPlayer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAddPlayer.Location = new System.Drawing.Point(40, 114);
+            this.btnAddPlayer.Name = "btnAddPlayer";
+            this.btnAddPlayer.Size = new System.Drawing.Size(124, 23);
+            this.btnAddPlayer.TabIndex = 1;
+            this.btnAddPlayer.Text = "Agregar jugador";
+            this.btnAddPlayer.UseVisualStyleBackColor = true;
+            this.btnAddPlayer.Click += new System.EventHandler(this.btnAddPlayer_Click);
+            // 
+            // btnContinue
+            // 
+            this.btnContinue.Image = global::Presentacion.Properties.Resources._1472354373_floppy;
+            this.btnContinue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnContinue.Location = new System.Drawing.Point(508, 322);
+            this.btnContinue.Name = "btnContinue";
+            this.btnContinue.Size = new System.Drawing.Size(94, 23);
+            this.btnContinue.TabIndex = 3;
+            this.btnContinue.Text = "Guardar";
+            this.btnContinue.UseVisualStyleBackColor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Image = global::Presentacion.Properties.Resources._1472334897_f_cross_256;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(608, 322);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(90, 23);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // Settings
             // 

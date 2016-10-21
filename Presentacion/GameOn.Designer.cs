@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cmbUsers = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlBoards = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pnlFortuneBoards = new System.Windows.Forms.Panel();
@@ -49,6 +48,7 @@
             this.lblNewNumber = new System.Windows.Forms.Label();
             this.pbGameMode = new System.Windows.Forms.PictureBox();
             this.btnBingoNumber = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -116,20 +116,11 @@
             // cmbUsers
             // 
             this.cmbUsers.FormattingEnabled = true;
-            this.cmbUsers.Location = new System.Drawing.Point(66, 10);
+            this.cmbUsers.Location = new System.Drawing.Point(82, 12);
             this.cmbUsers.Name = "cmbUsers";
             this.cmbUsers.Size = new System.Drawing.Size(121, 21);
             this.cmbUsers.TabIndex = 2;
             this.cmbUsers.SelectedIndexChanged += new System.EventHandler(this.cmbUsers_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Usuario:";
             // 
             // pnlBoards
             // 
@@ -174,33 +165,36 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 64);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 71);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 13);
+            this.label6.Size = new System.Drawing.Size(76, 16);
             this.label6.TabIndex = 4;
             this.label6.Text = "Modalidad:";
             // 
             // lblAmountOfPlaters
             // 
             this.lblAmountOfPlaters.AutoSize = true;
-            this.lblAmountOfPlaters.Location = new System.Drawing.Point(144, 15);
+            this.lblAmountOfPlaters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmountOfPlaters.Location = new System.Drawing.Point(157, 15);
             this.lblAmountOfPlaters.Name = "lblAmountOfPlaters";
-            this.lblAmountOfPlaters.Size = new System.Drawing.Size(13, 13);
+            this.lblAmountOfPlaters.Size = new System.Drawing.Size(15, 16);
             this.lblAmountOfPlaters.TabIndex = 1;
             this.lblAmountOfPlaters.Text = "0";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 15);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 15);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 13);
+            this.label3.Size = new System.Drawing.Size(148, 16);
             this.label3.TabIndex = 0;
             this.label3.Text = "Cantidad de jugadores:";
             // 
             // btnNewGame
             // 
-            this.btnNewGame.Location = new System.Drawing.Point(354, 430);
+            this.btnNewGame.Location = new System.Drawing.Point(358, 430);
             this.btnNewGame.Name = "btnNewGame";
             this.btnNewGame.Size = new System.Drawing.Size(94, 23);
             this.btnNewGame.TabIndex = 5;
@@ -211,18 +205,20 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(33, 332);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(113, 13);
+            this.label4.Size = new System.Drawing.Size(142, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Cantidad de números: ";
             // 
             // lblAmountOfNumbers
             // 
             this.lblAmountOfNumbers.AutoSize = true;
-            this.lblAmountOfNumbers.Location = new System.Drawing.Point(153, 332);
+            this.lblAmountOfNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAmountOfNumbers.Location = new System.Drawing.Point(181, 332);
             this.lblAmountOfNumbers.Name = "lblAmountOfNumbers";
-            this.lblAmountOfNumbers.Size = new System.Drawing.Size(13, 13);
+            this.lblAmountOfNumbers.Size = new System.Drawing.Size(15, 16);
             this.lblAmountOfNumbers.TabIndex = 7;
             this.lblAmountOfNumbers.Text = "0";
             // 
@@ -264,6 +260,17 @@
             this.btnBingoNumber.TabIndex = 3;
             this.btnBingoNumber.UseVisualStyleBackColor = true;
             this.btnBingoNumber.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Image = global::Presentacion.Properties.Resources._1477086992_user;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(15, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "     Usuario:";
             // 
             // GameOn
             // 

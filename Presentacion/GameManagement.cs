@@ -22,17 +22,17 @@ namespace Presentacion
         }
 
         //Sets & Gets
-        public Jugador[] getPlayers()
+        public Jugador[] ObtenerJugadores()
         {
             return this.players;
         }
      
-        public int getGameMode()
+        public int ObtenerModoDeJuego()
         {
             return this.gameMode;
         }
 
-        public int getAmountOfNumbers()
+        public int ObtenerCantidadDeNumeros()
         {
             return this.amountOfNumbers;
         }

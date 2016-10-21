@@ -21,18 +21,18 @@ namespace Presentacion
         {
             InitializeComponent();
             UI = new UIManagement();
-            extraComponents();
+            ComponentesExtras();
             this.sMenu = sMenu;
         }
 
-        private void extraComponents()
+        private void ComponentesExtras()
         {
             CenterToScreen();
             MaximizeBox = false;
             MinimizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Text = "Ajustes del juego";
-            UI.setGameModes(cmbGameModes);
+            UI.EstablecerModoDeJuego(cmbGameModes);
             cmbGameModes.SelectedIndex = 0;
         }
 
@@ -43,7 +43,7 @@ namespace Presentacion
                 MessageBox.Show("Campos vacíos, por favor revise los campos nuevamente.", "Campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } else
             {
-                UI.setGridViewData(txtBoardAmounts, txtUsername, gvDetails, lblAoB, lblAoP);
+                UI.EstablecerDataGridView(txtBoardAmounts, txtUsername, gvDetails, lblAoB, lblAoP);
             }
         }
 
@@ -62,11 +62,11 @@ namespace Presentacion
                 else
                 {
                     int amountOfNumbers = Int16.Parse(txtAmountOfNumbers.Text);
-                    Jugador[] players = UI.setPlayers(gvDetails);
+                    Jugador[] players = UI.ListaDeJugadores(gvDetails);
                     int gameMode = cmbGameModes.SelectedIndex;
                     GameManagement GM = new GameManagement(players, gameMode, amountOfNumbers);
-                    sMenu.setGameMangament(GM);
-                    sMenu.getPlayButton().Enabled = true;
+                    sMenu.EstablecerModoDeJuego(GM);
+                    sMenu.ObtenerBotonJugar().Enabled = true;
                     sMenu.Visible = true;
                     Hide();
                 }
