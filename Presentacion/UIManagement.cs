@@ -170,15 +170,14 @@ namespace Presentacion
             dgv.Size = new System.Drawing.Size(230, 290);
             dgv.TabIndex = 0;
             dgv.RowHeadersVisible = false;
-            dgv.ClearSelection();
 
             //Ajustar el tamaño de las filas y columnas
             for (int j = 0; j < 5; j++)
             {
+                dgv.Columns[j].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
                 DataGridViewColumn column = dgv.Columns[j];
                 column.Width = 45;
                 dgv.Columns[j].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dgv.Columns[j].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
 
             dgv.RowTemplate.Height = 53;

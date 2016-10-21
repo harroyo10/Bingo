@@ -22,6 +22,7 @@ namespace Presentacion
         int cont;
         List<int> numbers = new List<int>();
         UIManagement UI = new UIManagement();
+        bool gameOver = false;
 
         public GameOn(startMenu oldSM, GameManagement oldGM)
         {
@@ -115,6 +116,8 @@ namespace Presentacion
                     }
                 }
 
+                dgv.CurrentCell = dgv.Rows[2].Cells[2];
+
                 Label boardIndicator = new Label();
                 boardIndicator.Text = "Cartón #: " + (i + 1);
                 boardIndicator.Left = 20;
@@ -184,6 +187,8 @@ namespace Presentacion
                     }
                 }
 
+                dgv.CurrentCell = dgv.Rows[2].Cells[2];
+
                 Label boardIndicator = new Label();
                 boardIndicator.Text = "Cartón ------------- ";
                 boardIndicator.Left = 20;
@@ -242,19 +247,47 @@ namespace Presentacion
             return numbersText;
         }
 
+        private void showWinners()
+        {
+            String ganadores = "";
+            if (game.ObtenerGanadores().Count == 1)
+            {
+                ganadores = "El ganador es: ";
+            } else
+            {
+                if (game.ObtenerGanadores().Count > 1)
+                {
+                    ganadores = "Los ganadores son: ";
+                }
+            }
+            for (int i = 0; i < game.ObtenerGanadores().Count; i++)
+            {
+                ganadores = ganadores + game.ObtenerGanadores()[i];
+                MessageBox.Show(ganadores, "¡BINGO!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                gameOver = true;
+            }
+        }
+
         //btnBingoNumber
         private void button3_Click(object sender, EventArgs e)
         {
             if (cont < GM.getAmountOfNumbers())
             {
                 Console.WriteLine(bingoNumber + "|" + GM.getAmountOfNumbers());
-                lblNewNumber.Text = game.SacarNumeroDeBiombo().ToString();
-                UI.setNumberList(lbUsedNumbers, game.numerosJugados);
-                bingoNumber = Int16.Parse(lblNewNumber.Text);
-                generateLuckyCartons(bingoNumber);
-                cont++;
-                lblAmountOfNumbers.Text = game.numerosJugados.Count.ToString();
-                refreshUserBoards();
+                if (gameOver == false)
+                {
+                    bingoNumber = game.SacarNumeroDeBiombo();
+                    showWinners();
+                    UI.setNumberList(lbUsedNumbers, game.numerosJugados);
+                    lblNewNumber.Text = bingoNumber.ToString();
+                    generateLuckyCartons(bingoNumber);
+                    cont++;
+                    lblAmountOfNumbers.Text = game.numerosJugados.Count.ToString();
+                    refreshUserBoards();
+                } else
+                {
+                    MessageBox.Show("Por favor inicie un juego nuevo.", "Juego teminado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             } else
             {
                 MessageBox.Show("No se pueden agregar más números.", "Límite de números", MessageBoxButtons.OK, MessageBoxIcon.Error);
