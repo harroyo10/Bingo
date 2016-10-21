@@ -13,7 +13,7 @@ namespace LogicaNegocios
         int intervalo;
         ModalidadJuego modalidad;
         List<int> numerosRequeridosParaGanar;
-        string jugadorAlQuePertenece;
+        public string jugadorAlQuePertenece { get; }
 
         public CartonBingo (int intervalo, string modalidad)
         {

@@ -62,20 +62,20 @@ namespace LogicaNegocios
             return cartonesAfortunados;
         }
 
-        public List<CartonBingo> ObtenerGanadores()
+        public List<string> ObtenerGanadores()
         {
-            List<CartonBingo> cartonesGanadores = new List<CartonBingo>();
+            List<string> jugadoresGanadores = new List<string>();
             foreach (Jugador jugador in jugadores)
             {
                 foreach (CartonBingo carton in jugador.cartones)
                 {
-                    if (carton.esGanador(numerosJugados))
+                    if (carton.esGanador(numerosJugados) && jugadoresGanadores.IndexOf(carton.jugadorAlQuePertenece) == -1)
                     {
-                        cartonesGanadores.Add(carton);
+                        jugadoresGanadores.Add(carton.jugadorAlQuePertenece);
                     }
                 }
             }
-            return cartonesGanadores;
+            return jugadoresGanadores;
         }
     
     }
