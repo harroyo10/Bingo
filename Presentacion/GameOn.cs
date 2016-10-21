@@ -50,7 +50,17 @@ namespace Presentacion
             lblAmountOfPlaters.Text = GM.getPlayers().Length.ToString();
         }
 
+        private void refreshUserBoards()
+        {
+            if (cmbUsers.SelectedIndex != -1)
+            {
+                int index = cmbUsers.SelectedIndex;
+                int cant = GM.getPlayers()[index].cantidadCartones;
 
+                pnlBoards.Controls.Clear();
+                generateUserBingoBoards(cant, index);
+            }
+        }
 
         private void generateUserBingoBoards(int boardsAmount, int player)
         {
@@ -211,20 +221,15 @@ namespace Presentacion
             return columnNumber;
         }
 
-        private void makeUsersBoardEvent()
+        //Buttons methods
+
+        private void cmbUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = cmbUsers.SelectedIndex;
             int cant = GM.getPlayers()[index].cantidadCartones;
 
             pnlBoards.Controls.Clear();
             generateUserBingoBoards(cant, index);
-        }
-
-        //Buttons methods
-
-        private void cmbUsers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            makeUsersBoardEvent();
         }
 
         private String generateNumbersText()
@@ -249,7 +254,7 @@ namespace Presentacion
                 generateLuckyCartons(bingoNumber);
                 cont++;
                 lblAmountOfNumbers.Text = game.numerosJugados.Count.ToString();
-                makeUsersBoardEvent();
+                refreshUserBoards();
             } else
             {
                 MessageBox.Show("No se pueden agregar más números.", "Límite de números", MessageBoxButtons.OK, MessageBoxIcon.Error);
