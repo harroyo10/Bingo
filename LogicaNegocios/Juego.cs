@@ -12,7 +12,7 @@ namespace LogicaNegocios
         public List<Jugador> jugadores { get; }
         public int intervalo { get; }
         public string modalidad { get; }
-        public List<int> numerosJugados;
+        public List<int> numerosJugados { get; }
         public List<int> numerosEnBiombo;
 
         public Juego(int totalNumeros, List<Jugador> jugadores, string modalidad)
@@ -26,11 +26,6 @@ namespace LogicaNegocios
             this.numerosJugados = new List<int>();
             this.numerosEnBiombo = HerramientasJuego.GenerarNumerosEnBiombo(totalNumeros);
 
-        }
-
-        public List<int> ObtenerNumerosJugados()
-        {
-            return new List<int>();
         }
 
         public int SacarNumeroDeBiombo()
