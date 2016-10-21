@@ -190,20 +190,29 @@ namespace Presentacion
             if (game.ObtenerGanadores().Count == 1)
             {
                 ganadores = "El ganador es: ";
+                ganadores = ganadores + game.ObtenerGanadores()[0] + ".";
+                gameOver = true;
+                MostrarMensajeDeGanadores(ganadores);
             }
             else
             {
                 if (game.ObtenerGanadores().Count > 1)
                 {
                     ganadores = "Los ganadores son: ";
+                    for (int i = 0; i < game.ObtenerGanadores().Count; i++)
+                    {
+                        ganadores = ganadores + game.ObtenerGanadores()[i] + ", ";
+                        gameOver = true;
+                    }
+                    MostrarMensajeDeGanadores(ganadores);
                 }
             }
-            for (int i = 0; i < game.ObtenerGanadores().Count; i++)
-            {
-                ganadores = ganadores + game.ObtenerGanadores()[i];
-                MessageBox.Show(ganadores, "¡BINGO!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                gameOver = true;
-            }
+
+        }
+
+        private void MostrarMensajeDeGanadores(String ganadores)
+        {
+            MessageBox.Show(ganadores, "¡BINGO!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         //Metodos de los botones
