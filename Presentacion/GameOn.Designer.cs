@@ -30,25 +30,29 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.txtBingoNumbers = new System.Windows.Forms.TextBox();
+            this.lbUsedNumbers = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cmbUsers = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlBoards = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.pnlFortuneBoards = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.pbGameMode = new System.Windows.Forms.PictureBox();
             this.lblAmountOfPlaters = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnBingoNumber = new System.Windows.Forms.Button();
             this.btnNewGame = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lblAmountOfNumbers = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblNewNumber = new System.Windows.Forms.Label();
+            this.pbGameMode = new System.Windows.Forms.PictureBox();
+            this.btnBingoNumber = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameMode)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +70,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.txtBingoNumbers);
+            this.tabPage1.Controls.Add(this.lbUsedNumbers);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -76,13 +80,15 @@
             this.tabPage1.Text = "Juego actual";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // txtBingoNumbers
+            // lbUsedNumbers
             // 
-            this.txtBingoNumbers.Location = new System.Drawing.Point(21, 46);
-            this.txtBingoNumbers.Multiline = true;
-            this.txtBingoNumbers.Name = "txtBingoNumbers";
-            this.txtBingoNumbers.Size = new System.Drawing.Size(322, 161);
-            this.txtBingoNumbers.TabIndex = 1;
+            this.lbUsedNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsedNumbers.FormattingEnabled = true;
+            this.lbUsedNumbers.ItemHeight = 29;
+            this.lbUsedNumbers.Location = new System.Drawing.Point(21, 46);
+            this.lbUsedNumbers.Name = "lbUsedNumbers";
+            this.lbUsedNumbers.Size = new System.Drawing.Size(196, 352);
+            this.lbUsedNumbers.TabIndex = 1;
             // 
             // label2
             // 
@@ -136,12 +142,22 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.pnlFortuneBoards);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(362, 434);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Afortunados";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // pnlFortuneBoards
+            // 
+            this.pnlFortuneBoards.AutoScroll = true;
+            this.pnlFortuneBoards.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlFortuneBoards.Location = new System.Drawing.Point(6, 39);
+            this.pnlFortuneBoards.Name = "pnlFortuneBoards";
+            this.pnlFortuneBoards.Size = new System.Drawing.Size(350, 389);
+            this.pnlFortuneBoards.TabIndex = 1;
             // 
             // panel1
             // 
@@ -164,15 +180,6 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "Modalidad:";
             // 
-            // pbGameMode
-            // 
-            this.pbGameMode.Location = new System.Drawing.Point(3, 90);
-            this.pbGameMode.Name = "pbGameMode";
-            this.pbGameMode.Size = new System.Drawing.Size(178, 164);
-            this.pbGameMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbGameMode.TabIndex = 3;
-            this.pbGameMode.TabStop = false;
-            // 
             // lblAmountOfPlaters
             // 
             this.lblAmountOfPlaters.AutoSize = true;
@@ -190,16 +197,6 @@
             this.label3.Size = new System.Drawing.Size(116, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Cantidad de jugadores:";
-            // 
-            // btnBingoNumber
-            // 
-            this.btnBingoNumber.Image = global::Presentacion.Properties.Resources.bingobutton;
-            this.btnBingoNumber.Location = new System.Drawing.Point(36, 25);
-            this.btnBingoNumber.Name = "btnBingoNumber";
-            this.btnBingoNumber.Size = new System.Drawing.Size(210, 281);
-            this.btnBingoNumber.TabIndex = 3;
-            this.btnBingoNumber.UseVisualStyleBackColor = true;
-            this.btnBingoNumber.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnNewGame
             // 
@@ -229,11 +226,52 @@
             this.lblAmountOfNumbers.TabIndex = 7;
             this.lblAmountOfNumbers.Text = "0";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(31, 369);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(300, 25);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "El número favorecido es el:";
+            // 
+            // lblNewNumber
+            // 
+            this.lblNewNumber.AutoSize = true;
+            this.lblNewNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewNumber.Location = new System.Drawing.Point(337, 369);
+            this.lblNewNumber.Name = "lblNewNumber";
+            this.lblNewNumber.Size = new System.Drawing.Size(25, 25);
+            this.lblNewNumber.TabIndex = 9;
+            this.lblNewNumber.Text = "0";
+            // 
+            // pbGameMode
+            // 
+            this.pbGameMode.Location = new System.Drawing.Point(3, 90);
+            this.pbGameMode.Name = "pbGameMode";
+            this.pbGameMode.Size = new System.Drawing.Size(178, 164);
+            this.pbGameMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGameMode.TabIndex = 3;
+            this.pbGameMode.TabStop = false;
+            // 
+            // btnBingoNumber
+            // 
+            this.btnBingoNumber.Image = global::Presentacion.Properties.Resources.bingobutton;
+            this.btnBingoNumber.Location = new System.Drawing.Point(36, 25);
+            this.btnBingoNumber.Name = "btnBingoNumber";
+            this.btnBingoNumber.Size = new System.Drawing.Size(210, 281);
+            this.btnBingoNumber.TabIndex = 3;
+            this.btnBingoNumber.UseVisualStyleBackColor = true;
+            this.btnBingoNumber.Click += new System.EventHandler(this.button3_Click);
+            // 
             // GameOn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 465);
+            this.Controls.Add(this.lblNewNumber);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblAmountOfNumbers);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnNewGame);
@@ -247,6 +285,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameMode)).EndInit();
@@ -274,6 +313,9 @@
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblAmountOfNumbers;
-        private System.Windows.Forms.TextBox txtBingoNumbers;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblNewNumber;
+        private System.Windows.Forms.ListBox lbUsedNumbers;
+        private System.Windows.Forms.Panel pnlFortuneBoards;
     }
 }

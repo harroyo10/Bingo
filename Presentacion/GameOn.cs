@@ -19,6 +19,7 @@ namespace Presentacion
         Juego game;
         String modeName;
         int bingoNumber;
+        int cont;
         List<int> numbers = new List<int>();
         UIManagement UI = new UIManagement();
 
@@ -34,10 +35,14 @@ namespace Presentacion
             game = new Juego(GM.getAmountOfNumbers(), GM.getPlayers().ToList(), modeName);
             //Temp
             bingoNumber = 0;
+            cont = 0;
         }
 
         private void extraComponents()
         {
+            CenterToScreen();
+            MaximizeBox = false;
+            MinimizeBox = false;
             //Componentes atravez de la UI
             UI.populateCmbOfUsers(cmbUsers, GM.getPlayers());
             modeName = UI.setGameMode(GM.getGameMode(), pbGameMode);
@@ -45,11 +50,13 @@ namespace Presentacion
             lblAmountOfPlaters.Text = GM.getPlayers().Length.ToString();
         }
 
+
+
         private void generateUserBingoBoards(int boardsAmount, int player)
         {
-            int x = 24; //Ancho
-            int y = 35;//Altura
-            int labelX = 10;
+            int x = 50; //Ancho
+            int y = 40;//Altura
+            int labelX = 15;
 
             for (int i = 0; i < boardsAmount; i++)
             {
@@ -58,13 +65,22 @@ namespace Presentacion
 
                 int[,] matriz = new int[5,5];
                 CartonBingo carton = GM.getPlayers()[player].cartones[i];
+                List<int[]> luckyPositions = new List<int[]>();
+
                 foreach (KeyValuePair<string, CampoCarton[]> entry in carton.getCarton())
                 {
                     CampoCarton[] CampoCarton = entry.Value;
                     for (int j = 0; j < 5; j++)
                     {
                         char column = (CampoCarton[j].columna[0]);
-                        matriz[setColumnFromDictionary(column) , j] = CampoCarton[j].valor;
+                        matriz[setColumnFromDictionary(column), j] = CampoCarton[j].valor;
+                        if (CampoCarton[j].boolJugado)
+                        {
+                            int[] playedCoordinates = new int[2];
+                            playedCoordinates[1] = setColumnFromDictionary(column);
+                            playedCoordinates[0] = CampoCarton[j].fila;
+                            luckyPositions.Add(playedCoordinates);
+                        }
                     }
                 }
 
@@ -79,6 +95,16 @@ namespace Presentacion
                     dgv.Rows.Add(row);
                 }
 
+                if (luckyPositions.Count > 0)
+                {
+                    for (int j = 0; j < luckyPositions.Count; j++)
+                    {
+                        int luckyRow = luckyPositions[j][0];
+                        int luckyColumn = luckyPositions[j][1];
+                        dgv.Rows[luckyRow].Cells[luckyColumn].Style.BackColor = Color.Red;
+                    }
+                }
+
                 Label boardIndicator = new Label();
                 boardIndicator.Text = "Cartón #: " + (i + 1);
                 boardIndicator.Left = 20;
@@ -87,8 +113,77 @@ namespace Presentacion
                 pnlBoards.Controls.Add(boardIndicator);
                 pnlBoards.Controls.Add(dgv);
 
-                y = y + 190;
-                labelX = labelX + 190;
+                y = y + 400;
+                labelX = labelX + 400;
+            }
+        }
+
+        private void generateLuckyCartons(int bingoN)
+        {
+            pnlFortuneBoards.Controls.Clear();
+
+            List<CartonBingo> cartonesAfortunados = game.ObtenerAfortunados(bingoN);
+
+            int x = 50; //Ancho
+            int y = 40;//Altura
+            int labelX = 15;
+
+            for (int i = 0; i < cartonesAfortunados.Count; i++)
+            {
+                DataGridView dgv = UI.makeDataGridView(x, y);
+
+                List<int[]> luckyPositions = new List<int[]>();
+
+                int[,] matriz = new int[5, 5];
+                CartonBingo carton = cartonesAfortunados[i];
+                foreach (KeyValuePair<string, CampoCarton[]> entry in carton.getCarton())
+                {
+                    CampoCarton[] CampoCarton = entry.Value;
+                    for (int j = 0; j < 5; j++)
+                    {
+                        char column = (CampoCarton[j].columna[0]);
+                        matriz[setColumnFromDictionary(column), j] = CampoCarton[j].valor;
+                        if (CampoCarton[j].boolJugado)
+                        {
+                            int[] playedCoordinates = new int[2];
+                            playedCoordinates[1] = setColumnFromDictionary(column);
+                            playedCoordinates[0] = CampoCarton[j].fila;
+                            luckyPositions.Add(playedCoordinates);
+                        }
+                    }
+                }
+
+                string[] row = new string[5];
+
+                for (int j = 0; j < 5; j++)
+                {
+                    for (int k = 0; k < 5; k++)
+                    {
+                        row[k] = matriz[k, j].ToString();
+                    }
+                    dgv.Rows.Add(row);
+                }
+
+                if (luckyPositions.Count > 0)
+                {
+                    for (int j = 0; j < luckyPositions.Count; j++)
+                    {
+                        int luckyRow = luckyPositions[j][0];
+                        int luckyColumn = luckyPositions[j][1];
+                        dgv.Rows[luckyRow].Cells[luckyColumn].Style.BackColor = Color.Red;
+                    }
+                }
+
+                Label boardIndicator = new Label();
+                boardIndicator.Text = "Cartón ------------- ";
+                boardIndicator.Left = 20;
+                boardIndicator.Top = labelX;
+
+                pnlFortuneBoards.Controls.Add(boardIndicator);
+                pnlFortuneBoards.Controls.Add(dgv);
+
+                y = y + 400;
+                labelX = labelX + 400;
             }
         }
 
@@ -116,15 +211,20 @@ namespace Presentacion
             return columnNumber;
         }
 
-        //Buttons methods
-
-        private void cmbUsers_SelectedIndexChanged(object sender, EventArgs e)
+        private void makeUsersBoardEvent()
         {
             int index = cmbUsers.SelectedIndex;
             int cant = GM.getPlayers()[index].cantidadCartones;
 
             pnlBoards.Controls.Clear();
             generateUserBingoBoards(cant, index);
+        }
+
+        //Buttons methods
+
+        private void cmbUsers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            makeUsersBoardEvent();
         }
 
         private String generateNumbersText()
@@ -137,31 +237,19 @@ namespace Presentacion
             return numbersText;
         }
 
-        private int GenerateBingoNumber()
-        {
-            Random rnd = new Random();
-            bingoNumber = rnd.Next(1, (GM.getAmountOfNumbers() + 1));
-            return bingoNumber;
-        }
-
         //btnBingoNumber
         private void button3_Click(object sender, EventArgs e)
         {
-            if (numbers.Count < GM.getAmountOfNumbers())
+            if (cont < GM.getAmountOfNumbers())
             {
-                bool signal = false;
-                while (signal == false)
-                {
-                    bingoNumber = GenerateBingoNumber();
-                    signal = UI.isRepeated(bingoNumber, numbers); ;
-                    if (signal)
-                    {
-                        lblAmountOfNumbers.Text = (numbers.Count + 1).ToString();
-                        numbers.Add(bingoNumber);
-                        numbers.Sort();
-                        txtBingoNumbers.Text = generateNumbersText();
-                    }
-                }
+                Console.WriteLine(bingoNumber + "|" + GM.getAmountOfNumbers());
+                lblNewNumber.Text = game.SacarNumeroDeBiombo().ToString();
+                UI.setNumberList(lbUsedNumbers, game.numerosJugados);
+                bingoNumber = Int16.Parse(lblNewNumber.Text);
+                generateLuckyCartons(bingoNumber);
+                cont++;
+                lblAmountOfNumbers.Text = game.numerosJugados.Count.ToString();
+                makeUsersBoardEvent();
             } else
             {
                 MessageBox.Show("No se pueden agregar más números.", "Límite de números", MessageBoxButtons.OK, MessageBoxIcon.Error);

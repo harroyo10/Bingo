@@ -80,12 +80,12 @@ namespace Presentacion
             switch (option)
             {
                 case 0:
-                    pbGameMode.Image = Presentacion.Properties.Resources.X;
-                    modeName = "Cartón Lleno";
+                    pbGameMode.Image = Presentacion.Properties.Resources._4esquinas;
+                    modeName = "Cuatro Esquinas"; 
                     break;
                 case 1:
-                    pbGameMode.Image = Presentacion.Properties.Resources._4esquinas;
-                    modeName = "Cuatro esquinas";
+                    pbGameMode.Image = Presentacion.Properties.Resources.CartonLleno;
+                    modeName = "Cartón Lleno";
                     break;
                 case 2:
                     pbGameMode.Image = Presentacion.Properties.Resources.h;
@@ -167,34 +167,33 @@ namespace Presentacion
             dgv.Location = new System.Drawing.Point(x, y);
             dgv.Name = "gvUserBoard";
             dgv.ReadOnly = true;
-            dgv.Size = new System.Drawing.Size(104, 135);
+            dgv.Size = new System.Drawing.Size(230, 290);
             dgv.TabIndex = 0;
             dgv.RowHeadersVisible = false;
+            dgv.ClearSelection();
 
-            //Ajustar el tamaño de las columnas
+            //Ajustar el tamaño de las filas y columnas
             for (int j = 0; j < 5; j++)
             {
                 DataGridViewColumn column = dgv.Columns[j];
-                column.Width = 20;
+                column.Width = 45;
+                dgv.Columns[j].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgv.Columns[j].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             }
+
+            dgv.RowTemplate.Height = 53;
 
             return dgv;
         }
 
-
-
-
-        public bool isRepeated(int bingoNumber, List<int> numbers)
+        public void setNumberList(ListBox list, List<int> playedNumbers)
         {
-            for (int i = 0; i < numbers.Count; i++)
+            list.Items.Clear();
+            String lbText = "Jugado: ";
+            for (int i = 0; i < playedNumbers.Count; i++)
             {
-                if (bingoNumber == numbers.ToArray()[i])
-                {
-                    return false;
-                }
+                list.Items.Add(lbText+playedNumbers[i]);
             }
-            return true;
         }
-
     }
 }
