@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtBingoNumbers = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cmbUsers = new System.Windows.Forms.ComboBox();
@@ -45,7 +46,6 @@
             this.btnNewGame = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lblAmountOfNumbers = new System.Windows.Forms.Label();
-            this.txtBingoNumbers = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -75,6 +75,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Juego actual";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtBingoNumbers
+            // 
+            this.txtBingoNumbers.Location = new System.Drawing.Point(21, 46);
+            this.txtBingoNumbers.Multiline = true;
+            this.txtBingoNumbers.Name = "txtBingoNumbers";
+            this.txtBingoNumbers.Size = new System.Drawing.Size(322, 161);
+            this.txtBingoNumbers.TabIndex = 1;
             // 
             // label2
             // 
@@ -201,6 +209,7 @@
             this.btnNewGame.TabIndex = 5;
             this.btnNewGame.Text = "Juego nuevo";
             this.btnNewGame.UseVisualStyleBackColor = true;
+            this.btnNewGame.Click += new System.EventHandler(this.btnNewGame_Click);
             // 
             // label4
             // 
@@ -219,14 +228,6 @@
             this.lblAmountOfNumbers.Size = new System.Drawing.Size(13, 13);
             this.lblAmountOfNumbers.TabIndex = 7;
             this.lblAmountOfNumbers.Text = "0";
-            // 
-            // txtBingoNumbers
-            // 
-            this.txtBingoNumbers.Location = new System.Drawing.Point(21, 46);
-            this.txtBingoNumbers.Multiline = true;
-            this.txtBingoNumbers.Name = "txtBingoNumbers";
-            this.txtBingoNumbers.Size = new System.Drawing.Size(322, 161);
-            this.txtBingoNumbers.TabIndex = 1;
             // 
             // GameOn
             // 
