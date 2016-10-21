@@ -12,11 +12,17 @@ namespace Bingo.UnitTesting
         [TestMethod]
         public void UnGanador()
         {
+            //Crear un carton con numeros del 1 al 25 asi siempre saldra un numero
+            int[,] Carton1 = new int[5, 5] { { 1,2,3,4,5 },
+                                           { 6,7,8,9,10}, 
+                                           {11,12,13,14,15},
+                                           {16,17,18,19,20 },
+                                           {21,22,23,24,25} }; 
 
             List<Jugador> Jugadores = new List<Jugador>();
-            int NumeroGanador = 0;
-            int Intervalo = 0;
-            string Modalidad = "";
+            int NumeroGanador = 1;
+            int Intervalo = 1;
+            string Modalidad = "Carton Lleno";
             bool Resultado = true;
 
             Juego ReferenciaDinamica = new Juego(Intervalo,Jugadores,Modalidad);
@@ -36,11 +42,22 @@ namespace Bingo.UnitTesting
         [TestMethod]
         public void VariosGanadores()
         {
-           
-             List<Jugador> Jugadores = new List<Jugador>();
-            int NumeroGanador = 0;
-            int Intervalo = 0;
-            string Modalidad = "";
+            int[,] Carton1 = new int[5, 5] { { 1,2,3,4,5 },
+                                           { 6,7,8,9,10},
+                                           {11,12,13,14,15},
+                                           {16,17,18,19,20 },
+                                           {21,22,23,24,25} };
+
+            int[,] Carton2 = new int[5, 5] { { 1,2,3,4,5 },
+                                           { 6,7,8,9,10},
+                                           {11,12,13,14,15},
+                                           {16,17,18,19,20 },
+                                           {21,22,23,24,25} };
+            //Crear 2 cartones con numeros del 1 al 25 asi siempre saldra en varios cartones
+            List<Jugador> Jugadores = new List<Jugador>();
+            int NumeroGanador = 1;
+            int Intervalo = 2;
+            string Modalidad = "Carton Lleno";
             bool Resultado = true;
             
             Juego ReferenciaDinamica = new Juego(Intervalo, Jugadores,Modalidad);
@@ -56,11 +73,17 @@ namespace Bingo.UnitTesting
         [TestMethod]
         public void NingunGanador()
         {
+            int[,] Carton3 = new int[5, 5] { { 1,2,3,4,5 },
+                                           { 6,7,8,9,10},
+                                           {11,12,13,14,15},
+                                           {16,17,18,19,20 },
+                                           {21,22,23,24,25} };
 
+            //Crear un carton con numero del 1 al 25 y q salga el numero 26 asi nadie sale ganador
             List<Jugador> Jugadores = new List<Jugador>();
-            int NumeroGanador = 0;
-            int Intervalo = 0;
-            string Modalidad = "";
+            int NumeroGanador = 26;
+            int Intervalo = 3;
+            string Modalidad = "Carton Lleno";
             bool Resultado = false;
 
             Juego ReferenciaDinamica = new Juego(Intervalo,Jugadores,Modalidad);
@@ -81,9 +104,9 @@ namespace Bingo.UnitTesting
         public void ElNumeroYaSalio()
         {
             List<Jugador> Jugadores = new List<Jugador>();
-            int totalNumeros = 0;
-            int ElNumero = 0;
-            string Modalidad = "";
+            int totalNumeros = 30;
+            int ElNumero = 5;
+            string Modalidad = "Carton Lleno";
 
             Juego ReferenciaDinamica = new Juego(totalNumeros,Jugadores, Modalidad);
 
@@ -106,9 +129,9 @@ namespace Bingo.UnitTesting
         public void ElNumeroNoHaSalido()
         {
             List<Jugador> Jugadores = new List<Jugador>();
-            int totalNumeros = 0;
-            int ElNumero = 0;
-            string Modalidad = "";
+            int totalNumeros = 30;
+            int ElNumero = 4;
+            string Modalidad = "Carton Lleno";
 
             Juego ReferenciaDinamica = new Juego(totalNumeros,Jugadores,Modalidad);
        
@@ -125,8 +148,8 @@ namespace Bingo.UnitTesting
         public void NumeroEnOtraColumna()
         {
             
-            int Numero1 = 0;
-            int Numero2 = 0;
+            int Numero1 = 3;
+            int Numero2 = 3;
             int Intervalo1 = 1;
             int Intervalo2 = 2;
 
