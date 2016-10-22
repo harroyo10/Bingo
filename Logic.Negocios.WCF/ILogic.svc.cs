@@ -14,23 +14,24 @@ namespace Logic.Negocios.WCF
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : ILogic
     {
+        Juego J = new Juego();
+        Jugador Ju = new Jugador();
+        CampoCarton CC = new CampoCarton();
     
         //Llaman los Metodos de Juego
 
         public int GetSacarNumeroDeBiombo() {
-            return 1;
-            //Juego.SacarNumeroDeBiombo();
+            return J.SacarNumeroDeBiombo(); 
         }
         public List<CartonBingo> GetObtenerAfortunados(int Numero) {
-            return null;
-            //Juego.ObtenerAfortunados(Numero);
+            return J.ObtenerAfortunados(Numero);
         }
         public List<string> GetObtenerGanadores() {
-            return null;
-            //Juego.ObtenerGanadores();
+            return J.ObtenerGanadores();
         }
 
         public int GetnumerosJugados() {
+            // return J.numerosJugados(Numero);
             return 1;
         }
 
@@ -41,17 +42,17 @@ namespace Logic.Negocios.WCF
 
         //MetodosCampoCarton
         public int GetValor(int valor) {
-            return valor;
+            return CC.valor;
         }
         public int Getfila(int fila) {
-            return fila;
+            return CC.fila;
         }
         public string Getcolumna(string Columna) {
-            return Columna;
+            return CC.columna;
         }
         public bool GetboolJugado(bool Jugado)
         {
-            return true;
+            return CC.boolJugado;
         }
 
         //Metodo HerramientaJuego
@@ -66,15 +67,15 @@ namespace Logic.Negocios.WCF
         //Metodos Jugador
 
         public string GetNombre(string Nombre) {
-            return Nombre;
+            return Ju.nombre;
         }
 
         public int GetCantidadCartones(int Cantidad) {
-            return Cantidad;
+            return Ju.cantidadCartones;
         }
 
         public List<CartonBingo> GetCartones(List<CartonBingo> Cartones) {
-            return Cartones;
+            return Ju.cartones;
         }
 
         public string GetData(int value)

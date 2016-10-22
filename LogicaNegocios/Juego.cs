@@ -27,7 +27,7 @@ namespace LogicaNegocios
             this.numerosEnBiombo = HerramientasJuego.GenerarNumerosEnBiombo(totalNumeros);
 
         }
-
+        public Juego() { }
   
 
         public int SacarNumeroDeBiombo()
