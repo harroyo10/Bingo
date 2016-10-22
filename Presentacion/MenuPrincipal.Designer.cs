@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class startMenu
+    partial class MenuPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.

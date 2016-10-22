@@ -11,20 +11,20 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class GameOn : Form
+    public partial class JuegoEnCurso : Form
     {
 
-        GameManagement GM; //Extraer datos de los jugadores
-        startMenu mainMenu; //Menu anterior del juego
+        ManejoDelJuego GM; //Extraer datos de los jugadores
+        MenuPrincipal mainMenu; //Menu anterior del juego
         Juego game; //Se inicia el juego
         String modeName; //Nombre del modo de juego actual
         int bingoNumber; //Número de biombo
         int cont; //Cantidad de vecer que se va sacando un número
-        UIManagement UI = new UIManagement();
+        ManejoUI UI = new ManejoUI();
         bool gameOver = false; //Ver si el juego continua
         String boardOwner = ""; //Nombre del dueño del cartón
 
-        public GameOn(startMenu oldSM, GameManagement oldGM)
+        public JuegoEnCurso(MenuPrincipal oldSM, ManejoDelJuego oldGM)
         {
             InitializeComponent();
             //Inicio de las clases de ayuda
@@ -240,8 +240,8 @@ namespace Presentacion
                 {
                     bingoNumber = game.SacarNumeroDeBiombo();//Saca el número del Biombo
                     MostrarGanadores();//Muestra los cartones ganadores
-                    UI.EstablecerListaDeNumeros(lbUsedNumbers, game.numerosJugados, game.intervalo);//Muestra la lista de números
-                    lblNewNumber.Text = bingoNumber.ToString();//Muestra el número en cuestion
+                    UI.EstablecerListaDeNumerosParaLaLista(lbUsedNumbers, game.numerosJugados, game.intervalo);//Muestra la lista de números
+                    lblNewNumber.Text = UI.EstablecerListaDeNumerosParaElLabel(bingoNumber, game.intervalo);//Muestra el número en cuestion
                     GenerarCartonesAfortunados(bingoNumber);//Genera los cartones afortunados en el tab afortunados
                     cont++;//Aumenta el número de veces que se extrajo un número
                     lblAmountOfNumbers.Text = game.numerosJugados.Count.ToString();//Muestra la cantidad de números jugados
