@@ -109,6 +109,7 @@ namespace Presentacion
                 //Se asigna la celda seleccionada a la del centro del cartón
                 dgv.CurrentCell = dgv.Rows[2].Cells[2];
                 dgv.Rows[2].Cells[2].Value = "XX";
+                dgv.Rows[2].Cells[2].Style.BackColor = Color.Black;
                 dgv.ClearSelection();
 
                 //Se crea una label que indica el jugador al cual pertenece
@@ -170,6 +171,7 @@ namespace Presentacion
                 //Se asigna la celda seleccionada a la del centro del cartón
                 dgv.CurrentCell = dgv.Rows[2].Cells[2];
                 dgv.Rows[2].Cells[2].Value = "XX";
+                dgv.Rows[2].Cells[2].Style.BackColor = Color.Black;
                 dgv.ClearSelection();
 
                 //Se crea una label que indica el jugador al cual pertenece
