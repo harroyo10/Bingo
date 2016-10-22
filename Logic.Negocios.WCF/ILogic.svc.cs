@@ -18,13 +18,16 @@ namespace Logic.Negocios.WCF
         //Llaman los Metodos de Juego
 
         public int GetSacarNumeroDeBiombo() {
-            return Juego.SacarNumeroDeBiombo();
+            return 1;
+            //Juego.SacarNumeroDeBiombo();
         }
         public List<CartonBingo> GetObtenerAfortunados(int Numero) {
-            return Juego.ObtenerAfortunados(Numero);
+            return null;
+            //Juego.ObtenerAfortunados(Numero);
         }
         public List<string> GetObtenerGanadores() {
-            return Juego.ObtenerGanadores();
+            return null;
+            //Juego.ObtenerGanadores();
         }
 
         public int GetnumerosJugados() {
@@ -54,6 +57,10 @@ namespace Logic.Negocios.WCF
         //Metodo HerramientaJuego
         public ModalidadJuego GetModalidad(string Modalidad) {
             return HerramientasJuego.GetModalidad(Modalidad);
+        }
+
+        public string GetEncontrarAQueColumnaPertenece(int numero, int intervalo) {
+            return HerramientasJuego.EncontrarAQueColumnaPertenece(numero, intervalo);
         }
 
         //Metodos Jugador
