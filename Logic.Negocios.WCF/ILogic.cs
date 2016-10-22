@@ -12,7 +12,7 @@ namespace Logic.Negocios.WCF
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
     public interface ILogic
-    {
+    {/*
         //Metodos del Juego
         [OperationContract]
         int GetSacarNumeroDeBiombo();
@@ -44,13 +44,14 @@ namespace Logic.Negocios.WCF
         [OperationContract]
         bool GetboolJugado(bool Jugado);
 
+        */
         //Metodos HerramientasJuego
         [OperationContract]
         ModalidadJuego GetModalidad(string Modalidad);
 
         [OperationContract]
         string GetEncontrarAQueColumnaPertenece(int numero, int intervalo);
-
+        /*
         //Metodos Jugador
         [OperationContract]
         string GetNombre(string Nombre);
@@ -59,6 +60,7 @@ namespace Logic.Negocios.WCF
         [OperationContract]
         List<CartonBingo> GetCartones(List<CartonBingo> Cartones);
         
+    */
         [OperationContract]
         string GetData(int value);
 
