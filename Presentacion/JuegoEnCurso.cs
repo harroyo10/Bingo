@@ -189,19 +189,19 @@ namespace Presentacion
             }
         }
 
-        private void GenerarCartonesGanadores(int bingoN)
+        private void GenerarCartonesGanadores()
         {
             if (gameOver)
             {
                 pnlFortuneBoards.Controls.Clear();
 
-                List<CartonBingo> cartonesAfortunados = game.ObtenerAfortunados(bingoN);
+                List<CartonBingo> cartonesGanadores = game.ObtenerCartonesGanadores();
 
                 int x = 50; //Ancho
                 int y = 40;//Altura
                 int labelY = 15;
 
-                for (int i = 0; i < cartonesAfortunados.Count; i++)
+                for (int i = 0; i < cartonesGanadores.Count; i++)
                 {
                     DataGridView dgv = UI.CrearDataGridView(x, y);
 
@@ -209,7 +209,7 @@ namespace Presentacion
                     int[,] boardCoordinates = new int[5, 5];
                     List<int[]> luckyPositions = new List<int[]>();
 
-                    CartonBingo carton = cartonesAfortunados[i];
+                    CartonBingo carton = cartonesGanadores[i];
                     foreach (KeyValuePair<string, CampoCarton[]> entry in carton.getCarton())
                     {
                         CampoCarton[] CampoCarton = entry.Value;
@@ -240,11 +240,11 @@ namespace Presentacion
                     //Se crea una label que indica el jugador al cual pertenece
                     String newOwner = carton.jugadorAlQuePertenece;
                     int numeroCarton = i;
-                    UI.IndicadorDeLabel(boardOwner, newOwner, labelY, pnlFortuneBoards, numeroCarton, false);
+                    UI.IndicadorDeLabel(boardOwner, newOwner, labelY, pnlGanadores, numeroCarton, false);
                     boardOwner = newOwner;
 
                     //Se agrega al panel cada cartón
-                    pnlFortuneBoards.Controls.Add(dgv);
+                    pnlGanadores.Controls.Add(dgv);
 
                     //Se aumenta la altura de cada componente para que se creen hacia abajo
                     y = y + 400;
@@ -259,7 +259,7 @@ namespace Presentacion
             String ganadores = "";
             if (game.ObtenerGanadores().Count == 1)
             {
-                ganadores = "El ganador es: ";
+                ganadores = "El/La ganador/a es: ";
                 ganadores = ganadores + game.ObtenerGanadores()[0] + ".";
                 gameOver = true;
                 MostrarMensajeDeGanadores(ganadores);
@@ -312,6 +312,7 @@ namespace Presentacion
                     lblAmountOfNumbers.Text = game.numerosJugados.Count.ToString();//Muestra la cantidad de números jugados
                     RefrescarCartones();//Si hay un jugador seleccionado, lo refresca
                     MostrarGanadores();//Muestra los cartones ganadores
+                    GenerarCartonesGanadores();
                 } else
                 {
                     MessageBox.Show("Por favor inicie un juego nuevo.", "Juego teminado", MessageBoxButtons.OK, MessageBoxIcon.Error);
