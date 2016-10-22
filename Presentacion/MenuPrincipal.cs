@@ -39,7 +39,7 @@ namespace Presentacion
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            GameOn juegoNuevo = new GameOn(this, GM);
+            JuegoEnCurso juegoNuevo = new JuegoEnCurso(this, GM);
             this.Visible = false;
             juegoNuevo.ShowDialog();
         }

@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class GameOn
+    partial class JuegoEnCurso
     {
         /// <summary>
         /// Required designer variable.

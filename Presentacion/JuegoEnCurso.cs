@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class GameOn : Form
+    public partial class JuegoEnCurso : Form
     {
 
         ManejoDelJuego GM; //Extraer datos de los jugadores
@@ -24,7 +24,7 @@ namespace Presentacion
         bool gameOver = false; //Ver si el juego continua
         String boardOwner = ""; //Nombre del dueño del cartón
 
-        public GameOn(MenuPrincipal oldSM, ManejoDelJuego oldGM)
+        public JuegoEnCurso(MenuPrincipal oldSM, ManejoDelJuego oldGM)
         {
             InitializeComponent();
             //Inicio de las clases de ayuda
