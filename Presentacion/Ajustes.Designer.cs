@@ -1,6 +1,6 @@
 ﻿namespace Presentacion
 {
-    partial class Settings
+    partial class Ajustes
     {
         /// <summary>
         /// Required designer variable.
@@ -37,6 +37,7 @@
             this.cmbGameModes = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblAoB = new System.Windows.Forms.Label();
             this.lblAoP = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -45,10 +46,9 @@
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAddPlayer = new System.Windows.Forms.Button();
-            this.btnContinue = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAgregarJugador = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gvDetails)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -94,7 +94,7 @@
             this.panel1.Controls.Add(this.txtUsername);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnAddPlayer);
+            this.panel1.Controls.Add(this.btnAgregarJugador);
             this.panel1.Location = new System.Drawing.Point(244, 24);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(454, 292);
@@ -145,6 +145,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(155, 220);
             this.panel2.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Presentacion.Properties.Resources.small;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 80);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(128, 123);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
             // lblAoB
             // 
@@ -214,62 +224,52 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Nombre de usuario";
             // 
-            // pictureBox1
+            // btnAgregarJugador
             // 
-            this.pictureBox1.Image = global::Presentacion.Properties.Resources.small;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 80);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 123);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.btnAgregarJugador.Image = global::Presentacion.Properties.Resources._1473411780_add_user;
+            this.btnAgregarJugador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarJugador.Location = new System.Drawing.Point(40, 114);
+            this.btnAgregarJugador.Name = "btnAgregarJugador";
+            this.btnAgregarJugador.Size = new System.Drawing.Size(124, 23);
+            this.btnAgregarJugador.TabIndex = 1;
+            this.btnAgregarJugador.Text = "Agregar jugador";
+            this.btnAgregarJugador.UseVisualStyleBackColor = true;
+            this.btnAgregarJugador.Click += new System.EventHandler(this.btnAgregarJugador_Click);
             // 
-            // btnAddPlayer
+            // btnGuardar
             // 
-            this.btnAddPlayer.Image = global::Presentacion.Properties.Resources._1473411780_add_user;
-            this.btnAddPlayer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddPlayer.Location = new System.Drawing.Point(40, 114);
-            this.btnAddPlayer.Name = "btnAddPlayer";
-            this.btnAddPlayer.Size = new System.Drawing.Size(124, 23);
-            this.btnAddPlayer.TabIndex = 1;
-            this.btnAddPlayer.Text = "Agregar jugador";
-            this.btnAddPlayer.UseVisualStyleBackColor = true;
-            this.btnAddPlayer.Click += new System.EventHandler(this.btnAddPlayer_Click);
+            this.btnGuardar.Image = global::Presentacion.Properties.Resources._1472354373_floppy;
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(508, 322);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(94, 23);
+            this.btnGuardar.TabIndex = 3;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnContinue
+            // btnCancelar
             // 
-            this.btnContinue.Image = global::Presentacion.Properties.Resources._1472354373_floppy;
-            this.btnContinue.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnContinue.Location = new System.Drawing.Point(508, 322);
-            this.btnContinue.Name = "btnContinue";
-            this.btnContinue.Size = new System.Drawing.Size(94, 23);
-            this.btnContinue.TabIndex = 3;
-            this.btnContinue.Text = "Guardar";
-            this.btnContinue.UseVisualStyleBackColor = true;
-            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+            this.btnCancelar.Image = global::Presentacion.Properties.Resources._1472334897_f_cross_256;
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(608, 322);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(90, 23);
+            this.btnCancelar.TabIndex = 2;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Image = global::Presentacion.Properties.Resources._1472334897_f_cross_256;
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(608, 322);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(90, 23);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // Settings
+            // Ajustes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 357);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnContinue);
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.gvDetails);
-            this.Name = "Settings";
+            this.Name = "Ajustes";
             this.Text = "Settings";
             ((System.ComponentModel.ISupportInitialize)(this.gvDetails)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -286,9 +286,9 @@
         private System.Windows.Forms.DataGridView gvDetails;
         private System.Windows.Forms.DataGridViewTextBoxColumn players;
         private System.Windows.Forms.DataGridViewTextBoxColumn numofCartons;
-        private System.Windows.Forms.Button btnAddPlayer;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnContinue;
+        private System.Windows.Forms.Button btnAgregarJugador;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Presentacion
 {
-    public class GameManagement
+    public class ManejoDelJuego
     {
 
         Jugador[] players;
         int gameMode;
         int amountOfNumbers;
 
-        public GameManagement(Jugador[] players, int gMode, int amountOfNumbers)
+        public ManejoDelJuego(Jugador[] players, int gMode, int amountOfNumbers)
         {
             this.players = players;
             gameMode = gMode;

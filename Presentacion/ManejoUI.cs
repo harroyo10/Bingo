@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    class UIManagement
+    class ManejoUI
     {
 
         private int numeroDeCartonUsuario = 1; //Número de carntón de un usuario

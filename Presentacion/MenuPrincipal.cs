@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class startMenu : Form
+    public partial class MenuPrincipal : Form
     {
-        GameManagement GM;
+        ManejoDelJuego GM;
 
-        public startMenu()
+        public MenuPrincipal()
         {
             InitializeComponent();
             ComponentesExtra();
@@ -32,7 +32,7 @@ namespace Presentacion
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            Settings pantallaAjustes = new Settings(this);
+            Ajustes pantallaAjustes = new Ajustes(this);
             this.Visible = false;
             pantallaAjustes.ShowDialog();
         }
@@ -46,7 +46,7 @@ namespace Presentacion
 
         //Sets & Gets
 
-        public void EstablecerModoDeJuego(GameManagement GM)
+        public void EstablecerModoDeJuego(ManejoDelJuego GM)
         {
             this.GM = GM;
         }

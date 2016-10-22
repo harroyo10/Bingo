@@ -14,17 +14,17 @@ namespace Presentacion
     public partial class GameOn : Form
     {
 
-        GameManagement GM; //Extraer datos de los jugadores
-        startMenu mainMenu; //Menu anterior del juego
+        ManejoDelJuego GM; //Extraer datos de los jugadores
+        MenuPrincipal mainMenu; //Menu anterior del juego
         Juego game; //Se inicia el juego
         String modeName; //Nombre del modo de juego actual
         int bingoNumber; //Número de biombo
         int cont; //Cantidad de vecer que se va sacando un número
-        UIManagement UI = new UIManagement();
+        ManejoUI UI = new ManejoUI();
         bool gameOver = false; //Ver si el juego continua
         String boardOwner = ""; //Nombre del dueño del cartón
 
-        public GameOn(startMenu oldSM, GameManagement oldGM)
+        public GameOn(MenuPrincipal oldSM, ManejoDelJuego oldGM)
         {
             InitializeComponent();
             //Inicio de las clases de ayuda

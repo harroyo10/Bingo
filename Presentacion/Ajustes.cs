@@ -11,16 +11,16 @@ using System.Windows.Forms;
 
 namespace Presentacion
 {
-    public partial class Settings : Form
+    public partial class Ajustes : Form
     {
 
-        private UIManagement UI;
-        private startMenu sMenu;
+        private ManejoUI UI;
+        private MenuPrincipal sMenu;
 
-        public Settings(startMenu sMenu)
+        public Ajustes(MenuPrincipal sMenu)
         {
             InitializeComponent();
-            UI = new UIManagement();
+            UI = new ManejoUI();
             ComponentesExtras();
             this.sMenu = sMenu;
         }
@@ -36,7 +36,7 @@ namespace Presentacion
             cmbGameModes.SelectedIndex = 0;
         }
 
-        private void btnAddPlayer_Click(object sender, EventArgs e)
+        private void btnAgregarJugador_Click(object sender, EventArgs e)
         {
             if (txtUsername.Text == "" || txtBoardAmounts.Text == "" || txtBoardAmounts.Text == "0")
             {
@@ -47,7 +47,7 @@ namespace Presentacion
             }
         }
 
-        private void btnContinue_Click(object sender, EventArgs e)
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (lblAoB.Text == "0" || lblAoP.Text == "0" || txtAmountOfNumbers.Text == "")
             {
@@ -64,7 +64,7 @@ namespace Presentacion
                     int amountOfNumbers = Int16.Parse(txtAmountOfNumbers.Text);
                     Jugador[] players = UI.ListaDeJugadores(gvDetails);
                     int gameMode = cmbGameModes.SelectedIndex;
-                    GameManagement GM = new GameManagement(players, gameMode, amountOfNumbers);
+                    ManejoDelJuego GM = new ManejoDelJuego(players, gameMode, amountOfNumbers);
                     sMenu.EstablecerModoDeJuego(GM);
                     sMenu.ObtenerBotonJugar().Enabled = true;
                     sMenu.Visible = true;
@@ -74,7 +74,7 @@ namespace Presentacion
             
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             sMenu.Visible = true;
             Hide();
