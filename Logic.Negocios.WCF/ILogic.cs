@@ -15,14 +15,14 @@ namespace Logic.Negocios.WCF
     {
         //Metodos del Juego
         [OperationContract]
-        int GetSacarNumeroDeBiombo();
+        int GetSacarNumeroDeBiombo(Juego j);
 
         [OperationContract]
         List<CartonBingo> GetObtenerAfortunados(Juego j, int Numero);
 
 
         [OperationContract]
-        List<string> GetObtenerGanadores();
+        List<string> GetObtenerGanadores(Juego j);
 /*
         [OperationContract]
         int GetnumerosJugados();

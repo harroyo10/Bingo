@@ -21,16 +21,14 @@ namespace Logic.Negocios.WCF
     */
         //Llaman los Metodos de Juego
 
-        public int GetSacarNumeroDeBiombo() {
-            Juego J = new Juego();
-            return J.SacarNumeroDeBiombo(); 
+        public int GetSacarNumeroDeBiombo(Juego j) {
+            return j.SacarNumeroDeBiombo(); 
         }
         public List<CartonBingo> GetObtenerAfortunados(Juego j, int Numero) {
             return j.ObtenerAfortunados(Numero);
         }
-        public List<string> GetObtenerGanadores() {
-            Juego J = new Juego();
-            return J.ObtenerGanadores();
+        public List<string> GetObtenerGanadores(Juego j) {
+            return j.ObtenerGanadores();
         }
         /*
         public int GetnumerosJugados() {
