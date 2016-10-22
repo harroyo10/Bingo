@@ -54,12 +54,12 @@ namespace Logic.Negocios.WCF
         {
             return CC.boolJugado;
         }
-        */
+        
         //Metodo HerramientaJuego
         public ModalidadJuego GetModalidad(string Modalidad) {
             return HerramientasJuego.GetModalidad(Modalidad);
         }
-
+        */
         public string GetEncontrarAQueColumnaPertenece(int numero, int intervalo) {
             return HerramientasJuego.EncontrarAQueColumnaPertenece(numero, intervalo);
         }
