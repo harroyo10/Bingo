@@ -240,7 +240,7 @@ namespace Presentacion
                     //Se crea una label que indica el jugador al cual pertenece
                     String newOwner = carton.jugadorAlQuePertenece;
                     int numeroCarton = i;
-                    UI.IndicadorDeLabel(boardOwner, newOwner, labelY, pnlGanadores, numeroCarton, false);
+                    UI.IndicadorDeLabel(boardOwner, newOwner, labelY, tabPage4, numeroCarton, false);
                     boardOwner = newOwner;
 
                     //Se agrega al panel cada cartón

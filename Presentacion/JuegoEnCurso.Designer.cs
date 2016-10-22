@@ -48,13 +48,15 @@
             this.lblAmountOfNumbers = new System.Windows.Forms.Label();
             this.lblNewNumber = new System.Windows.Forms.Label();
             this.btnBingoNumber = new System.Windows.Forms.Button();
-            this.pnlGanadores = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.pnlGanadores = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameMode)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -62,7 +64,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.pnlGanadores);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(470, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -263,14 +265,24 @@
             this.btnBingoNumber.UseVisualStyleBackColor = true;
             this.btnBingoNumber.Click += new System.EventHandler(this.button3_Click);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.pnlGanadores);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(362, 434);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Ganadores";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // pnlGanadores
             // 
-            this.pnlGanadores.Location = new System.Drawing.Point(4, 22);
+            this.pnlGanadores.AutoScroll = true;
+            this.pnlGanadores.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlGanadores.Location = new System.Drawing.Point(6, 39);
             this.pnlGanadores.Name = "pnlGanadores";
-            this.pnlGanadores.Size = new System.Drawing.Size(362, 434);
-            this.pnlGanadores.TabIndex = 3;
-            this.pnlGanadores.Text = "Ganadores";
-            this.pnlGanadores.UseVisualStyleBackColor = true;
+            this.pnlGanadores.Size = new System.Drawing.Size(350, 389);
+            this.pnlGanadores.TabIndex = 2;
             // 
             // JuegoEnCurso
             // 
@@ -295,6 +307,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbGameMode)).EndInit();
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,6 +335,7 @@
         private System.Windows.Forms.Label lblNewNumber;
         private System.Windows.Forms.ListBox lbUsedNumbers;
         private System.Windows.Forms.Panel pnlFortuneBoards;
-        private System.Windows.Forms.TabPage pnlGanadores;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Panel pnlGanadores;
     }
 }
