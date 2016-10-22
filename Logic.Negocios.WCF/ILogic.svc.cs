@@ -14,22 +14,26 @@ namespace Logic.Negocios.WCF
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : ILogic
     {
-      /*  Juego J = new Juego();
+       
+        /*
         Jugador Ju = new Jugador();
         CampoCarton CC = new CampoCarton();
     */
         //Llaman los Metodos de Juego
 
-      /*  public int GetSacarNumeroDeBiombo() {
+        public int GetSacarNumeroDeBiombo() {
+            Juego J = new Juego();
             return J.SacarNumeroDeBiombo(); 
         }
         public List<CartonBingo> GetObtenerAfortunados(int Numero) {
+            Juego J = new Juego();
             return J.ObtenerAfortunados(Numero);
         }
         public List<string> GetObtenerGanadores() {
+            Juego J = new Juego();
             return J.ObtenerGanadores();
         }
-
+        /*
         public int GetnumerosJugados() {
             // return J.numerosJugados(Numero);
             return 1;
@@ -63,9 +67,9 @@ namespace Logic.Negocios.WCF
         public string GetEncontrarAQueColumnaPertenece(int numero, int intervalo) {
             return HerramientasJuego.EncontrarAQueColumnaPertenece(numero, intervalo);
         }
-        /*
+        
         //Metodos Jugador
-
+        /*
         public string GetNombre(string Nombre) {
             return Ju.nombre;
         }
