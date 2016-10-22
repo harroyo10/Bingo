@@ -197,7 +197,7 @@ namespace Presentacion
         }
 
         //Lista de números que aparece en el juego que salen del biombo
-        public void EstablecerListaDeNumeros(ListBox list, List<int> playedNumbers, int intervalo)
+        public void EstablecerListaDeNumerosParaLaLista(ListBox list, List<int> playedNumbers, int intervalo)
         {
             list.Items.Clear();
             String lbText = "En la columna de la ";
@@ -207,6 +207,17 @@ namespace Presentacion
                 String columnNumber = HerramientasJuego.EncontrarAQueColumnaPertenece(playedNumbers[i], intervalo);
                 list.Items.Add(lbText + columnNumber + ", el número " + playedNumbers[i]);
             }
+
+        }
+
+        //Lista de números que aparece en el juego que salen del biombo
+        public String EstablecerListaDeNumerosParaElLabel(int number, int intervalo)
+        {
+            String lbText = "En la columna de la ";
+            HerramientasJuego obtenerAqueColumnaVa = new HerramientasJuego();
+            String columnNumber = HerramientasJuego.EncontrarAQueColumnaPertenece(number, intervalo);
+            lbText = lbText + columnNumber + ", el número " + number;
+            return lbText;
         }
 
         //Recibe una letra y la transforma a columna

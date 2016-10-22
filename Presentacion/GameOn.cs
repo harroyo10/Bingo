@@ -240,8 +240,8 @@ namespace Presentacion
                 {
                     bingoNumber = game.SacarNumeroDeBiombo();//Saca el número del Biombo
                     MostrarGanadores();//Muestra los cartones ganadores
-                    UI.EstablecerListaDeNumeros(lbUsedNumbers, game.numerosJugados, game.intervalo);//Muestra la lista de números
-                    lblNewNumber.Text = bingoNumber.ToString();//Muestra el número en cuestion
+                    UI.EstablecerListaDeNumerosParaLaLista(lbUsedNumbers, game.numerosJugados, game.intervalo);//Muestra la lista de números
+                    lblNewNumber.Text = UI.EstablecerListaDeNumerosParaElLabel(bingoNumber, game.intervalo);//Muestra el número en cuestion
                     GenerarCartonesAfortunados(bingoNumber);//Genera los cartones afortunados en el tab afortunados
                     cont++;//Aumenta el número de veces que se extrajo un número
                     lblAmountOfNumbers.Text = game.numerosJugados.Count.ToString();//Muestra la cantidad de números jugados

@@ -46,7 +46,6 @@
             this.btnNewGame = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lblAmountOfNumbers = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.lblNewNumber = new System.Windows.Forms.Label();
             this.btnBingoNumber = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
@@ -242,21 +241,11 @@
             this.lblAmountOfNumbers.TabIndex = 7;
             this.lblAmountOfNumbers.Text = "0";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(31, 369);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(300, 25);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "El número favorecido es el:";
-            // 
             // lblNewNumber
             // 
             this.lblNewNumber.AutoSize = true;
             this.lblNewNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewNumber.Location = new System.Drawing.Point(337, 369);
+            this.lblNewNumber.Location = new System.Drawing.Point(31, 374);
             this.lblNewNumber.Name = "lblNewNumber";
             this.lblNewNumber.Size = new System.Drawing.Size(25, 25);
             this.lblNewNumber.TabIndex = 9;
@@ -278,7 +267,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 465);
             this.Controls.Add(this.lblNewNumber);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblAmountOfNumbers);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnNewGame);
@@ -320,7 +308,6 @@
         private System.Windows.Forms.Button btnNewGame;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblAmountOfNumbers;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblNewNumber;
         private System.Windows.Forms.ListBox lbUsedNumbers;
         private System.Windows.Forms.Panel pnlFortuneBoards;
