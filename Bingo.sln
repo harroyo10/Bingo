@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bingo.Presentacion", "Prese
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bingo.LogicaNegocios", "LogicaNegocios\Bingo.LogicaNegocios.csproj", "{5A7FFDEC-351A-4EC7-AF6D-2B43D334E1C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Temporal", "ConsoleApplication1\Temporal.csproj", "{1ECCBCC4-B0A8-4847-9BC1-0342268C05DD}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bingo.UnitTesting", "Bingo.UnitTesting\Bingo.UnitTesting.csproj", "{83D4050A-C47D-43FF-91F6-8DAD9C84D310}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bingo.LogicaNegocios.WCF", "Logic.Negocios.WCF\Bingo.LogicaNegocios.WCF.csproj", "{EAE11B10-AE2A-4200-BEE0-9D16877719AB}"
@@ -27,10 +25,6 @@ Global
 		{5A7FFDEC-351A-4EC7-AF6D-2B43D334E1C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A7FFDEC-351A-4EC7-AF6D-2B43D334E1C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A7FFDEC-351A-4EC7-AF6D-2B43D334E1C7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1ECCBCC4-B0A8-4847-9BC1-0342268C05DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1ECCBCC4-B0A8-4847-9BC1-0342268C05DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1ECCBCC4-B0A8-4847-9BC1-0342268C05DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1ECCBCC4-B0A8-4847-9BC1-0342268C05DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{83D4050A-C47D-43FF-91F6-8DAD9C84D310}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83D4050A-C47D-43FF-91F6-8DAD9C84D310}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83D4050A-C47D-43FF-91F6-8DAD9C84D310}.Release|Any CPU.ActiveCfg = Release|Any CPU
