@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using Herramientas;
+using LogicaNegocios;
 
 namespace Bingo.Herramientas.WCF
 {
