@@ -5,33 +5,59 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using Bingo.Herramientas;
 using LogicaNegocios;
 
-namespace Bingo.Herramientas.WCF
+namespace Logic.Negocios.WCF
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface IBingoTools
+    public interface ILogic
     {
+        //Metodos del Juego
+        [OperationContract]
+        int GetSacarNumeroDeBiombo();
 
+        [OperationContract]
+        List<CartonBingo> GetObtenerAfortunados(int Numero);
+
+
+        [OperationContract]
+        List<string> GetObtenerGanadores();
+
+        [OperationContract]
+        int GetnumerosJugados();
+
+        //Metodos CartonBingo
+        [OperationContract]
+        string GetJugadorAlQuePertenece(string Nombre);
+
+        //MetodosCampoCarton
+        [OperationContract]
+        int GetValor(int valor);
+
+        [OperationContract]
+        int Getfila(int fila);
+
+        [OperationContract]
+        string Getcolumna(string Columna);
+
+        [OperationContract]
+        bool GetboolJugado(bool Jugado);
+
+        //Metodos HerramientasJuego
+        [OperationContract]
+        ModalidadJuego GetModalidad(string Modalidad);
+
+        //Metodos Jugador
+        [OperationContract]
+        string GetNombre(string Nombre);
+        [OperationContract]
+        int GetCantidadCartones(int Cantidad);
+        [OperationContract]
+        List<CartonBingo> GetCartones(List<CartonBingo> Cartones);
+        
         [OperationContract]
         string GetData(int value);
-
-        [OperationContract]
-        int[] GetCrearRandomArray(int cantidadCampos, int minimo, int maximo);
-
-        [OperationContract]
-        int[] GetDesordenarArray(int[] elArray);
-
-        [OperationContract]
-        bool GetestaElNumeroEnArray(int[] elArray, int elNumeroAConsultar);
-
-        [OperationContract]
-        string GetimprimirArray(int[] elArray);
-
-        [OperationContract]
-        Boolean GetsonArraysIguales(int[] array1, int[] array2);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
