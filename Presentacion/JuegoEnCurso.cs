@@ -189,6 +189,70 @@ namespace Presentacion
             }
         }
 
+        private void GenerarCartonesGanadores(int bingoN)
+        {
+            if (gameOver)
+            {
+                pnlFortuneBoards.Controls.Clear();
+
+                List<CartonBingo> cartonesAfortunados = game.ObtenerAfortunados(bingoN);
+
+                int x = 50; //Ancho
+                int y = 40;//Altura
+                int labelY = 15;
+
+                for (int i = 0; i < cartonesAfortunados.Count; i++)
+                {
+                    DataGridView dgv = UI.CrearDataGridView(x, y);
+
+                    //Listas de coordinadas para cada cartón y si salieron favorecidas
+                    int[,] boardCoordinates = new int[5, 5];
+                    List<int[]> luckyPositions = new List<int[]>();
+
+                    CartonBingo carton = cartonesAfortunados[i];
+                    foreach (KeyValuePair<string, CampoCarton[]> entry in carton.getCarton())
+                    {
+                        CampoCarton[] CampoCarton = entry.Value;
+                        for (int j = 0; j < 5; j++)
+                        {
+                            char column = (CampoCarton[j].columna[0]);
+                            boardCoordinates[UI.ConvertirCharANum(column), j] = CampoCarton[j].valor;
+                            /*
+                             * Se verifica si el campo fue jugado y se agregan sus posiciones a una lista para
+                             * analizarla despues
+                             */
+                            UI.NumerosAfortunados(CampoCarton[j], column, luckyPositions);
+                        }
+                    }
+
+                    //Crear las filas de cada cartón
+                    dgv = UI.CearFilasDataGridView(dgv, boardCoordinates);
+
+                    //Pintar las celdas del tablero de bingo
+                    dgv = UI.PintarCelda(luckyPositions, dgv);
+
+                    //Se asigna la celda seleccionada a la del centro del cartón
+                    dgv.CurrentCell = dgv.Rows[2].Cells[2];
+                    dgv.Rows[2].Cells[2].Value = "XX";
+                    dgv.Rows[2].Cells[2].Style.BackColor = Color.Black;
+                    dgv.ClearSelection();
+
+                    //Se crea una label que indica el jugador al cual pertenece
+                    String newOwner = carton.jugadorAlQuePertenece;
+                    int numeroCarton = i;
+                    UI.IndicadorDeLabel(boardOwner, newOwner, labelY, pnlFortuneBoards, numeroCarton, false);
+                    boardOwner = newOwner;
+
+                    //Se agrega al panel cada cartón
+                    pnlFortuneBoards.Controls.Add(dgv);
+
+                    //Se aumenta la altura de cada componente para que se creen hacia abajo
+                    y = y + 400;
+                    labelY = labelY + 400;
+                }
+            }
+        }
+
         //Muestra los ganadores
         private void MostrarGanadores()
         {
@@ -241,13 +305,13 @@ namespace Presentacion
                 if (gameOver == false)
                 {
                     bingoNumber = game.SacarNumeroDeBiombo();//Saca el número del Biombo
-                    MostrarGanadores();//Muestra los cartones ganadores
                     UI.EstablecerListaDeNumerosParaLaLista(lbUsedNumbers, game.numerosJugados, game.intervalo);//Muestra la lista de números
                     lblNewNumber.Text = UI.EstablecerListaDeNumerosParaElLabel(bingoNumber, game.intervalo);//Muestra el número en cuestion
                     GenerarCartonesAfortunados(bingoNumber);//Genera los cartones afortunados en el tab afortunados
                     cont++;//Aumenta el número de veces que se extrajo un número
                     lblAmountOfNumbers.Text = game.numerosJugados.Count.ToString();//Muestra la cantidad de números jugados
                     RefrescarCartones();//Si hay un jugador seleccionado, lo refresca
+                    MostrarGanadores();//Muestra los cartones ganadores
                 } else
                 {
                     MessageBox.Show("Por favor inicie un juego nuevo.", "Juego teminado", MessageBoxButtons.OK, MessageBoxIcon.Error);

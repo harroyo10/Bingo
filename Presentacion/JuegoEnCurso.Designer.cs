@@ -48,6 +48,7 @@
             this.lblAmountOfNumbers = new System.Windows.Forms.Label();
             this.lblNewNumber = new System.Windows.Forms.Label();
             this.btnBingoNumber = new System.Windows.Forms.Button();
+            this.pnlGanadores = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -61,6 +62,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.pnlGanadores);
             this.tabControl1.Location = new System.Drawing.Point(470, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -261,7 +263,16 @@
             this.btnBingoNumber.UseVisualStyleBackColor = true;
             this.btnBingoNumber.Click += new System.EventHandler(this.button3_Click);
             // 
-            // GameOn
+            // pnlGanadores
+            // 
+            this.pnlGanadores.Location = new System.Drawing.Point(4, 22);
+            this.pnlGanadores.Name = "pnlGanadores";
+            this.pnlGanadores.Size = new System.Drawing.Size(362, 434);
+            this.pnlGanadores.TabIndex = 3;
+            this.pnlGanadores.Text = "Ganadores";
+            this.pnlGanadores.UseVisualStyleBackColor = true;
+            // 
+            // JuegoEnCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -273,7 +284,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBingoNumber);
             this.Controls.Add(this.tabControl1);
-            this.Name = "GameOn";
+            this.Name = "JuegoEnCurso";
             this.Text = "GameOn";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -311,5 +322,6 @@
         private System.Windows.Forms.Label lblNewNumber;
         private System.Windows.Forms.ListBox lbUsedNumbers;
         private System.Windows.Forms.Panel pnlFortuneBoards;
+        private System.Windows.Forms.TabPage pnlGanadores;
     }
 }
