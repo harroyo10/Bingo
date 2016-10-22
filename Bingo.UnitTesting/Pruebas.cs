@@ -12,158 +12,170 @@ namespace Bingo.UnitTesting
         [TestMethod]
         public void UnGanador()
         {
-            //Crear un carton con numeros del 1 al 25 asi siempre saldra un numero
-            int[,] Carton1 = new int[5, 5] { { 1,2,3,4,5 },
-                                           { 6,7,8,9,10}, 
-                                           {11,12,13,14,15},
-                                           {16,17,18,19,20 },
-                                           {21,22,23,24,25} }; 
-
-            List<Jugador> Jugadores = new List<Jugador>();
-            int NumeroGanador = 1;
-            int Intervalo = 1;
-            string Modalidad = "Carton Lleno";
-            bool Resultado = true;
-
-            Juego ReferenciaDinamica = new Juego(Intervalo,Jugadores,Modalidad);
-            ReferenciaDinamica.ObtenerAfortunados(NumeroGanador);
-
-
-            /*
-            List<int> numerosRequeridosParaGanar = new List<int>();
-            CartonBingo ReferenciaDinamica = new CartonBingo(Intervalo,Modalidad);
-            bool ResultadoReal = ReferenciaDinamica.esGanador(numerosRequeridosParaGanar);
-            Assert.AreEqual(Resultado, ResultadoReal);
-           */
+            //Creamos dos jugadores 
+            List<Jugador> jugadores = new List<Jugador>()
+            {
+                new Jugador("Jugador 1", 1),
+                new Jugador("Jugador 2", 1)
+            };
             
+            //Creamos un juego nuevo si y solo si hay 1 ganador
+            Juego juego;
+            List<int> numerosRequeridosParaCarton1;
+            List<int> numerosRequeridosParaCarton2;
+            do
+            {
+                juego = new Juego(25, jugadores, "Cuatro Esquinas");
+                numerosRequeridosParaCarton1 = juego.jugadores[0].cartones[0].EncontrarNumerosRequeridosParaGanar();
+                numerosRequeridosParaCarton1.Sort();
+                numerosRequeridosParaCarton2 = juego.jugadores[1].cartones[0].EncontrarNumerosRequeridosParaGanar();
+                numerosRequeridosParaCarton2.Sort();
+            } while (string.Join(",", numerosRequeridosParaCarton1) == string.Join(",", numerosRequeridosParaCarton2));
 
+            //Sacamos los numeros ganadores necesarios para el jugador 1
+            juego.numerosJugados = numerosRequeridosParaCarton1;
+
+            //Encontramos el ganador
+            List<CartonBingo> ganadores = juego.ObtenerCartonesGanadores();
+            string ganadorReal = ganadores[0].jugadorAlQuePertenece;
+
+            //Definimos el ganador esperado
+            string ganadorEsperado = "Jugador 1";
+
+            //comparar que solo hay 1 ganador y es el mismo 
+            Assert.AreEqual(ganadores.Count, 1);
+            Assert.AreEqual(ganadorEsperado, ganadorReal);
         }
 
-        [TestMethod]
+       [TestMethod]
         public void VariosGanadores()
         {
-            int[,] Carton1 = new int[5, 5] { { 1,2,3,4,5 },
-                                           { 6,7,8,9,10},
-                                           {11,12,13,14,15},
-                                           {16,17,18,19,20 },
-                                           {21,22,23,24,25} };
+            //Creamos dos jugadores 
+            List<Jugador> jugadores = new List<Jugador>()
+            {
+                new Jugador("Jugador 1", 1),
+                new Jugador("Jugador 2", 1)
+            };
 
-            int[,] Carton2 = new int[5, 5] { { 1,2,3,4,5 },
-                                           { 6,7,8,9,10},
-                                           {11,12,13,14,15},
-                                           {16,17,18,19,20 },
-                                           {21,22,23,24,25} };
-            //Crear 2 cartones con numeros del 1 al 25 asi siempre saldra en varios cartones
-            List<Jugador> Jugadores = new List<Jugador>();
-            int NumeroGanador = 1;
-            int Intervalo = 2;
-            string Modalidad = "Carton Lleno";
-            bool Resultado = true;
-            
-            Juego ReferenciaDinamica = new Juego(Intervalo, Jugadores,Modalidad);
-            ReferenciaDinamica.ObtenerAfortunados(NumeroGanador);
-           
-            /*
-           CartonBingo ReferenciaDinamica = new CartonBingo(Intervalo,Modalidad);
-           bool ResultadoReal = ReferenciaDinamica.esGanador(numerosRequeridosParaGanar);
-           Assert.AreEqual(Resultado, ResultadoReal);
-          */
+            //Creamos un juego nuevo a carton lleno
+            Juego juego = new Juego(25, jugadores, "Cartón Lleno");
+
+            //Jugamos los numeros del bingo 1-25
+            List<int> todosLosNumeros = new List<int>();
+            for (int i=1; i<=25; i++)
+            {
+                todosLosNumeros.Add(i);
+            }
+
+            juego.numerosJugados = todosLosNumeros;
+
+            //Encontramos los ganadores
+            List<CartonBingo> ganadores = juego.ObtenerCartonesGanadores();
+
+            //comparar que los dos cartones son ganadores
+            Assert.AreEqual(ganadores.Count, 2);
         }
 
         [TestMethod]
         public void NingunGanador()
         {
-            int[,] Carton3 = new int[5, 5] { { 1,2,3,4,5 },
-                                           { 6,7,8,9,10},
-                                           {11,12,13,14,15},
-                                           {16,17,18,19,20 },
-                                           {21,22,23,24,25} };
-
-            //Crear un carton con numero del 1 al 25 y q salga el numero 26 asi nadie sale ganador
-            List<Jugador> Jugadores = new List<Jugador>();
-            int NumeroGanador = 26;
-            int Intervalo = 3;
-            string Modalidad = "Carton Lleno";
-            bool Resultado = false;
-
-            Juego ReferenciaDinamica = new Juego(Intervalo,Jugadores,Modalidad);
-            ReferenciaDinamica.ObtenerAfortunados(NumeroGanador);
-
-            /*
-            List<int> numerosRequeridosParaGanar = new List<int>();
-            int Intervalo = 0;
-            string Modalidad = "";
-            bool Resultado = false;
-
-            CartonBingo ReferenciaDinamica = new CartonBingo(Intervalo, Modalidad);
-            bool ResultadoReal = ReferenciaDinamica.esGanador(numerosRequeridosParaGanar);
-            Assert.AreEqual(Resultado, ResultadoReal);
-            */
-        }
-        [TestMethod]
-        public void ElNumeroYaSalio()
-        {
-            List<Jugador> Jugadores = new List<Jugador>();
-            int totalNumeros = 30;
-            int ElNumero = 5;
-            string Modalidad = "Carton Lleno";
-
-            Juego ReferenciaDinamica = new Juego(totalNumeros,Jugadores, Modalidad);
-
-            if (ReferenciaDinamica.numerosJugados.Contains(ElNumero))
-                return;
-            
-            /*
-             int ElNumero = 0;
-             int Intervalo = 0;
-             string Modalidad = "";
-             bool Resultado = true;
-
-             CartonBingo ReferenciaDinamica = new CartonBingo(Intervalo,Modalidad);
-             bool ResultadoReal = ReferenciaDinamica.esAfortunado(ElNumero);
-             Assert.AreEqual(Resultado, ResultadoReal);
-          */
-
-        }
-        [TestMethod]
-        public void ElNumeroNoHaSalido()
-        {
-            List<Jugador> Jugadores = new List<Jugador>();
-            int totalNumeros = 30;
-            int ElNumero = 4;
-            string Modalidad = "Carton Lleno";
-
-            Juego ReferenciaDinamica = new Juego(totalNumeros,Jugadores,Modalidad);
-       
-            if (ReferenciaDinamica.numerosJugados.Contains(ElNumero))
+            //Creamos dos jugadores 
+            List<Jugador> jugadores = new List<Jugador>()
             {
+                new Jugador("Jugador 1", 1),
+                new Jugador("Jugador 2", 1)
+            };
 
-            }
-            else {
-                return;
-            }    
+            //Creamos un juego nuevo a carton lleno
+            Juego juego = new Juego(25, jugadores, "Cartón Lleno");
+
+            //Jugamos el primer numero 
+            int primerNumero = 1;
+            juego.numerosJugados.Add(primerNumero);
+
+            //Encontramos los ganadores
+            List<CartonBingo> ganadores = juego.ObtenerCartonesGanadores();
+
+            //comparar que ninguno de los dos cartones son ganadores todavia
+            Assert.AreEqual(ganadores.Count, 0);
         }
 
         [TestMethod]
-        public void NumeroEnOtraColumna()
+        public void NumerosHanSidoJugados()
         {
-            
-            int Numero1 = 3;
-            int Numero2 = 3;
-            int Intervalo1 = 1;
-            int Intervalo2 = 2;
-
-            if (Numero1 == Numero2)
+            //Creamos dos jugadores 
+            List<Jugador> jugadores = new List<Jugador>()
             {
-               string Columna1 = HerramientasJuego.EncontrarAQueColumnaPertenece(Numero1, Intervalo1);
-               string Columna2 =HerramientasJuego.EncontrarAQueColumnaPertenece(Numero2, Intervalo2);
-                if (Columna1.Equals(Columna2)) {
-                }
-                return;
-            }
-       
+                new Jugador("Jugador 1", 1),
+                new Jugador("Jugador 2", 1)
+            };
 
-          }
+            //Creamos un juego nuevo a carton lleno con 25 numeros en el Biombo
+            Juego juego = new Juego(25, jugadores, "Cartón Lleno");
+
+            //Sacamos 3 veces un numero del Biombo
+            for(int i=0; i<3; i++)
+            {
+                juego.SacarNumeroDeBiombo();
+            }
+
+            //Definimos la cantidad de numeros jugados esperados
+            int numerosJugadosEsperados = 3;
+
+            //Definimos la cantidad de numeros jugados reales
+            int numerosJugadosReales = juego.numerosJugados.Count;
+
+            //comparar hemos jugado 3 numeros
+            Assert.AreEqual(numerosJugadosEsperados, numerosJugadosReales);
+        }
+
+        [TestMethod]
+        public void NumerosNoHanSidoJugados()
+        {
+            //Creamos dos jugadores 
+            List<Jugador> jugadores = new List<Jugador>()
+            {
+                new Jugador("Jugador 1", 1),
+                new Jugador("Jugador 2", 1)
+            };
+
+            //Creamos un juego nuevo a carton lleno con 25 numeros en el Biombo
+            Juego juego = new Juego(25, jugadores, "Cartón Lleno");
+
+            //Sacamos 3 veces un numero del Biombo
+            for (int i = 0; i < 3; i++)
+            {
+                juego.SacarNumeroDeBiombo();
+            }
+
+            //Definimos la cantidad de numeros que no han sido jugados esperados
+            int numerosNoJugadosEsperados = 22;
+
+            //Definimos la cantidad de numeros jugados reales
+            int numerosNoJugadosReales = juego.numerosEnBiombo.Count;
+
+            //comparar hemos jugado 3 numeros
+            Assert.AreEqual(numerosNoJugadosEsperados, numerosNoJugadosReales);
+        }
+
+        [TestMethod]
+        public void NumeroEnColumnaRespectiva()
+        {
+            //Numero a ubicar en columna
+            int numero = 25;
+
+            //Escenario a 25 numeros en el Biombo 
+            int totalNumeros = 25;    
+            string columnaEsperada = "O";
+            string columnaReal = HerramientasJuego.EncontrarAQueColumnaPertenece(numero, totalNumeros / 5);
+            Assert.AreEqual(columnaEsperada, columnaReal);
+
+            //Escenario a 100 numeros en el Biombo
+            int totalNumeros2 = 100;
+            string columnaEsperada2 = "I";
+            string columnaReal2 = HerramientasJuego.EncontrarAQueColumnaPertenece(numero, totalNumeros2 / 5);
+            Assert.AreEqual(columnaEsperada2, columnaReal2);
+        }
 
     }
 }

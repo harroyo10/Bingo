@@ -8,11 +8,10 @@ namespace LogicaNegocios
 {
     public class Jugador
     {
-        public string nombre { get; }
-        public int cantidadCartones { get; }
-        public List<CartonBingo> cartones { get; }
+        public string nombre { set; get; }
+        public int cantidadCartones { set; get; }
+        public List<CartonBingo> cartones { set; get; }
 
-        public Jugador() { }
         public Jugador(string nombre, int cantidadCartones)
         {
             this.nombre = nombre;

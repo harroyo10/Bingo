@@ -12,7 +12,7 @@ namespace LogicaNegocios
         public List<Jugador> jugadores { get; }
         public int intervalo { get; }
         public string modalidad { get; }
-        public List<int> numerosJugados { get; }
+        public List<int> numerosJugados { set; get; }
         public List<int> numerosEnBiombo;
 
         public Juego(int totalNumeros, List<Jugador> jugadores, string modalidad)
