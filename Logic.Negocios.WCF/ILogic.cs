@@ -48,6 +48,9 @@ namespace Logic.Negocios.WCF
         [OperationContract]
         ModalidadJuego GetModalidad(string Modalidad);
 
+        [OperationContract]
+        string GetEncontrarAQueColumnaPertenece(int numero, int intervalo);
+
         //Metodos Jugador
         [OperationContract]
         string GetNombre(string Nombre);
