@@ -12,6 +12,7 @@ namespace LogicaNegocios
         public int cantidadCartones { get; }
         public List<CartonBingo> cartones { get; }
 
+        public Jugador() { }
         public Jugador(string nombre, int cantidadCartones)
         {
             this.nombre = nombre;
