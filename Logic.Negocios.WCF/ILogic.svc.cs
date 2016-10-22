@@ -25,9 +25,8 @@ namespace Logic.Negocios.WCF
             Juego J = new Juego();
             return J.SacarNumeroDeBiombo(); 
         }
-        public List<CartonBingo> GetObtenerAfortunados(int Numero) {
-            Juego J = new Juego();
-            return J.ObtenerAfortunados(Numero);
+        public List<CartonBingo> GetObtenerAfortunados(Juego j, int Numero) {
+            return j.ObtenerAfortunados(Numero);
         }
         public List<string> GetObtenerGanadores() {
             Juego J = new Juego();

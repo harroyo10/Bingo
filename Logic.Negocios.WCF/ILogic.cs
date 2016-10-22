@@ -18,7 +18,7 @@ namespace Logic.Negocios.WCF
         int GetSacarNumeroDeBiombo();
 
         [OperationContract]
-        List<CartonBingo> GetObtenerAfortunados(int Numero);
+        List<CartonBingo> GetObtenerAfortunados(Juego j, int Numero);
 
 
         [OperationContract]
