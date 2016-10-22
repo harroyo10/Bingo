@@ -61,10 +61,15 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BingoTools.svc" />
     <Content Include="ILogic.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BingoTools.svc.cs">
+      <DependentUpon>BingoTools.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IBingoTools.cs" />
     <Compile Include="ILogic.svc.cs">
       <DependentUpon>ILogic.svc</DependentUpon>
     </Compile>
@@ -83,10 +88,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bingo.Herramientas.WCF\Bingo.Herramientas.WCF.csproj">
-      <Project>{9694f99a-6413-496f-8a57-c2bf70ebd7f1}</Project>
-      <Name>Bingo.Herramientas.WCF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LogicaNegocios\Bingo.LogicaNegocios.csproj">
       <Project>{5a7ffdec-351a-4ec7-af6d-2b43d334e1c7}</Project>
       <Name>Bingo.LogicaNegocios</Name>

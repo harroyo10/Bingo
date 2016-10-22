@@ -7,7 +7,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using LogicaNegocios;
 
-namespace Bingo.Herramientas.WCF
+namespace Logic.Negocios.WCF
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
@@ -33,7 +33,7 @@ namespace Bingo.Herramientas.WCF
         Boolean GetsonArraysIguales(int[] array1, int[] array2);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        CompositeType2 GetDataUsingDataContract(CompositeType2 composite);
 
         // TODO: Add your service operations here
     }
@@ -41,7 +41,7 @@ namespace Bingo.Herramientas.WCF
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class CompositeType
+    public class CompositeType2
     {
         bool boolValue = true;
         string stringValue = "Hello ";
