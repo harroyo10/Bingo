@@ -77,6 +77,22 @@ namespace LogicaNegocios
             }
             return jugadoresGanadores;
         }
-    
+
+        public List<CartonBingo> ObtenerCartonesGanadores()
+        {
+            List<CartonBingo> cartonesGanadores = new List<CartonBingo>();
+            foreach (Jugador jugador in jugadores)
+            {
+                foreach (CartonBingo carton in jugador.cartones)
+                {
+                    if (carton.esGanador(numerosJugados))
+                    {
+                        cartonesGanadores.Add(carton);
+                    }
+                }
+            }
+            return cartonesGanadores;
+        }
+
     }
 }
