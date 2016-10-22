@@ -238,14 +238,14 @@ namespace Presentacion
                 Console.WriteLine(bingoNumber + "|" + GM.ObtenerCantidadDeNumeros());
                 if (gameOver == false)
                 {
-                    bingoNumber = game.SacarNumeroDeBiombo();
-                    MostrarGanadores();
-                    UI.EstablecerListaDeNumeros(lbUsedNumbers, game.numerosJugados);
-                    lblNewNumber.Text = bingoNumber.ToString();
-                    GenerarCartonesAfortunados(bingoNumber);
-                    cont++;
-                    lblAmountOfNumbers.Text = game.numerosJugados.Count.ToString();
-                    RefrescarCartones();
+                    bingoNumber = game.SacarNumeroDeBiombo();//Saca el número del Biombo
+                    MostrarGanadores();//Muestra los cartones ganadores
+                    UI.EstablecerListaDeNumeros(lbUsedNumbers, game.numerosJugados, game.intervalo);//Muestra la lista de números
+                    lblNewNumber.Text = bingoNumber.ToString();//Muestra el número en cuestion
+                    GenerarCartonesAfortunados(bingoNumber);//Genera los cartones afortunados en el tab afortunados
+                    cont++;//Aumenta el número de veces que se extrajo un número
+                    lblAmountOfNumbers.Text = game.numerosJugados.Count.ToString();//Muestra la cantidad de números jugados
+                    RefrescarCartones();//Si hay un jugador seleccionado, lo refresca
                 } else
                 {
                     MessageBox.Show("Por favor inicie un juego nuevo.", "Juego teminado", MessageBoxButtons.OK, MessageBoxIcon.Error);

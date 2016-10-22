@@ -34,11 +34,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cmbUsers = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pnlBoards = new System.Windows.Forms.Panel();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.pnlFortuneBoards = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.pbGameMode = new System.Windows.Forms.PictureBox();
             this.lblAmountOfPlaters = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnNewGame = new System.Windows.Forms.Button();
@@ -46,9 +48,7 @@
             this.lblAmountOfNumbers = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblNewNumber = new System.Windows.Forms.Label();
-            this.pbGameMode = new System.Windows.Forms.PictureBox();
             this.btnBingoNumber = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -82,12 +82,12 @@
             // 
             // lbUsedNumbers
             // 
-            this.lbUsedNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbUsedNumbers.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsedNumbers.FormattingEnabled = true;
-            this.lbUsedNumbers.ItemHeight = 29;
+            this.lbUsedNumbers.ItemHeight = 24;
             this.lbUsedNumbers.Location = new System.Drawing.Point(21, 46);
             this.lbUsedNumbers.Name = "lbUsedNumbers";
-            this.lbUsedNumbers.Size = new System.Drawing.Size(196, 352);
+            this.lbUsedNumbers.Size = new System.Drawing.Size(320, 340);
             this.lbUsedNumbers.TabIndex = 1;
             // 
             // label2
@@ -121,6 +121,17 @@
             this.cmbUsers.Size = new System.Drawing.Size(121, 21);
             this.cmbUsers.TabIndex = 2;
             this.cmbUsers.SelectedIndexChanged += new System.EventHandler(this.cmbUsers_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Image = global::Presentacion.Properties.Resources._1477086992_user;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(15, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "     Usuario:";
             // 
             // pnlBoards
             // 
@@ -171,6 +182,15 @@
             this.label6.Size = new System.Drawing.Size(76, 16);
             this.label6.TabIndex = 4;
             this.label6.Text = "Modalidad:";
+            // 
+            // pbGameMode
+            // 
+            this.pbGameMode.Location = new System.Drawing.Point(3, 90);
+            this.pbGameMode.Name = "pbGameMode";
+            this.pbGameMode.Size = new System.Drawing.Size(178, 164);
+            this.pbGameMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbGameMode.TabIndex = 3;
+            this.pbGameMode.TabStop = false;
             // 
             // lblAmountOfPlaters
             // 
@@ -242,15 +262,6 @@
             this.lblNewNumber.TabIndex = 9;
             this.lblNewNumber.Text = "0";
             // 
-            // pbGameMode
-            // 
-            this.pbGameMode.Location = new System.Drawing.Point(3, 90);
-            this.pbGameMode.Name = "pbGameMode";
-            this.pbGameMode.Size = new System.Drawing.Size(178, 164);
-            this.pbGameMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbGameMode.TabIndex = 3;
-            this.pbGameMode.TabStop = false;
-            // 
             // btnBingoNumber
             // 
             this.btnBingoNumber.Image = global::Presentacion.Properties.Resources.bingobutton;
@@ -260,17 +271,6 @@
             this.btnBingoNumber.TabIndex = 3;
             this.btnBingoNumber.UseVisualStyleBackColor = true;
             this.btnBingoNumber.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Image = global::Presentacion.Properties.Resources._1477086992_user;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(15, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "     Usuario:";
             // 
             // GameOn
             // 

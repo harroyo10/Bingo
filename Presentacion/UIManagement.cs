@@ -197,13 +197,15 @@ namespace Presentacion
         }
 
         //Lista de números que aparece en el juego que salen del biombo
-        public void EstablecerListaDeNumeros(ListBox list, List<int> playedNumbers)
+        public void EstablecerListaDeNumeros(ListBox list, List<int> playedNumbers, int intervalo)
         {
             list.Items.Clear();
-            String lbText = "Jugado: ";
+            String lbText = "En la columna de la ";
+            HerramientasJuego obtenerAqueColumnaVa = new HerramientasJuego();
             for (int i = 0; i < playedNumbers.Count; i++)
             {
-                list.Items.Add(lbText+playedNumbers[i]);
+                String columnNumber = HerramientasJuego.EncontrarAQueColumnaPertenece(playedNumbers[i], intervalo);
+                list.Items.Add(lbText + columnNumber + ", el número " + playedNumbers[i]);
             }
         }
 
