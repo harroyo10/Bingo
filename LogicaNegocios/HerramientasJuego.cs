@@ -13,6 +13,15 @@ namespace LogicaNegocios
 
         static Dictionary<string, ModalidadJuego> Modalidades = new Dictionary<string, ModalidadJuego>()
         {
+             { "Cartón Lleno", new ModalidadJuego(new Dictionary<string, int[]>()
+                {
+                    { "B", new int[] { 1,1,1,1,1 } },
+                    { "I", new int[] { 1,1,1,1,1 } },
+                    { "N", new int[] { 1,1,1,1,1 } },
+                    { "G", new int[] { 1,1,1,1,1 } },
+                    { "O", new int[] { 1,1,1,1,1 } }
+                })
+            },
             { "Cuatro Esquinas", new ModalidadJuego(new Dictionary<string, int[]>()
                 {
                     { "B", new int[] { 1,0,0,0,1 } },
@@ -22,13 +31,85 @@ namespace LogicaNegocios
                     { "O", new int[] { 1,0,0,0,1 } }
                 })
             },
-             { "Cartón Lleno", new ModalidadJuego(new Dictionary<string, int[]>()
+            { "Letra H", new ModalidadJuego(new Dictionary<string, int[]>()
                 {
                     { "B", new int[] { 1,1,1,1,1 } },
-                    { "I", new int[] { 1,1,1,1,1 } },
-                    { "N", new int[] { 1,1,1,1,1 } },
-                    { "G", new int[] { 1,1,1,1,1 } },
+                    { "I", new int[] { 0,0,1,0,0 } },
+                    { "N", new int[] { 0,0,1,0,0 } },
+                    { "G", new int[] { 0,0,1,0,0 } },
                     { "O", new int[] { 1,1,1,1,1 } }
+                })
+            },
+            { "Letra X", new ModalidadJuego(new Dictionary<string, int[]>()
+                {
+                    { "B", new int[] { 1,0,0,0,1 } },
+                    { "I", new int[] { 0,1,0,1,0 } },
+                    { "N", new int[] { 0,0,1,0,0 } },
+                    { "G", new int[] { 0,1,0,1,0 } },
+                    { "O", new int[] { 1,0,0,0,1 } }
+                })
+            },
+            { "Letra O", new ModalidadJuego(new Dictionary<string, int[]>()
+                {
+                    { "B", new int[] { 1,1,1,1,1 } },
+                    { "I", new int[] { 1,0,0,0,1 } },
+                    { "N", new int[] { 1,0,0,0,1 } },
+                    { "G", new int[] { 1,0,0,0,1 } },
+                    { "O", new int[] { 1,1,1,1,1 } }
+                })
+            },
+            { "Letra U", new ModalidadJuego(new Dictionary<string, int[]>()
+                {
+                    { "B", new int[] { 1,1,1,1,1 } },
+                    { "I", new int[] { 0,0,0,0,1 } },
+                    { "N", new int[] { 0,0,0,0,1 } },
+                    { "G", new int[] { 0,0,0,0,1 } },
+                    { "O", new int[] { 1,1,1,1,1 } }
+                })
+            },
+            { "Letra P", new ModalidadJuego(new Dictionary<string, int[]>()
+                {
+                    { "B", new int[] { 1,1,1,1,1 } },
+                    { "I", new int[] { 1,0,1,0,0 } },
+                    { "N", new int[] { 1,0,1,0,0 } },
+                    { "G", new int[] { 1,1,1,0,0 } },
+                    { "O", new int[] { 0,0,0,0,0 } }
+                })
+            },
+            { "Letra A", new ModalidadJuego(new Dictionary<string, int[]>()
+                {
+                    { "B", new int[] { 1,1,1,1,1 } },
+                    { "I", new int[] { 1,0,1,0,0 } },
+                    { "N", new int[] { 1,0,1,0,0 } },
+                    { "G", new int[] { 1,0,1,0,0 } },
+                    { "O", new int[] { 1,1,1,1,1 } }
+                })
+            },
+            { "Letra E", new ModalidadJuego(new Dictionary<string, int[]>()
+                {
+                    { "B", new int[] { 1,1,1,1,1 } },
+                    { "I", new int[] { 1,0,1,0,1 } },
+                    { "N", new int[] { 1,0,1,0,1 } },
+                    { "G", new int[] { 1,0,1,0,1 } },
+                    { "O", new int[] { 1,0,1,0,1 } }
+                })
+            },
+            { "Letra W", new ModalidadJuego(new Dictionary<string, int[]>()
+                {
+                    { "B", new int[] { 1,1,1,1,1 } },
+                    { "I", new int[] { 0,0,0,0,1 } },
+                    { "N", new int[] { 0,0,1,1,1 } },
+                    { "G", new int[] { 0,0,0,0,1 } },
+                    { "O", new int[] { 1,1,1,1,1 } }
+                })
+            },
+            { "Letra R", new ModalidadJuego(new Dictionary<string, int[]>()
+                {
+                    { "B", new int[] { 1,1,1,1,1 } },
+                    { "I", new int[] { 1,0,1,0,0 } },
+                    { "N", new int[] { 1,0,1,1,0 } },
+                    { "G", new int[] { 1,1,1,0,1 } },
+                    { "O", new int[] { 0,0,0,0,0 } }
                 })
             }
         };
