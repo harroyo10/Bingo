@@ -87,10 +87,6 @@
       <Project>{9694f99a-6413-496f-8a57-c2bf70ebd7f1}</Project>
       <Name>Bingo.Herramientas.WCF</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Herramientas\Bingo.Herramientas.csproj">
-      <Project>{a5881589-283a-4e80-b99d-ab9292bf5be7}</Project>
-      <Name>Bingo.Herramientas</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LogicaNegocios\Bingo.LogicaNegocios.csproj">
       <Project>{5a7ffdec-351a-4ec7-af6d-2b43d334e1c7}</Project>
       <Name>Bingo.LogicaNegocios</Name>

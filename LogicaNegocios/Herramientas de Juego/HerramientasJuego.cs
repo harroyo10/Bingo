@@ -198,7 +198,7 @@ namespace LogicaNegocios
 
         public static List<int> GenerarNumerosEnBiombo(int totalNumeros)
         {
-            return Herramientas.CrearListas.CrearListaDesordenada(1, totalNumeros);
+            return CrearListas.CrearListaDesordenada(1, totalNumeros);
         } 
 
     }

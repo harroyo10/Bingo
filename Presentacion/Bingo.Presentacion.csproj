@@ -116,30 +116,6 @@
     <None Include="Resources\bingobutton.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\4esquinas.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\E.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\h.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\O.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\P.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\R.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\U.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\X.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\custom.png" />
   </ItemGroup>
   <ItemGroup>
@@ -147,9 +123,6 @@
       <Project>{5A7FFDEC-351A-4EC7-AF6D-2B43D334E1C7}</Project>
       <Name>Bingo.LogicaNegocios</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\CartonLleno.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bingo_balls.png" />
@@ -177,6 +150,42 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CuatroEsquinas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Biombo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\A.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CartonLleno.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\E.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\H.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\O.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\P.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\R.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\U.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\X.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

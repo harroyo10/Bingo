@@ -40,19 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CampoCarton.cs" />
-    <Compile Include="CartonBingo.cs" />
-    <Compile Include="HerramientasJuego.cs" />
-    <Compile Include="Juego.cs" />
-    <Compile Include="Jugador.cs" />
-    <Compile Include="ModalidadJuego.cs" />
+    <Compile Include="Objetos\CampoCarton.cs" />
+    <Compile Include="Objetos\CartonBingo.cs" />
+    <Compile Include="Herramientas Genericas\ConsultarArray.cs" />
+    <Compile Include="Herramientas Genericas\CrearArray.cs" />
+    <Compile Include="Herramientas Genericas\CrearListas.cs" />
+    <Compile Include="Herramientas de Juego\HerramientasJuego.cs" />
+    <Compile Include="Objetos\Juego.cs" />
+    <Compile Include="Objetos\Jugador.cs" />
+    <Compile Include="Objetos\ModalidadJuego.cs" />
+    <Compile Include="Herramientas Genericas\ModificarArray.cs" />
+    <Compile Include="Herramientas Genericas\ModificarListas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Herramientas\Bingo.Herramientas.csproj">
-      <Project>{a5881589-283a-4e80-b99d-ab9292bf5be7}</Project>
-      <Name>Bingo.Herramientas</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

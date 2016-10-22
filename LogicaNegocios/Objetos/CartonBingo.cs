@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Herramientas;
+
 
 namespace LogicaNegocios
 {
@@ -79,7 +79,7 @@ namespace LogicaNegocios
 
         public CampoCarton[] GenerarColumnaBingo(string columna, int intervalo)
         {
-            int[] valoresColumna = Herramientas.CrearArray.CrearRandomArray(5,
+            int[] valoresColumna = CrearArray.CrearRandomArray(5,
                                                                 HerramientasJuego.EncontrarIntervaloDeColumna(columna, intervalo)[0],
                                                                 HerramientasJuego.EncontrarIntervaloDeColumna(columna, intervalo)[1]);
             CampoCarton[] campos = new CampoCarton[5];

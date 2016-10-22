@@ -9,10 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bingo.LogicaNegocios", "Log
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Temporal", "ConsoleApplication1\Temporal.csproj", "{1ECCBCC4-B0A8-4847-9BC1-0342268C05DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bingo.Herramientas", "Herramientas\Bingo.Herramientas.csproj", "{A5881589-283A-4E80-B99D-AB9292BF5BE7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParametrosGlobales", "ParametrosGlobales\ParametrosGlobales.csproj", "{A99FB366-7AA2-4331-9293-1AC2CC4B10DB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bingo.Herramientas.WCF", "Bingo.Herramientas.WCF\Bingo.Herramientas.WCF.csproj", "{9694F99A-6413-496F-8A57-C2BF70EBD7F1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bingo.UnitTesting", "Bingo.UnitTesting\Bingo.UnitTesting.csproj", "{83D4050A-C47D-43FF-91F6-8DAD9C84D310}"
@@ -37,14 +33,6 @@ Global
 		{1ECCBCC4-B0A8-4847-9BC1-0342268C05DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1ECCBCC4-B0A8-4847-9BC1-0342268C05DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1ECCBCC4-B0A8-4847-9BC1-0342268C05DD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A5881589-283A-4E80-B99D-AB9292BF5BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5881589-283A-4E80-B99D-AB9292BF5BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5881589-283A-4E80-B99D-AB9292BF5BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5881589-283A-4E80-B99D-AB9292BF5BE7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A99FB366-7AA2-4331-9293-1AC2CC4B10DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A99FB366-7AA2-4331-9293-1AC2CC4B10DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A99FB366-7AA2-4331-9293-1AC2CC4B10DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A99FB366-7AA2-4331-9293-1AC2CC4B10DB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9694F99A-6413-496F-8A57-C2BF70EBD7F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9694F99A-6413-496F-8A57-C2BF70EBD7F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9694F99A-6413-496F-8A57-C2BF70EBD7F1}.Release|Any CPU.ActiveCfg = Release|Any CPU

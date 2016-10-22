@@ -84,10 +84,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Herramientas\Bingo.Herramientas.csproj">
-      <Project>{a5881589-283a-4e80-b99d-ab9292bf5be7}</Project>
-      <Name>Bingo.Herramientas</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LogicaNegocios\Bingo.LogicaNegocios.csproj">
       <Project>{5a7ffdec-351a-4ec7-af6d-2b43d334e1c7}</Project>
       <Name>Bingo.LogicaNegocios</Name>

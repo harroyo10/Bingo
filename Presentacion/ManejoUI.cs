@@ -90,15 +90,15 @@ namespace Presentacion
             switch (option)
             {
                 case 0:
-                    pbGameMode.Image = Presentacion.Properties.Resources._4esquinas;
-                    modeName = "Cuatro Esquinas"; 
+                    pbGameMode.Image = Presentacion.Properties.Resources.CartonLleno;
+                    modeName = "Cartón Lleno"; 
                     break;
                 case 1:
-                    pbGameMode.Image = Presentacion.Properties.Resources.CartonLleno;
-                    modeName = "Cartón Lleno";
+                    pbGameMode.Image = Presentacion.Properties.Resources.CuatroEsquinas;
+                    modeName = "Cuatro Esquinas";
                     break;
                 case 2:
-                    pbGameMode.Image = Presentacion.Properties.Resources.h;
+                    pbGameMode.Image = Presentacion.Properties.Resources.H;
                     modeName = "Letra H";
                     break;
                 case 3:
@@ -118,7 +118,7 @@ namespace Presentacion
                     modeName = "Letra P";
                     break;
                 case 7:
-                    pbGameMode.Image = Presentacion.Properties.Resources.X;
+                    pbGameMode.Image = Presentacion.Properties.Resources.A;
                     modeName = "Letra A";
                     break;
                 case 8:
@@ -126,7 +126,7 @@ namespace Presentacion
                     modeName = "Letra E";
                     break;
                 case 9:
-                    pbGameMode.Image = Presentacion.Properties.Resources.X;
+                    pbGameMode.Image = Presentacion.Properties.Resources.W;
                     modeName = "Letra W";
                     break;
                 case 10:
