@@ -108,6 +108,7 @@ namespace Presentacion
 
                 //Se asigna la celda seleccionada a la del centro del cartón
                 dgv.CurrentCell = dgv.Rows[2].Cells[2];
+                dgv.Rows[2].Cells[2].Value = "XX";
 
                 //Se crea una label que indica el jugador al cual pertenece
                 String newOwner = carton.jugadorAlQuePertenece;
@@ -167,6 +168,7 @@ namespace Presentacion
 
                 //Se asigna la celda seleccionada a la del centro del cartón
                 dgv.CurrentCell = dgv.Rows[2].Cells[2];
+                dgv.Rows[2].Cells[2].Value = "XX";
 
                 //Se crea una label que indica el jugador al cual pertenece
                 String newOwner = carton.jugadorAlQuePertenece;
