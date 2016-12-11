@@ -33,12 +33,16 @@ namespace LogicaNegocios
             this.jugadorAlQuePertenece = jugadorAlQuePertenece;
             this.numerosRequeridosParaGanar = EncontrarNumerosRequeridosParaGanar();
             vaciarPosicionCentral();
-
         }
 
         public Dictionary<string, CampoCarton[]> getCarton()
         {
             return this.carton;
+        }
+
+        public void setCarton(Dictionary<string, CampoCarton[]> carton)
+        {
+            this.carton = carton;
         }
 
         private void vaciarPosicionCentral()

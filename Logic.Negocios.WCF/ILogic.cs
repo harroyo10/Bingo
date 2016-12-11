@@ -7,7 +7,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using LogicaNegocios;
 
-namespace Logic.Negocios.WCF
+namespace Bingo.LogicaNegocios.WCF
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
@@ -23,45 +23,10 @@ namespace Logic.Negocios.WCF
 
         [OperationContract]
         List<string> GetObtenerGanadores(Juego j);
-/*
-        [OperationContract]
-        int GetnumerosJugados();
 
-        //Metodos CartonBingo
-        [OperationContract]
-        string GetJugadorAlQuePertenece(string Nombre);
-
-        //MetodosCampoCarton
-        [OperationContract]
-        int GetValor(int valor);
-
-        [OperationContract]
-        int Getfila(int fila);
-
-        [OperationContract]
-        string Getcolumna(string Columna);
-
-        [OperationContract]
-        bool GetboolJugado(bool Jugado);
-
-        
-        //Metodos HerramientasJuego
-        [OperationContract]
-        ModalidadJuego GetModalidad(string Modalidad);
-        */
         [OperationContract]
         string GetEncontrarAQueColumnaPertenece(int numero, int intervalo);
-        /*
-        //Metodos Jugador
-        [OperationContract]
-        string GetNombre(string Nombre);
-        [OperationContract]
-        int GetCantidadCartones(int Cantidad);
-        [OperationContract]
-        List<CartonBingo> GetCartones(List<CartonBingo> Cartones);
-        
     
-    */
         [OperationContract]
         string GetData(int value);
 

@@ -8,19 +8,13 @@ using System.Text;
 using LogicaNegocios;
 
 
-namespace Logic.Negocios.WCF
+namespace Bingo.LogicaNegocios.WCF
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : ILogic
     {
        
-        /*
-        Jugador Ju = new Jugador();
-        CampoCarton CC = new CampoCarton();
-    */
-        //Llaman los Metodos de Juego
-
         public int GetSacarNumeroDeBiombo(Juego j) {
             return j.SacarNumeroDeBiombo(); 
         }
@@ -30,37 +24,7 @@ namespace Logic.Negocios.WCF
         public List<string> GetObtenerGanadores(Juego j) {
             return j.ObtenerGanadores();
         }
-        /*
-        public int GetnumerosJugados() {
-            // return J.numerosJugados(Numero);
-            return 1;
-        }
-
-        //Metodos de CartonBingo
-        public string GetJugadorAlQuePertenece(string Nombre) {
-            return Nombre;
-        }
-
-        //MetodosCampoCarton
-        public int GetValor(int valor) {
-            return CC.valor;
-        }
-        public int Getfila(int fila) {
-            return CC.fila;
-        }
-        public string Getcolumna(string Columna) {
-            return CC.columna;
-        }
-        public bool GetboolJugado(bool Jugado)
-        {
-            return CC.boolJugado;
-        }
         
-        //Metodo HerramientaJuego
-        public ModalidadJuego GetModalidad(string Modalidad) {
-            return HerramientasJuego.GetModalidad(Modalidad);
-        }
-        */
         public string GetEncontrarAQueColumnaPertenece(int numero, int intervalo) {
             return HerramientasJuego.EncontrarAQueColumnaPertenece(numero, intervalo);
         }
