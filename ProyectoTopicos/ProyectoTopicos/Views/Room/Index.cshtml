@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProyectoTopicos.Models.Room>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<h2>Salas de cine</h2>
+<hr />
+<p>Lista completa de salas con las cuales cuenta el cine en este momento.</p>
+<table class="table table-hover">
+    <tr>
+        <th class="table-center">
+            ID
+        </th>
+        <th>
+            Nombre de sala
+        </th>
+        <th>
+            Categoría de sala
+        </th>
+        <th>
+            Disponible
+        </th>
+        <th class="table-center">
+            Acción
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="table-center">
+            @Html.DisplayFor(modelItem => item.RoomID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomCategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RoomDisponibility)
+        </td>
+        <td class="table-center">
+            @Html.ActionLink("Modificar", "Edit", new { id=item.RoomID }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.RoomID }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.RoomID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    <button class="btn btn-default">@Html.ActionLink("Agregar", "Create")</button>
+</p>
