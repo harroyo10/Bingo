@@ -1,0 +1,43 @@
+﻿@model ProyectoTopicos.Models.Sala
+
+@{
+    ViewBag.Title = "Detalle de Sala";
+}
+
+<br />
+<h2>Información de las salas</h2>
+<p>Información relacionada a la sala seleccionada.</p>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SalaNombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalaNombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalaCaracteristicas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalaCaracteristicas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SalaCantidadAsientos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SalaCantidadAsientos)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.SalaID }) |
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

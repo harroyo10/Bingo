@@ -196,11 +196,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\RoomController.cs" />
+    <Compile Include="Controllers\SalaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Room.cs" />
+    <Compile Include="Models\Sala.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -228,7 +228,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -241,11 +243,13 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Room\Create.cshtml" />
-    <Content Include="Views\Room\Delete.cshtml" />
-    <Content Include="Views\Room\Details.cshtml" />
-    <Content Include="Views\Room\Edit.cshtml" />
-    <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Sala\Crear.cshtml">
+      <BrowseToURL>~/Sala/Crear</BrowseToURL>
+    </Content>
+    <Content Include="Views\Sala\Eliminar.cshtml" />
+    <Content Include="Views\Sala\Detalle.cshtml" />
+    <Content Include="Views\Sala\Modificar.cshtml" />
+    <Content Include="Views\Sala\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,22 +3,25 @@
 }
 
 <div class="jumbotron">
-    <h1>Salas de cine</h1>
-    <p class="lead">Bienvenido al sitio administrador de sala de cines, donde podrá agregar, consultar, modificar o eliminar salas.</p>
-    <p><button class="btn btn-primary btn-lg">@Html.ActionLink("Lista de salas", "Index", "Room", null, new { @class = "btn-jb" })</button></p>
+    <h1>Administración</h1>
+    <p class="lead">Bienvenido al sitio administrador de sala de cines y precios, donde podrá agregar, consultar, modificar o eliminar salas y precios.</p>
 </div>
 
-<div class="row">
+<div class="row main">
     <div class="col-md-6">
-        <h2 class="text-center">Agregar</h2>
+        <h2>Salas de cine</h2>
         <p>
-            Ingrese aquí para agregar salas de cines nuevas, así como los detalles de las mismas.
+            <button class="btn btn-primary btn-lg">@Html.ActionLink("Lista de salas", "Index", "Sala", null, new { @class = "btn-jb" })</button>
+            <button class="btn btn-default btn-lg">@Html.ActionLink("Agregar Sala", "Crear", "Sala", null, new { @class = "btn-jb2" })</button>
         </p>
-        <p><button class="btn btn-default">@Html.ActionLink("Clic aquí", "Add", "Room")</button></p>
     </div>
     <div class="col-md-6">
-        <h2 class="text-center">Modificar</h2>
-        <p>¿Desea modificar la información relacionada con las salas de cines actuales?</p>
-        <p><button class="btn btn-default">@Html.ActionLink("Clic aquí", "Edit", "Room")</button></p>
+        <h2>Precios</h2>
+        <p>
+            <button class="btn btn-primary btn-lg">@Html.ActionLink("Lista de Precios", "Index", "Sala", null, new { @class = "btn-jb" })</button>
+            <button class="btn btn-default btn-lg">@Html.ActionLink("Agregar Precio", "Crear", "Sala", null, new { @class = "btn-jb2" })</button>
+        </p>
     </div>
 </div>
+
+

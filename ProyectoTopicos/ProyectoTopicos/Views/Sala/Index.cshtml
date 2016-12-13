@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ProyectoTopicos.Models.Sala>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<h2>Salas de cine</h2>
+<hr />
+<p>Lista completa de salas con las cuales cuenta el cine en este momento.</p>
+<table class="table table-hover">
+    <tr>
+        <th class="table-center">
+            @Html.DisplayNameFor(model => model.SalaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalaNombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalaCaracteristicas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SalaCantidadAsientos)
+        </th>
+        <th class="table-center">
+            Acción
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="table-center">
+            @Html.DisplayFor(modelItem => item.SalaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalaNombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalaCaracteristicas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SalaCantidadAsientos)
+        </td>
+        <td class="table-center">
+            @Html.ActionLink("Modificar", "Modificar", new { id=item.SalaID }) |
+            @Html.ActionLink("Detalle", "Detalle", new { id=item.SalaID }) |
+            @Html.ActionLink("Eliminar", "Eliminar", new { id=item.SalaID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<p>
+    <button class="btn btn-default">@Html.ActionLink("Agregar", "Crear")</button>
+</p>
