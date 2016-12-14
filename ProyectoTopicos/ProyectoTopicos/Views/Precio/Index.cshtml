@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ProyectoTopicos.Models.Precio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<h2>Lista de Precios</h2>
+<hr />
+<p>Lista completa de los precios para las diferentes categorías en el cine.</p>
+<table class="table table-hover">
+    <tr>
+        <th class="table-center">
+            @Html.DisplayNameFor(model => model.PrecioID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioValor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecioArtefactos)
+        </th>
+        <th class="table-center">
+            Acción
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="table-center">
+                @Html.DisplayFor(modelItem => item.PrecioID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioCategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioValor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioArtefactos)
+            </td>
+            <td class="table-center">
+                @Html.ActionLink("Modificar", "Modificar", new { id = item.PrecioID }) |
+                @Html.ActionLink("Detalle", "Detalle", new { id = item.PrecioID }) |
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = item.PrecioID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<p>
+    <button class="btn btn-default">@Html.ActionLink("Agregar", "Crear")</button>
+</p>

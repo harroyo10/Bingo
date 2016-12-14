@@ -19,7 +19,7 @@
         @Html.HiddenFor(model => model.SalaID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SalaNombre, "Nombre de Sala", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SalaNombre, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SalaNombre, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SalaNombre, "", new { @class = "text-danger" })
@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.SalaCaracteristicas, "Características", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.SalaCaracteristicas, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.SalaCaracteristicas, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.SalaCaracteristicas, "", new { @class = "text-danger" })

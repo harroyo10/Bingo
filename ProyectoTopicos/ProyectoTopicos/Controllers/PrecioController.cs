@@ -9,107 +9,107 @@ using ProyectoTopicos.Models;
 
 namespace ProyectoTopicos.Controllers
 {
-    public class PriceController : Controller 
+    public class PrecioController : Controller 
     {
-        private PriceDBContext db = new PriceDBContext();
+        private ProyectoDBContext db = new ProyectoDBContext();
 
-        // GET: Price
+        // GET: Precio
         public ActionResult Index()
         {
-            return View(db.Salas.ToList());
+            return View(db.Precios.ToList());
         }
 
-        // GET: Price/Details/5
-        public ActionResult Details(int? id)
+        // GET: Precio/Detalle/5
+        public ActionResult Detalle(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Price Price = db.Salas.Find(id);
-            if (Price == null)
+            Precio Precio = db.Precios.Find(id);
+            if (Precio == null)
             {
                 return HttpNotFound();
             }
-            return View(Price);
+            return View(Precio);
         }
 
-        // GET: Price/Create
-        public ActionResult Create()
+        // GET: Precio/Crear
+        public ActionResult Crear()
         {
             return View();
         }
 
-        // POST: Price/Create
+        // POST: Precio/Crear
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PriceID,PriceName,PriceCategory,PriceDisponibility")] Price Price)
+        public ActionResult Crear([Bind(Include = "PrecioID,PrecioCategoria,PrecioValor,PrecioArtefactos")] Precio Precio)
         {
             if (ModelState.IsValid)
             {
-                db.Salas.Add(Price);
+                db.Precios.Add(Precio);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(Price);
+            return View(Precio);
         }
 
-        // GET: Price/Edit/5
-        public ActionResult Edit(int? id)
+        // GET: Precio/Modificar/5
+        public ActionResult Modificar(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Price Price = db.Salas.Find(id);
-            if (Price == null)
+            Precio Precio = db.Precios.Find(id);
+            if (Precio == null)
             {
                 return HttpNotFound();
             }
-            return View(Price);
+            return View(Precio);
         }
 
-        // POST: Price/Edit/5
+        // POST: Precio/Modificar/5
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PriceID,PriceName,PriceCategory,PriceDisponibility")] Price Price)
+        public ActionResult Modificar([Bind(Include = "PrecioID,PrecioCategoria,PrecioValor,PrecioArtefactos")] Precio Precio)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(Price).State = EntityState.Modified;
+                db.Entry(Precio).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(Price);
+            return View(Precio);
         }
 
-        // GET: Price/Delete/5
-        public ActionResult Delete(int? id)
+        // GET: Precio/Eliminar/5
+        public ActionResult Eliminar(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Price Price = db.Salas.Find(id);
-            if (Price == null)
+            Precio Precio = db.Precios.Find(id);
+            if (Precio == null)
             {
                 return HttpNotFound();
             }
-            return View(Price);
+            return View(Precio);
         }
 
-        // POST: Price/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // POST: Precio/Eliminar/5
+        [HttpPost, ActionName("Eliminar")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult ConfirmarEliminar(int id)
         {
-            Price Price = db.Salas.Find(id);
-            db.Salas.Remove(Price);
+            Precio Precio = db.Precios.Find(id);
+            db.Precios.Remove(Precio);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

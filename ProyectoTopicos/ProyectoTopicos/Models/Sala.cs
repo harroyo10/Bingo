@@ -25,8 +25,9 @@ namespace ProyectoTopicos.Models
 
     }
 
-    public class SalaDBContext : DbContext
+    public class ProyectoDBContext : DbContext
     {
-        public DbSet<Sala> Movies { get; set; }
+        public DbSet<Sala> Salas { get; set; }
+        public DbSet<Precio> Precios { get; set; }
     }
 }

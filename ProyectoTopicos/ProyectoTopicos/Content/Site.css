@@ -45,3 +45,10 @@ textarea {
     margin-bottom: 10px;
 }
 
+footer p {
+    text-align: center;
+}
+
+.main {
+    text-align:center;
+}

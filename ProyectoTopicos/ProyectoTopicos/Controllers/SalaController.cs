@@ -12,12 +12,12 @@ namespace ProyectoTopicos.Controllers
 {
     public class SalaController : Controller
     {
-        private SalaDBContext db = new SalaDBContext();
+        private ProyectoDBContext db = new ProyectoDBContext();
 
         // GET: Sala
         public ActionResult Index()
         {
-            return View(db.Movies.ToList());
+            return View(db.Salas.ToList());
         }
 
         // GET: Sala/Detalle/5
@@ -27,7 +27,7 @@ namespace ProyectoTopicos.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sala room = db.Movies.Find(id);
+            Sala room = db.Salas.Find(id);
             if (room == null)
             {
                 return HttpNotFound();
@@ -50,7 +50,7 @@ namespace ProyectoTopicos.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Movies.Add(room);
+                db.Salas.Add(room);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +65,7 @@ namespace ProyectoTopicos.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sala room = db.Movies.Find(id);
+            Sala room = db.Salas.Find(id);
             if (room == null)
             {
                 return HttpNotFound();
@@ -96,7 +96,7 @@ namespace ProyectoTopicos.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sala room = db.Movies.Find(id);
+            Sala room = db.Salas.Find(id);
             if (room == null)
             {
                 return HttpNotFound();
@@ -109,8 +109,8 @@ namespace ProyectoTopicos.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ConfirmarEliminado(int id)
         {
-            Sala room = db.Movies.Find(id);
-            db.Movies.Remove(room);
+            Sala room = db.Salas.Find(id);
+            db.Salas.Remove(room);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

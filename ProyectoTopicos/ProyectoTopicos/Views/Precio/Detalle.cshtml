@@ -1,0 +1,43 @@
+﻿@model ProyectoTopicos.Models.Precio
+
+@{
+    ViewBag.Title = "Detalle de Precio";
+}
+
+<br />
+<h2>Información de los precios</h2>
+<p>Información relacionada al precio seleccionado.</p>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioCategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioValor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioValor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioArtefactos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioArtefactos)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Modificar", new { id = Model.PrecioID }) |
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

@@ -1,0 +1,38 @@
+﻿@model ProyectoTopicos.Models.Precio
+
+@{
+    ViewBag.Title = "Eliminar precio";
+}
+<br />
+<h2>Eliminar precio</h2>
+
+<p>¿Desea eliminar realmente el precio?</p>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioCategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecioValor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecioValor)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Volver a la lista", "Index")
+        </div>
+    }
+</div>
